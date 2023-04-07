@@ -22,7 +22,7 @@ const Slider = () => {
         </div>
       </div> */}
      <div className="slider-area">
-  <div className="swiper-container slider__active" style={{height: 600}}>
+  <div className="swiper-container" style={{height: 600}}>
     <Swiper
     breakpoints={{
                 370: {

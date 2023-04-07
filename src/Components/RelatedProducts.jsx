@@ -1,24 +1,20 @@
+      
+      
 import React, { useEffect, useState } from 'react'
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade,  Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
 import { sectionTitleData, topSubData } from "./data";
 import SectionTitle from "./SectionTitle";
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ProductEnquiryForm from './ProductEnquiryForm';
- import { getpopup } from '../Redux/products/PopupSlice';
- import { useSelector, useDispatch } from 'react-redux';
-  import { setShow } from '../Redux/products/PopupSlice';
 
-const TopMost = () => {
+const RelatedProducts = ({titlee}) => {
     const [title, SetTitle] = useState(sectionTitleData); 
     const [data, setData] = useState([])
-    // const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const popup = useSelector(getpopup);
-  const dispatch = useDispatch();
-  console.log("popop=>", popup);
 
     const fetchData = () => {
       fetch("http://localhost:5000/fetch")
@@ -40,7 +36,10 @@ const TopMost = () => {
    
     <section className="featured light-bg pt-90 pb-45">
         <div className="container">
-          <SectionTitle title={title.filter((data) => data.id === 1)} />
+          {/* <SectionTitle title={title.filter((data) => data.id === 1)} /> */}
+          <div className="section__title">
+              <h4 className="st-titile ">Related Products</h4>
+            </div>
       <div className="row">
         <div className="product-bs-slider">
         {
@@ -73,7 +72,7 @@ const TopMost = () => {
               EffectFade,
               Autoplay,
             ]}
-           loop
+            loop
             spaceBetween={50}
             slidesPerView={5}
             navigation ={{
@@ -86,9 +85,8 @@ const TopMost = () => {
             }}       
         
         className="swiper-wrapper">{
-          data.map((detail,i) => (
-            detail.featured === "true" ?
-            <SwiperSlide key={i} className="product__item pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
+          data.map(detail => (
+            <SwiperSlide className="product__item pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
               <div className="product__thumb fix">
                 <div className="product-image w-img">
                   <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -103,38 +101,31 @@ const TopMost = () => {
                     data-bs-target="#productModalId"
                   >
                     <FaRegEye />
-                    {/* <FaRegEye /> */}
+                    <FaRegEye />
                   </a>                   
                 </div>
               </div>
               <div className="product__content product__content-2">
                 <h6>
-                  <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                  <a href="product-details.html">
                   {detail.product_name}
-                  </NavLink>
-                </h6> 
-                <h4 className='h4size'>
-                  <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
-                  {detail.category}
-                  </NavLink>
-                </h4>               
+                  </a>
+                </h6>               
                 
               </div>
               <div className="product__add-cart text-center">
                 <button 
                   type="submit"
                   className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  onClick={()=>dispatch(setShow(["true", i]))}
+                  onClick={handleShow}
                   
                 >
                  Enquire Now
                 </button>
               </div>
             </SwiperSlide>
-             : ""
-          )
-          )
-        }
+          ))
+        }-
         
           {/* <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
             <div className="product__thumb fix">
@@ -328,10 +319,10 @@ const TopMost = () => {
       </div>
       </section>
 
-      <ProductEnquiryForm show={popup}/>
+      <ProductEnquiryForm show={show} onHide={handleClose}/>
 
     </>
   );
 }
 
-export default TopMost
+export default RelatedProducts

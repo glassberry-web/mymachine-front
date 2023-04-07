@@ -14,7 +14,10 @@ import Contact from "../Pages/Contact";
 import About from "../Pages/About";
 import Application from "../Pages/Application";
 import Companies from "../Pages/Companies";
-
+import CompaniesComponent from "./CompaniesComponent";
+import CompanyDeatails from "./CompanyDeatails";
+import ProductDetails from "../Pages/ProductDetails";
+import ProductEnquiryForm from "./ProductEnquiryForm";
 
 const routes =[
     { path:'/', component:<Home />},
@@ -33,6 +36,10 @@ const routes =[
     {path: '/contact', component: <Contact />},
     {path: '/application', component: <Application />},
     {path: '/companies', component: <Companies />},
+    {path: '/companiesDetails', component: <CompanyDeatails />},
+    {path: '/productDetails', component: <ProductDetails />},
+    {path: '/productEnquiry', component: <ProductEnquiryForm />},
+    // {path: `{/companies/${data.}}`}
 
 
 ]

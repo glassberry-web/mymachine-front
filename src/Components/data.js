@@ -141,7 +141,7 @@ const data = [
   const sectionTitleData =[
     {
       id:1,
-      name:'Top Most Searched Products',
+      name:'Featured Products',
       See :'See All Product ',
       link:"/machines"
     },
@@ -224,10 +224,9 @@ const condetails =[
   }
 ]
 
-// const tabData = [
-  
-//   "Engraving machine", "Fiber leaser cutting machines", "Lease hardining", "Lease Welding machine", "Leaser clading", "Sheet metal foaming"
-// ]
+const SliderNavigationData = [  
+  "Laser Solutions"," Sheet-Metal Forming Machine","Laser Welding Machine", "Laser Cladding", "Engraving Machine", "Electrolamination"
+]
 // const tabContent = [
 //   {
 //     id:"Engraving machine",

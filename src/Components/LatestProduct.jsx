@@ -1,14 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade,  Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
+import { getLatestpopup } from '../Redux/products/PopupSlice';
+import { useSelector, useDispatch } from 'react-redux';
+ import { setLatestShow } from '../Redux/products/PopupSlice';
+ import ProductEnquiryForm from './ProductEnquiryForm';
+ import { Link, NavLink } from 'react-router-dom';
 
 import { sectionTitleData } from './data'
 import SectionTitle from './SectionTitle'
+import LatestEnquiryForm from './LatestEnquiryForm';
 
 
 const LatestProduct = () => {
     const [title , SetTitle] = useState(sectionTitleData);
+    const [data, setData] = useState([])
+    const popup = useSelector(getLatestpopup);
+    const dispatch = useDispatch();
+    const fetchData = () => {
+      fetch("http://localhost:5000/fetch")
+      
+        .then(response => {
+          console.log(response);
+          return response.json()
+        })
+        .then(data => {
+          setData(data)
+        })
+    }
+  
+    useEffect(() => {
+      fetchData()
+    }, [])
+    const res=data.slice(0).sort((a,b)=>
+  b.Publish_Date.localeCompare(a.Publish_Date));
+  console.log("dateee=>", res);
   return (
    <>
     <section className="featured light-bg pt-60 pb-45">
@@ -44,7 +71,7 @@ const LatestProduct = () => {
                   EffectFade,
                   Autoplay,
                 ]}
-                loop
+                
                 spaceBetween={50}
                 slidesPerView={5}
                 navigation ={{
@@ -52,194 +79,46 @@ const LatestProduct = () => {
                   
               }}
                 autoplay={{
-                  delay: 3500,
+                  delay: 8500,
                   disableOnInteraction: false,
                 }}       
             
             className="swiper-wrapper">
               {/* <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2"> */}
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="#">
-                      <img src="assets/image/categories/Engraving machine/GCCC180II-06.png" alt="product" />
-                    </a>
-                  </div>                  
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye />
-                      <FaRegEye />
-                    </a>                   
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="product-details.html">
-                    GCC C 180
-                    </a>
-                  </h6>               
-                  
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                   Enquire Now
-                  </button>
-                </div>
-              </SwiperSlide>
-              {/* </div> */}
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/image/categories/Engraving machine/GCCMercury.png" alt="product" />
-                    </a>
-                  </div>
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye />
-                      <FaRegEye/>
-                    </a>
-                    
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="#">
-                    GCC Mercury
-                    </a>
-                  </h6>
-                  
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Enquire Now
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/image/categories/Engraving machine/GCCSpirit.png" alt="product" />
-                    </a>
-                  </div>                  
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye/>
-                      <FaRegEye/>
-                    </a>                    
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="#">
-                    GCC SPRIT
-                    </a>
-                  </h6>                
-                  
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Enquire Now
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/image/categories/Engraving machine/HS-B1390M.png" alt="product" />
-                    </a>
-                  </div>                  
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye/>
-                      <FaRegEye/>
-                    </a>                    
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="#">
-                    PhotonX - iCut
-                    </a>
-                  </h6>                
-                  
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Enquire Now
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/image/categories/Engraving machine/venus.png" alt="product" />
-                    </a>
-                  </div>                  
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye/>
-                      <FaRegEye/>
-                    </a>                    
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="#">
-                    Venus
-                    </a>
-                  </h6>                
-                  
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Enquire Now
-                  </button>
-                </div>
-              </SwiperSlide>
+              {
+                  res.map((detail, i)=>(
+                    <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide pitem1">
+                    <div className="product__thumb fix">
+                      <div className="product-image w-img">
+                        <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                          <img className='pimg' src={`http://localhost:5001/${detail.image}`} alt="product"/>
+                        </Link>
+                      </div>                  
+                     
+                    </div>
+                    <div className="product__content product__content-2">
+                      <h6>
+                        <a href="product-details.html">
+                        {detail.product_name}
+                        </a>
+                      </h6>               
+                      
+                    </div>
+                    <div className="product__add-cart text-center">
+                      <button
+                        type="button"
+                        className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                        onClick={()=>dispatch(setLatestShow(["true", i]))}
+                      >
+                       Enquire Now
+                      </button>
+                    </div>
+                  </SwiperSlide>
+    
+                  ))
+              }
+             
+              
               {/* <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
                 <div className="product__thumb fix">
                   <div className="product-image w-img">
@@ -510,6 +389,8 @@ const LatestProduct = () => {
       </div>
       </div>
     </section>
+
+    <LatestEnquiryForm show={popup}/>
    </>
   )
 }

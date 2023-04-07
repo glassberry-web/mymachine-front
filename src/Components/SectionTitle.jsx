@@ -5,6 +5,7 @@ import TabPhills from "./TabPhills";
 
 const SectionTitle = (props) => {
     const { title ,activeTab, setActiveTab } = props;
+    
   return (
     <>
       {title.map((titles) => (
@@ -16,42 +17,46 @@ const SectionTitle = (props) => {
             {titles.id === 2 ? (
               <div className="product__nav-tab">
                 <ul className="nav nav-tabs" id="flast-sell-tab" role="tablist">
+                <TabPhills
+                    title="Laser Solutions"
+                    id="Laser Solutions"
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                  />
+                  <TabPhills
+                    title="Sheet-Metal Forming Machine
+                    "
+                    id="Sheet-Metal Forming Machine"
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                  />
+                    <TabPhills
+                    title="Laser Welding Machine"
+                    id="Laser Welding Machine"
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                  />
+                  <TabPhills
+                    title="Laser Cladding"
+                    id="Laser Cladding"
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                  />
                   <TabPhills
                     title="Engraving Machine"
-                    id="engravingmachine"
+                    id="Engraving Machine"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
+                 
                   <TabPhills
-                    title="Fiber Leaser Cutting Machines"
-                    id="Fiber-Leaser-Cutting-Machines"
+                    title="Electrolamination"
+                    id="Electrolamination"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
-                  <TabPhills
-                    title="Lease Hardining"
-                    id="Lease-Hardining"
-                    activeTab={activeTab}
-                    setActiveTab={setActiveTab}
-                  />
-                  <TabPhills
-                    title="Lease Welding Machine"
-                    id="Lease-Welding-Machine"
-                    activeTab={activeTab}
-                    setActiveTab={setActiveTab}
-                  />
-                  <TabPhills
-                    title="Leaser-Clading"
-                    id="leaser-clading"
-                    activeTab={activeTab}
-                    setActiveTab={setActiveTab}
-                  />
-                  <TabPhills
-                    title="Sheet Metal Foaming"
-                    id="sheet-metal-foaming"
-                    activeTab={activeTab}
-                    setActiveTab={setActiveTab}
-                  />
+                 
+                  
                 </ul>
               </div>
             ) : (

@@ -1,8 +1,14 @@
 import React from 'react'
+import CompaniesComponent from '../Components/CompaniesComponent'
+import PageBanner from '../Components/PageBanner'
 
 const Companies = () => {
   return (
-    <div>Companies</div>
+    <>
+     <PageBanner title="Machines" info = "Home" />
+    <CompaniesComponent />
+    </>
+   
   )
 }
 

@@ -7,14 +7,39 @@ import TabsandPill from "./TabsandPill";
 import TabPhills from "./TabPhills";
 import { tabData } from "./data";
 
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade,  Autoplay } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
+import { useEffect } from "react";
+import ProductEnquiryForm from './ProductEnquiryForm';
+ import { getpopup } from '../Redux/products/PopupSlice';
+ import { useSelector, useDispatch } from 'react-redux';
+  import { setShow,setCategoryShow } from '../Redux/products/PopupSlice';
 
 const Topcatagories = () => {
   const [title, SetTitle] = useState(sectionTitleData);
-  const [activeTab, setActiveTab] = useState("engravingmachine");
-  
+  const [activeTab, setActiveTab] = useState("Laser Solutions");
+  const [data, setData] = useState([])
+  const popup = useSelector(getpopup);
+  const dispatch = useDispatch();
+  console.log("popop=>", popup);
+
+  const fetchData = () => {
+    fetch("http://localhost:5000/fetch")
+
+      .then(response => {
+        console.log(response);
+        return response.json()
+      })
+      .then(data => {
+        setData(data)
+      })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <>
       <section
@@ -24,7 +49,7 @@ const Topcatagories = () => {
         <div className="container">
           <div className="row">
             <SectionTitle activeTab={activeTab}
-                  setActiveTab={setActiveTab} title={title.filter((data) => data.id === 2)} />
+              setActiveTab={setActiveTab} title={title.filter((data) => data.id === 2)} />
             {/* <div className="product__nav-tab">
               <ul className="nav nav-tabs" id="flast-sell-tab" role="tablist">
                 <TabPhills
@@ -80,54 +105,98 @@ const Topcatagories = () => {
           <div className="row">
             <div className="col-xl-12">
               <div className="tab-content" id="flast-sell-tabContent">
-                <TabContent id="engravingmachine" activeTab={activeTab}>
+                <TabContent id="Laser Solutions" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade active show"
                 id="engravingmachine"
                 role="tabpanel"
                 aria-labelledby="computer-tab"
               > */}
-                  <div className="product-bs-slider-2">
-                    <div className="product-slider-2 swiper-container">
-                      <Swiper
-                       breakpoints={{
-                        370: {
-                          // width: 576,
-                          slidesPerView: 1,
-                        },
-                        500: {
-                          // width: 576,
-                          slidesPerView: 2,
-                        },
-                        768: {
-                          // width: 768,
-                          slidesPerView: 1,
-                        },
-                        1024: {
-                          // width: 768,
-                          slidesPerView: 5,
-                        },
-                      }}
-                        modules={[
-                          Navigation,
-                          Pagination,
-                          Scrollbar,
-                          A11y,
-                          EffectFade,
-                          Autoplay,
-                        ]}
-                        loop
-                        spaceBetween={50}
-                        slidesPerView={5}
-                        navigation ={{
-                          prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
-                          
-                      }}
-                        autoplay={{
-                          delay: 3500,
-                          disableOnInteraction: false,
-                        }} className="swiper-wrapper">
-                        <SwiperSlide className="product__item swiper-slide">
+                  <div className="product-bs-slider-2"> {
+                    data.length > 0 && (
+                      <div className="product-slider-2 swiper-container">
+                        <Swiper
+                          breakpoints={{
+                            370: {
+                              // width: 576,
+                              slidesPerView: 1,
+                            },
+                            500: {
+                              // width: 576,
+                              slidesPerView: 2,
+                            },
+                            768: {
+                              // width: 768,
+                              slidesPerView: 1,
+                            },
+                            1024: {
+                              // width: 768,
+                              slidesPerView: 5,
+                            },
+                          }}
+                          modules={[
+                            Navigation,
+                            Pagination,
+                            Scrollbar,
+                            A11y,
+                            EffectFade,
+                            Autoplay,
+                          ]}
+
+                          spaceBetween={50}
+                          slidesPerView={5}
+                          navigation={{
+                            prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+
+                          }}
+                          autoplay={{
+                            delay: 8500,
+                            disableOnInteraction: false,
+                          }} className="swiper-wrapper">{
+                            data.map((detail, i) => (
+                              detail.category === activeTab &&
+                              <SwiperSlide className="product__item swiper-slide">
+                                <div className="product__thumb fix">
+                                  <div className="product-image w-img">
+                                    <a href="#">
+                                      <img
+                                        src={`http://localhost:5001/${detail.image}`}
+                                        alt="product"
+                                        className="radius pimg"
+                                      />
+                                    </a>
+                                  </div>
+                                  {/*   <div class="product__offer">
+                                              <span class="discount">-15%</span>
+                                              </div> */}
+
+                                </div>
+                                <div className="product__content">
+                                  <h6>
+                                    <a href="#">{detail.product_name}</a>
+                                  </h6>
+
+
+                                </div>
+                                <div className="product__add-cart text-center postioncategory">
+                                  <a
+                                    href
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalone"
+                                  >
+                                    <button
+                                      type="button"
+                                      className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                                      onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
+                                    >
+                                      enquire now
+                                    </button>
+                                  </a>
+                                </div>
+                              </SwiperSlide>
+                            ))
+                          }
+                          {/* <SwiperSlide className="product__item swiper-slide">
                           <div className="product__thumb fix">
                             <div className="product-image w-img">
                               <a href="#">
@@ -138,9 +207,7 @@ const Topcatagories = () => {
                                 />
                               </a>
                             </div>
-                            {/*   <div class="product__offer">
-                                            <span class="discount">-15%</span>
-                                            </div> */}
+                           
                              <div className="product-action">
                             <a
                                 href="#"
@@ -158,9 +225,7 @@ const Topcatagories = () => {
                               <a href="#">GCC C 180</a>
                             </h6>
                             
-                            {/*  <div class="price">
-                                                <span>$105-$110</span>
-                                            </div> */}
+                           
                           </div>
                           <div className="product__add-cart text-center">
                             <a
@@ -176,8 +241,8 @@ const Topcatagories = () => {
                               </button>
                             </a>
                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
+                        </SwiperSlide> */}
+                          {/* <SwiperSlide className="product__item swiper-slide">
                           <div className="product__thumb fix">
                             <div className="product-image w-img">
                               <a href="#">
@@ -219,8 +284,8 @@ const Topcatagories = () => {
                               </button>
                             </a>
                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
+                        </SwiperSlide> */}
+                          {/* <SwiperSlide className="product__item swiper-slide">
                           <div className="product__thumb fix">
                             <div className="product-image w-img">
                               <a href="#">
@@ -264,8 +329,8 @@ const Topcatagories = () => {
                               </button>
                             </a>
                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
+                        </SwiperSlide> */}
+                          {/* <SwiperSlide className="product__item swiper-slide">
                           <div className="product__thumb fix">
                             <div className="product-image w-img">
                               <a href="#">
@@ -309,8 +374,8 @@ const Topcatagories = () => {
                               </button>
                             </a>
                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
+                        </SwiperSlide> */}
+                          {/* <SwiperSlide className="product__item swiper-slide">
                           <div className="product__thumb fix">
                             <div className="product-image w-img">
                               <a href="#">
@@ -353,24 +418,27 @@ const Topcatagories = () => {
                               </button>
                             </a>
                           </div>
-                        </SwiperSlide>
-                      </Swiper>
-                    </div>
+                        </SwiperSlide> */}
+                        </Swiper>
+                      </div>
+                    )
+                  }
+
                     {/* If we need navigation buttons */}
                     <div className="bs-button bs2-button-prev">
-                     
-                      <FaAngleLeft style={{fontSize:'20px'}} />
+
+                      <FaAngleLeft style={{ fontSize: '20px' }} />
                     </div>
                     <div className="bs-button bs2-button-next">
-                     
-                      <FaAngleRight style={{fontSize:'20px'}}  />
+
+                      <FaAngleRight style={{ fontSize: '20px' }} />
                     </div>
                   </div>
                   {/* </div> */}
                 </TabContent>
                 {/* second category */}
                 <TabContent
-                  id="Fiber-Leaser-Cutting-Machines"
+                  id="Sheet-Metal Forming Machine"
                   activeTab={activeTab}
                 >
                   {/* <div
@@ -379,8 +447,241 @@ const Topcatagories = () => {
                 role="tabpanel"
                 aria-labelledby="samsung-tab"
               > */}
-                  <div className="product-bs-slider-2">
-                    <div className="product-slider-2 swiper-container">
+                  <div className="product-bs-slider-2"> {
+                    data.length > 0 && (
+                      <div className="product-slider-2 swiper-container">
+                        <Swiper
+                          breakpoints={{
+                            370: {
+                              // width: 576,
+                              slidesPerView: 1,
+                            },
+                            500: {
+                              // width: 576,
+                              slidesPerView: 2,
+                            },
+                            768: {
+                              // width: 768,
+                              slidesPerView: 1,
+                            },
+                            1024: {
+                              // width: 768,
+                              slidesPerView: 5,
+                            },
+                          }}
+                          modules={[
+                            Navigation,
+                            Pagination,
+                            Scrollbar,
+                            A11y,
+                            EffectFade,
+                            Autoplay,
+                          ]}
+
+                          spaceBetween={50}
+                          slidesPerView={5}
+                          navigation={{
+                            prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+
+                          }}
+                          autoplay={{
+                            delay: 8500,
+                            disableOnInteraction: false,
+                          }} className="swiper-wrapper">{
+                            data.map((detail, i) => (
+                              detail.category === activeTab &&
+                              <SwiperSlide className="product__item swiper-slide">
+                                <div className="product__thumb fix">
+                                  <div className="product-image w-img">
+                                    <a href="#">
+                                      <img
+                                        src={`http://localhost:5001/${detail.image}`}
+                                        alt="product"
+                                        className="radius pimg"
+                                      />
+                                    </a>
+                                  </div>
+                                  {/*   <div class="product__offer">
+                                              <span class="discount">-15%</span>
+                                              </div> */}
+                                  <div className="product-action">
+                                    <a
+                                      href="#"
+                                      className="icon-box icon-box-1"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#productModalId"
+                                    >
+                                      <FaRegEye />
+                                      <FaRegEye />
+                                    </a>
+                                  </div>
+                                </div>
+                                <div className="product__content">
+                                  <h6>
+                                    <a href="#">{detail.modalNum}</a>
+                                  </h6>
+
+
+                                </div>
+                                <div className="product__add-cart text-center postioncategory">
+                                  <a
+                                    href
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalone"
+                                  >
+                                    <button
+                                      type="button"
+                                      className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                      onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
+                                    >
+                                      enquire now
+                                    </button>
+                                  </a>
+                                </div>
+                              </SwiperSlide>
+                            ))
+                          }
+                        </Swiper>
+                      </div>
+                    )
+                  }
+
+                    {/* If we need navigation buttons */}
+                    <div className="bs-button bs2-button-prev">
+
+                      <FaAngleLeft style={{ fontSize: '20px' }} />
+                    </div>
+                    <div className="bs-button bs2-button-next">
+
+                      <FaAngleRight style={{ fontSize: '20px' }} />
+                    </div>
+                  </div>
+                  {/* </div> */}
+                </TabContent>
+                {/* third */}
+                <TabContent id="Laser Welding Machine" activeTab={activeTab}>
+                  {/* <div
+                className="tab-pane fade"
+                id="htc"
+                role="tabpanel"
+                aria-labelledby="htc-tab"
+              > */}
+
+
+                  <div className="product-bs-slider-2"> {
+                      data.length > 0 && (
+                      <div className="product-slider-2 swiper-container">
+                        <Swiper
+                          breakpoints={{
+                            370: {
+                              // width: 576,
+                              slidesPerView: 1,
+                            },
+                            500: {
+                              // width: 576,
+                              slidesPerView: 2,
+                            },
+                            768: {
+                              // width: 768,
+                              slidesPerView: 1,
+                            },
+                            1024: {
+                              // width: 768,
+                              slidesPerView: 5,
+                            },
+                          }}
+                          modules={[
+                            Navigation,
+                            Pagination,
+                            Scrollbar,
+                            A11y,
+                            EffectFade,
+                            Autoplay,
+                          ]}
+
+                          spaceBetween={50}
+                          slidesPerView={5}
+                          navigation={{
+                            prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+
+                          }}
+                          autoplay={{
+                            delay: 8500,
+                            disableOnInteraction: false,
+                          }} className="swiper-wrapper">{
+                            data.map((detail, i) => (
+                              detail.category === activeTab &&
+                              <SwiperSlide className="product__item swiper-slide">
+                                <div className="product__thumb fix">
+                                  <div className="product-image w-img">
+                                    <a href="#">
+                                      <img
+                                        src={`http://localhost:5001/${detail.image}`}
+                                        alt="product"
+                                        className="radius pimg"
+                                      />
+                                    </a>
+                                  </div>
+                                  {/*   <div class="product__offer">
+                                              <span class="discount">-15%</span>
+                                              </div> */}
+                                  <div className="product-action">
+                                    <a
+                                      href="#"
+                                      className="icon-box icon-box-1"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#productModalId"
+                                    >
+                                      <FaRegEye />
+                                      <FaRegEye />
+                                    </a>
+                                  </div>
+                                </div>
+                                <div className="product__content">
+                                  <h6>
+                                    <a href="#">{detail.modalNum}</a>
+                                  </h6>
+
+
+                                </div>
+                                <div className="product__add-cart text-center postioncategory">
+                                  <a
+                                    href
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalone"
+                                  >
+                                    <button
+                                      type="button"
+                                      className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                    >
+                                      enquire now
+                                    </button>
+                                  </a>
+                                </div>
+                              </SwiperSlide>
+                            ))
+                          }
+                        </Swiper>
+                      </div>
+                    )
+
+                  }
+                  </div>
+
+                    
+                    {/* </div> */}
+                </TabContent>
+                <TabContent id="Laser Cladding" activeTab={activeTab}>
+                  {/* <div
+                className="tab-pane fade"
+                id="nokia"
+                role="tabpanel"
+                aria-labelledby="nokia-tab"
+              > */}
+              
+              <div className="product-bs-slider-2"> {
+                    data.length > 0 && (
+                      <div className="product-slider-2 swiper-container">
                       <Swiper
                        breakpoints={{
                         370: {
@@ -408,7 +709,7 @@ const Topcatagories = () => {
                           EffectFade,
                           Autoplay,
                         ]}
-                        loop
+                        
                         spaceBetween={50}
                         slidesPerView={5}
                         navigation ={{
@@ -416,758 +717,286 @@ const Topcatagories = () => {
                           
                       }}
                         autoplay={{
-                          delay: 3500,
+                          delay: 8500,
                           disableOnInteraction: false,
-                        }}
-                        className="swiper-wrapper"
-                      >
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/EffectiveL.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
+                        }} className="swiper-wrapper">{
+                          data.map((detail, i) =>(
+                            detail.category === activeTab &&
+                            <SwiperSlide className="product__item swiper-slide">
+                            <div className="product__thumb fix">
+                              <div className="product-image w-img">
+                                <a href="#">
+                                  <img
+                                    src={`http://localhost:5001/${detail.image}`}
+                                    alt="product"
+                                    className="radius pimg"
+                                  />
+                                </a>
+                              </div>
+                              {/*   <div class="product__offer">
+                                              <span class="discount">-15%</span>
+                                              </div> */}
+                               <div className="product-action">
+                              <a
+                                  href="#"
+                                  className="icon-box icon-box-1"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#productModalId"
+                                >
+                                   <FaRegEye />
+                                  <FaRegEye />
+                                </a>
+                              </div>
                             </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Effective L</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/EffectiveS.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Effective S</a>
-                            </h6>
+                            <div className="product__content">
+                              <h6>
+                                <a href="#">{detail.modalNum}</a>
+                              </h6>
+                              
                              
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        {/*  */}
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/20210326-G3015APRO-HSG.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
                             </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
+                            <div className="product__add-cart text-center postioncategory">
+                              <a
+                                href
                                 data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
+                                data-bs-target="#modalone"
                               >
-                                 <FaRegEye />
-                                <FaRegEye />
+                                <button
+                                  type="button"
+                                  className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 postioncategory"
+                                >
+                                  enquire now
+                                </button>
                               </a>
                             </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">GA</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        {/*  */}
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/G3015X-B4.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">G3015X-B4</a>
-                            </h6>
-                            <div className="rating mb-5">
-                              <ul>
-                                <li>
-                                  <a href="#">
-                                    <i className="fal fa-star" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#">
-                                    <i className="fal fa-star" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#">
-                                    <i className="fal fa-star" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#">
-                                    <i className="fal fa-star" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#">
-                                    <i className="fal fa-star" />
-                                  </a>
-                                </li>
-                              </ul>
-                              {/*    <span>(01 review)</span> */}
-                            </div>
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/G3015X-B7.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">G3015X-B7</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/G3015X-B9.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">G3015X-B9</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/R3.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Tube Metal Cutting R3</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Fiber leaser cutting machines/202108-TS65II+OptionalAL-07Semiauto-loading.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Tube Metal Cutting Ts-Series</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/machines/Fiber leaser cutting machines/Ts-series/202108-TS65II+Optional-Auto-loading.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Tube Metal Cutting Ts-Series</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide>
+                          </SwiperSlide>
+                          ))
+                        }                       
                       </Swiper>
-                      {/* If we need navigation buttons */}
                     </div>
-                    <div className="bs-button bs2-button-prev">
-                      <i className="fal fa-chevron-left" />
-                    </div>
-                    <div className="bs-button bs2-button-next">
-                      <i className="fal fa-chevron-right" />
-                    </div>
-                  </div>
+                    )
+                  }   
+                  </div>               
+                
                   {/* </div> */}
                 </TabContent>
-                {/* third */}
-                <TabContent id="Lease-Hardining" activeTab={activeTab}>
-                  {/* <div
-                className="tab-pane fade"
-                id="htc"
-                role="tabpanel"
-                aria-labelledby="htc-tab"
-              > */}
-                  <div className="product-bs-slider-2">
-                    <div className="product-slider-2 swiper-container">
-                      <div className="swiper-wrapper">
-                        <div className="product__item">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Lease hardining/LASER-WELDING-MACHINE-06.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">LASER WELDING MACHINE</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </div>
-                        {/*  */}
-                      </div>
-                    </div>
-                    {/* If we need navigation buttons */}
-                    {/*   <div class="bs-button bs2-button-prev"><i class="fal fa-chevron-left"></i></div>
-                            <div class="bs-button bs2-button-next"><i class="fal fa-chevron-right"></i></div> */}
-                  </div>
-                  {/* </div> */}
-                </TabContent>
-                <TabContent id="Lease-Welding-Machine" activeTab={activeTab}>
-                  {/* <div
-                className="tab-pane fade"
-                id="nokia"
-                role="tabpanel"
-                aria-labelledby="nokia-tab"
-              > */}
-                  <div className="product-bs-slider-2">
-                    <div className="product-slider-2 swiper-container">
-                      <div className="swiper-wrapper">
-                        <div className="product__item">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Lease Welding machine/ALMmachinephoto-06.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">ALM Machine</a>
-                            </h6>
-                           
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </div>
-                        <div className="product__item">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Lease Welding machine/LASER-WELDING-MACHINE-06.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">LASER WELDING MACHINE</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev">
-                      <i className="fal fa-chevron-left" />
-                    </div>
-                    <div className="bs-button bs2-button-next">
-                      <i className="fal fa-chevron-right" />
-                    </div>
-                  </div>
-                  {/* </div> */}
-                </TabContent>
-                <TabContent id="leaser-clading" activeTab={activeTab}>
+                <TabContent id="Engraving Machine" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade"
                 id="cell"
                 role="tabpanel"
                 aria-labelledby="cell-tab"
               > */}
-                  <div className="product-bs-slider-2">
-                    <div className="product-slider-2 swiper-container">
-                      <div className="swiper-wrapper">
-                        <div className="product__item">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Leaser clading/LASERWELDINGMACHINE.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
+              
+              <div className="product-bs-slider-2"> {
+                    data.length > 0 && (
+                      <div className="product-slider-2 swiper-container">
+                      <Swiper
+                       breakpoints={{
+                        370: {
+                          // width: 576,
+                          slidesPerView: 1,
+                        },
+                        500: {
+                          // width: 576,
+                          slidesPerView: 2,
+                        },
+                        768: {
+                          // width: 768,
+                          slidesPerView: 1,
+                        },
+                        1024: {
+                          // width: 768,
+                          slidesPerView: 5,
+                        },
+                      }}
+                        modules={[
+                          Navigation,
+                          Pagination,
+                          Scrollbar,
+                          A11y,
+                          EffectFade,
+                          Autoplay,
+                        ]}
+                        
+                        spaceBetween={50}
+                        slidesPerView={5}
+                        navigation ={{
+                          prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                          
+                      }}
+                        autoplay={{
+                          delay: 8500,
+                          disableOnInteraction: false,
+                        }} className="swiper-wrapper">{
+                          data.map((detail, i) =>(
+                            detail.category === activeTab &&
+                            <SwiperSlide className="product__item swiper-slide">
+                            <div className="product__thumb fix">
+                              <div className="product-image w-img">
+                                <a href="#">
+                                  <img
+                                    src={`http://localhost:5001/${detail.image}`}
+                                    alt="product"
+                                    className="radius pimg"
+                                  />
+                                </a>
+                              </div>
+                              {/*   <div class="product__offer">
+                                              <span class="discount">-15%</span>
+                                              </div> */}
+                               <div className="product-action">
+                              <a
+                                  href="#"
+                                  className="icon-box icon-box-1"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#productModalId"
+                                >
+                                   <FaRegEye />
+                                  <FaRegEye />
+                                </a>
+                              </div>
                             </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
+                            <div className="product__content">
+                              <h6>
+                                <a href="#">{detail.modalNum}</a>
+                              </h6>
+                              
+                             
+                            </div>
+                            <div className="product__add-cart text-center postioncategory">
+                              <a
+                                href
                                 data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
+                                data-bs-target="#modalone"
                               >
-                                 <FaRegEye />
-                                <FaRegEye />
+                                <button
+                                  type="button"
+                                  className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                >
+                                  enquire now
+                                </button>
                               </a>
                             </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">LASER WELDING MACHINE</a>
-                            </h6>
-                            
-                            {/*   <div class="price">
-                                                <span>$105-$150</span>
-                                            </div> */}
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                          </SwiperSlide>
+                          ))
+                        }                       
+                      </Swiper>
                     </div>
-                    {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev">
-                      <i className="fal fa-chevron-left" />
-                    </div>
-                    <div className="bs-button bs2-button-next">
-                      <i className="fal fa-chevron-right" />
-                    </div>
-                  </div>
+                    )
+                  } 
+               </div>                 
+                 
                   {/* </div> */}
                 </TabContent>
                 {/*  */}
-                <TabContent id="sheet-metal-foaming" activeTab={activeTab}>
+                <TabContent id="Electrolamination" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade"
                 id="sheet-metal-foaming"
                 role="tabpanel"
                 aria-labelledby="sheet-tab"
               > */}
-                  <div className="product-bs-slider-2">
-                    <div className="product-slider-2 swiper-container">
-                      <div className="swiper-wrapper">
-                        <div className="product__item">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Sheet metal foaming/UpstrokeNCPressBrake-06.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
+              
+              <div className="product-bs-slider-2"> {
+                    data.length > 0 && (
+                      <div className="product-slider-2 swiper-container">
+                      <Swiper
+                       breakpoints={{
+                        370: {
+                          // width: 576,
+                          slidesPerView: 1,
+                        },
+                        500: {
+                          // width: 576,
+                          slidesPerView: 2,
+                        },
+                        768: {
+                          // width: 768,
+                          slidesPerView: 1,
+                        },
+                        1024: {
+                          // width: 768,
+                          slidesPerView: 5,
+                        },
+                      }}
+                        modules={[
+                          Navigation,
+                          Pagination,
+                          Scrollbar,
+                          A11y,
+                          EffectFade,
+                          Autoplay,
+                        ]}
+                        
+                        spaceBetween={50}
+                        slidesPerView={5}
+                        navigation ={{
+                          prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                          
+                      }}
+                        autoplay={{
+                          delay: 8500,
+                          disableOnInteraction: false,
+                        }} className="swiper-wrapper">{
+                          data.map((detail, i) =>(
+                            detail.category === activeTab &&
+                            <SwiperSlide className="product__item swiper-slide">
+                            <div className="product__thumb fix">
+                              <div className="product-image w-img">
+                                <a href="#">
+                                  <img
+                                    src={`http://localhost:5001/${detail.image}`}
+                                    alt="product"
+                                    className="radius pimg"
+                                  />
+                                </a>
+                              </div>
+                              {/*   <div class="product__offer">
+                                              <span class="discount">-15%</span>
+                                              </div> */}
+                               <div className="product-action">
+                              <a
+                                  href="#"
+                                  className="icon-box icon-box-1"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#productModalId"
+                                >
+                                   <FaRegEye />
+                                  <FaRegEye />
+                                </a>
+                              </div>
                             </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Upstroke-NC-Press-Brake</a>
-                            </h6>
+                            <div className="product__content">
+                              <h6>
+                                <a href="#">{detail.modalNum}</a>
+                              </h6>
+                              
                              
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                            </div>
+                            <div className="product__add-cart text-center postioncategory">
+                              <a
+                                href
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalone"
                               >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                                <button
+                                  type="button"
+                                  className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                >
+                                  enquire now
+                                </button>
+                              </a>
+                            </div>
+                          </SwiperSlide>
+                          ))
+                        }                       
+                      </Swiper>
                     </div>
-                    {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev">
-                      <i className="fal fa-chevron-left" />
-                    </div>
-                    <div className="bs-button bs2-button-next">
-                      <i className="fal fa-chevron-right" />
-                    </div>
-                  </div>
+                    )
+                  } 
+                  </div>                 
+                 
                   {/* </div> */}
                 </TabContent>
                 {/*  */}
@@ -1176,6 +1005,8 @@ const Topcatagories = () => {
           </div>
         </div>
       </section>
+     
+      <ProductEnquiryForm show={popup}/>
     </>
   );
 };

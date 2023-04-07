@@ -7,12 +7,16 @@ import { Button, Row, Col, Modal, ModalBody, ModalHeader, ModalTitle } from 'rea
 import NavigationBrand from "./NavigationBrand";
 import NavigationList from "./NavigationList";
 import PopupForm from "./PopupForm";
+import { ToastContainer } from "react-toastify";
+import DebounceSearch from "./DebounceSearch";
+import { Route } from "react-router-dom";
 
 
 const Header = () => {
   const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  
   return (
     <>
       <header className="header d-blue-bg headerres">
@@ -24,28 +28,14 @@ const Header = () => {
                   <div className="header__info">
                     <div className="logo">
                       <a href="#" className="logo-image">
-                        <img src="assets/img/new/logo3.png" alt="logo" />
+                        <img src="../assets/img/new/logo3.png" alt="logo" />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-7 col-lg-7  d-none d-lg-block">
-                  <div className="header__search">
-                    <form action="#">
-                      <div className="header__search-box">
-                        <input
-                          className="search-input"
-                          type="text"
-                          placeholder="I'm Searching for..."
-                        />
-                        <button className="button" type="submit">
-                          <HiOutlineSearch style={{ fontSize: "30px" }} />
-                        </button>
-                      </div>
-                      <Select />
-                    </form>
-                  </div>
-                </div>
+                
+                <DebounceSearch  />
+               
                 <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 btnclass">
                   <a
                     href="#"
@@ -152,7 +142,7 @@ const Header = () => {
       </header>
       {/* header responsive */}
       
-      <Modal size='lg' show={show} onHide={handleClose}>
+      {/* <Modal size='lg' show={show} onHide={handleClose}>
                 <ModalHeader closeButton>
                     <ModalTitle className="modal_titleml">
                        My Machine Store
@@ -164,16 +154,16 @@ const Header = () => {
                             <img src="assets/image/slider/laser4.png" alt="d1" className="modal-img" />
                         </Col>
                         <Col md={6} className='rescen'>
-                        <PopupForm />
+                        <PopupForm o />
                         </Col>
                     </Row>
                     
                 </ModalBody>
-                 </Modal>
-            
+                 </Modal> */}
+            <PopupForm show={show} onHide={handleClose}/>
 
       
-
+                 <ToastContainer />   
     </>
   );
 };
