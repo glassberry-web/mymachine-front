@@ -42,7 +42,9 @@ const Homecta = () => {
                     
                 </ModalBody>
                  </Modal>
+                 <PopupForm show={show} setShow={setShow} onHide={handleClose}/>
    </>
+   
   )
 }
 

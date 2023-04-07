@@ -18,7 +18,7 @@ import {
   ModalTitle,
 } from "react-bootstrap";
 
-const PopupForm = ({show, onHide}) => {
+const PopupForm = ({show, setShow, onHide}) => {
   
 
   // const [show, setShow] = useState(false);
@@ -62,10 +62,11 @@ const PopupForm = ({show, onHide}) => {
           toast.success("Submitted Successfully !", {
             position: toast.POSITION.TOP_RIGHT,
           });
-          
+          setShow(false)
+          setInputFeild('')
           navigate("/");
-          submit? 
-          setSubmit(false ) : setSubmit(true )
+          // submit? 
+          // setSubmit(false ) : setSubmit(true )
         }
       } catch (error) {
         console.log("error===>", error);
@@ -106,7 +107,7 @@ const PopupForm = ({show, onHide}) => {
     <>
     {
         
-        submit ? "" :(
+        (
           <Modal size="lg" show={show}>
          <ModalHeader closeButton onClick={onHide}>
            <ModalTitle className="modal_titleml">My Machine Store</ModalTitle>
