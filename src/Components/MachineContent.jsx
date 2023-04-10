@@ -67,7 +67,7 @@ const MachineContent = () => {
   useEffect(() => {
     const fetchMachine = async () => {
       const res = await axios
-        .get("http://localhost:5000/fetch")
+        .get("https://my-machine-store-restapi.onrender.com/fetch")
 
         .catch((error) => {
           console.log("err=>", error);
