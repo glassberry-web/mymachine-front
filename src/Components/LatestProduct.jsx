@@ -19,7 +19,7 @@ const LatestProduct = () => {
     const popup = useSelector(getLatestpopup);
     const dispatch = useDispatch();
     const fetchData = () => {
-      fetch("http://localhost:5000/fetch")
+      fetch("https://my-machine-store-0l73.onrender.com/fetch")
       
         .then(response => {
           console.log(response);

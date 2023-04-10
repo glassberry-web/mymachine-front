@@ -25,7 +25,7 @@ const Topcatagories = () => {
   console.log("popop=>", popup);
 
   const fetchData = () => {
-    fetch("http://localhost:5000/fetch")
+    fetch("https://my-machine-store-0l73.onrender.com/fetch")
 
       .then(response => {
         console.log(response);
@@ -653,6 +653,7 @@ const Topcatagories = () => {
                                     <button
                                       type="button"
                                       className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                      onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
                                     >
                                       enquire now
                                     </button>
@@ -764,6 +765,7 @@ const Topcatagories = () => {
                                 <button
                                   type="button"
                                   className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 postioncategory"
+                                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
                                 >
                                   enquire now
                                 </button>
@@ -873,6 +875,7 @@ const Topcatagories = () => {
                                 <button
                                   type="button"
                                   className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
                                 >
                                   enquire now
                                 </button>

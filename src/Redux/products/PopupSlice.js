@@ -5,7 +5,7 @@ export const fetchAsyncImages = createAsyncThunk(
     "popup/fetchAsyncImages",
     async () => {
       const response = await axios.get(
-          `http://localhost:5000/fetch`
+          `https://my-machine-store-0l73.onrender.com/fetch`
       );
       console.log("popuppro==>", response
       );
