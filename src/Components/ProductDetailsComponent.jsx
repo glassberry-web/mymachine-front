@@ -16,7 +16,7 @@ const ProductDetailsComponent = () => {
   const dispatch = useDispatch();
 
   const fetchData = () => {
-    fetch("http://localhost:5000/fetch")
+    fetch("https://my-machine-store-restapi.onrender.com/fetch")
       .then((response) => {
         console.log(response);
         return response.json();
@@ -56,10 +56,10 @@ const ProductDetailsComponent = () => {
                                     alt: "Wristwatch by Ted Baker London",
                                     isFluidWidth: true,
                                     imageClassName: "proimg",
-                                    src: `http://localhost:5001/${detail.image}`,
+                                    src: `https://my-machine-store-dashboardapi.onrender.com/${detail.image}`,
                                   },
                                   largeImage: {
-                                    src: `http://localhost:5001/${detail.image}`,
+                                    src: `https://my-machine-store-dashboardapi.onrender.com/${detail.image}`,
                                     width: 2000,
                                     height: 1800,
                                   },
