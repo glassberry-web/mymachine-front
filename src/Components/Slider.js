@@ -133,7 +133,7 @@ const Slider = () => {
           </div>
         </div>
       </SwiperSlide>{/* /single-slider */}
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center" style={{backgroundImage: "url(assets/img/slider/slider4.png)"}} data-background="assets/img/slider/slider4.png">
+      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center backres" style={{backgroundImage: "url(assets/img/slider/slider4.png)"}} data-background="assets/img/slider/slider4.png">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
