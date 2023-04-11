@@ -76,9 +76,9 @@ const Slider = () => {
                       }}
                     />
                     </h2>
-                    <p className="pr-20 slider_text pt-2" data-animation="fadeInLeft" data-delay="1.9s">The GE IV series can cut both sheet and tube metals, replacing the need of having a seperate professional sheet laser cutting machine and tube laser cutting machine.</p>
+                    <p className="pr-20 slider_text pt-2 resnone" data-animation="fadeInLeft" data-delay="1.9s">The GE IV series can cut both sheet and tube metals, replacing the need of having a seperate professional sheet laser cutting machine and tube laser cutting machine.</p>
                     <div className="row pt-4">
-                      <div className="col-lg-4">
+                      <div className="col-lg-4 col-6">
                         <div className="ab-counter-item mb-30">
                           <div className="ab-counter">
                             <div className="counter-icon mr-10">
@@ -93,7 +93,7 @@ const Slider = () => {
                         </div>
                       </div>
                       {/*  */}
-                      <div className="col-lg-4">
+                      <div className="col-lg-4 col-6">
                         <div className="ab-counter-item mb-30">
                           <div className="ab-counter">
                             <div className="counter-icon mr-10">
@@ -108,7 +108,7 @@ const Slider = () => {
                         </div>
                       </div>
                       {/*  */}
-                      <div className="col-lg-4">
+                      <div className="col-lg-4 col-6 marauto">
                         <div className="ab-counter-item mb-30">
                           <div className="ab-counter">
                             <div className="counter-icon mr-10">
@@ -138,8 +138,9 @@ const Slider = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="row">
-              <div className="slider-content">
-                <div className="slider-top-btn" data-animation="fadeInLeft" data-delay="1s">
+                <div className="col-lg-6">
+                <div className="slider-content">
+                <div className="slider-top-btn resnone" data-animation="fadeInLeft" data-delay="1s">
                   <a href="#" className="st-btn b-radius">New Arraivels</a>
                 </div>
                 <h2 data-animation="fadeInLeft" data-delay="1.5s" className="pt-15 slider-title pb-5">SALE 20% OFF<br /> Motors</h2>
@@ -148,6 +149,8 @@ const Slider = () => {
                   <a data-animation="fadeInUp" data-delay="1.9s" href="#" className="st-btn-b b-radius">Discover now</a>
                 </div>
               </div>
+                </div>
+             
               <div className="col-lg-6">
                   <img src="assets/img/slider/Machine-1.png" className="img-fluid" />
                 </div>
@@ -165,7 +168,7 @@ const Slider = () => {
               <div className="row">
               <div className="col-xl-6">
               <div className="slider-content">
-                <div className="slider-top-btn" data-animation="fadeInLeft" data-delay="1s">
+                <div className="slider-top-btn resnone" data-animation="fadeInLeft" data-delay="1s">
                   <a href="#" className="st-btn b-radius">New DEALS</a>
                 </div>
                 <h2 data-animation="fadeInLeft" data-delay="1.5s" className="pt-15 slider-title pb-5">SALE 30% OFF <br />Food processing machinery</h2>

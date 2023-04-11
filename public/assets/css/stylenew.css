@@ -908,6 +908,12 @@ input ::placeholder
   .section__head {
    align-items: flex-start;
   }
+  .resnone{
+    display: none !important;
+  }
+  .marauto{
+ margin: 0 auto;
+  }
 }
 .section__head::before {
   position: absolute;
