@@ -9,7 +9,8 @@ import NavigationList from "./NavigationList";
 import PopupForm from "./PopupForm";
 import { ToastContainer } from "react-toastify";
 import DebounceSearch from "./DebounceSearch";
-import { Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
+import HeaderSticky from "./HeaderSticky";
 
 
 const Header = () => {
@@ -33,9 +34,9 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
-                
-                <DebounceSearch  />
-               
+
+                <DebounceSearch />
+
                 <div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 btnclass">
                   <a
                     href="#"
@@ -54,7 +55,7 @@ const Header = () => {
         <div className="header__bottom">
           <div className="container">
             <div className="row g-0 align-items-center">
-              <NavigationBrand />             
+              <NavigationBrand />
               <NavigationList />
               <div className="col-lg-2 col-md-6 col-9">
                 <div className="header-action">
@@ -104,13 +105,13 @@ const Header = () => {
         <div className="header__bottom">
           <div className="container">
             <div className="row g-0 align-items-center">
-            <DebounceSearch  />
+              <DebounceSearch />
             </div>
           </div>
         </div>
       </header>
       {/* header responsive */}
-      
+
       {/* <Modal size='lg' show={show} onHide={handleClose}>
                 <ModalHeader closeButton>
                     <ModalTitle className="modal_titleml">
@@ -129,10 +130,37 @@ const Header = () => {
                     
                 </ModalBody>
                  </Modal> */}
-            <PopupForm show={show} onHide={handleClose}/>
+      <div className="header-fixed d-lg-none">
+        <div className="blog-area">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-3 pt-2 pb-2 text-center">
+                <img src="assets/image/slider/category.png" />
+                <Link to="/"><h6 className="text-light pt-1">Home</h6></Link>
+                
+              </div>
+              <div className="col-3 pt-2 pb-2 text-center">
+                <img src="assets/image/slider/brandicon.png" />
+                <Link to="/Companies"><h6 className="text-light pt-1">Brands</h6></Link>
+                
+              </div>
+              <div className="col-3 pt-2 pb-2 text-center">
+                <img src="assets/image/slider/laundry.png" />
+                <Link to="/machines"><h6 className="text-light pt-1">Machines</h6></Link>
+              </div>
+              <div className="col-3 pt-2 pb-2 text-center">
+                <img src="assets/image/slider/form.png" />
+                <Link  onClick={handleShow}>
+                  <h6 className="text-light pt-1">Enquiry</h6>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <PopupForm show={show} onHide={handleClose} />
 
-      
-                 <ToastContainer />   
+      <ToastContainer />
     </>
   );
 };

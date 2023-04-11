@@ -60,7 +60,7 @@ const Slider = () => {
                 }} 
     
     className="slider-wrapper swiper-wrapper">
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center" style={{backgroundImage: "url(assets/img/slider/p11.png)"}}>
+      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center" style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}}>
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
@@ -133,10 +133,11 @@ const Slider = () => {
           </div>
         </div>
       </SwiperSlide>{/* /single-slider */}
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center backres" style={{backgroundImage: "url(assets/img/slider/slider4.png)"}} data-background="assets/img/slider/slider4.png">
+      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center backres" style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}} >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
+              <div className="row">
               <div className="slider-content">
                 <div className="slider-top-btn" data-animation="fadeInLeft" data-delay="1s">
                   <a href="#" className="st-btn b-radius">New Arraivels</a>
@@ -147,14 +148,22 @@ const Slider = () => {
                   <a data-animation="fadeInUp" data-delay="1.9s" href="#" className="st-btn-b b-radius">Discover now</a>
                 </div>
               </div>
+              <div className="col-lg-6">
+                  <img src="assets/image/slider/Machine-1.png" className="img-fluid" />
+                </div>
+
+              </div>
+              
             </div>
           </div>
         </div>
       </SwiperSlide>{/* /single-slider */}
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center"  style={{backgroundImage: "url(assets/img/slider/slider13.png)"}}  data-background="assets/img/slider/slider13.png">
+      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center"  style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}}>
         <div className="container">
           <div className="row">
-            <div className="col-xl-5">
+            <div className=" col-lg-12">
+              <div className="row">
+              <div className="col-xl-6">
               <div className="slider-content">
                 <div className="slider-top-btn" data-animation="fadeInLeft" data-delay="1s">
                   <a href="#" className="st-btn b-radius">New DEALS</a>
@@ -166,6 +175,13 @@ const Slider = () => {
                 </div>
               </div>
             </div>
+            <div className="col-lg-6">
+                  <img src="assets/image/slider/Machine-2.png" className="img-fluid" />
+                </div>
+              </div>
+
+            </div>
+            
           </div>
         </div>
       </SwiperSlide>{/* /single-slider */}
