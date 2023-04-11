@@ -16,7 +16,7 @@ const SectionTitle = (props) => {
             </div>
             {titles.id === 2 ? (
               <div className="product__nav-tab">
-                <ul className="nav nav-tabs" id="flast-sell-tab" role="tablist">
+                <ul className="nav nav-tabs flexcen" id="flast-sell-tab" role="tablist">
                 <TabPhills
                     title="Laser Solutions"
                     id="Laser Solutions"

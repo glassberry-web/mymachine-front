@@ -145,7 +145,7 @@ const Slider = () => {
                 </div>
                 <h2 data-animation="fadeInLeft" data-delay="1.5s" className="pt-15 slider-title pb-5">SALE 20% OFF<br /> Motors</h2>
                 <p className="pr-20 slider_text" data-animation="fadeInLeft" data-delay="1.7s">Discount 30% On Products &amp; Free Shipping</p>
-                <div className="slider-bottom-btn mt-75">
+                <div className="slider-bottom-btn mt-75 mt2em">
                   <a data-animation="fadeInUp" data-delay="1.9s" href="#" className="st-btn-b b-radius">Discover now</a>
                 </div>
               </div>
@@ -173,7 +173,7 @@ const Slider = () => {
                 </div>
                 <h2 data-animation="fadeInLeft" data-delay="1.5s" className="pt-15 slider-title pb-5">SALE 30% OFF <br />Food processing machinery</h2>
                 <p className="pr-20 slider_text" data-animation="fadeInLeft" data-delay="1.8s">Discount 30% On Products &amp; Free Shipping</p>
-                <div className="slider-bottom-btn mt-75">
+                <div className="slider-bottom-btn mt-75 mt2em">
                   <a data-animation="fadeInUp" data-delay="1.10s" href="#" className="st-btn-b b-radius">Discover now</a>
                 </div>
               </div>
