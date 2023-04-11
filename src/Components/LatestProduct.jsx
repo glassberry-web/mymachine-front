@@ -19,7 +19,7 @@ const LatestProduct = () => {
     const popup = useSelector(getLatestpopup);
     const dispatch = useDispatch();
     const fetchData = () => {
-      fetch("https://my-machine-store-0l73.onrender.com/fetch")
+      fetch("https://my-machine-store-restapi.onrender.com/fetch")
       
         .then(response => {
           console.log(response);
