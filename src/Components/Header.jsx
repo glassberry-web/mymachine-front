@@ -10,7 +10,7 @@ import PopupForm from "./PopupForm";
 import { ToastContainer } from "react-toastify";
 import DebounceSearch from "./DebounceSearch";
 import { Link, Route } from "react-router-dom";
-import HeaderSticky from "./HeaderSticky";
+
 
 
 const Header = () => {
