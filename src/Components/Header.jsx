@@ -150,9 +150,9 @@ const Header = () => {
               </div>
               <div className="col-3 pt-2 pb-2 text-center">
                 <img src="assets/image/slider/form.png" />
-                <Link  onClick={handleShow}>
+                <a  href="" onClick={handleShow}>
                   <h6 className="text-light pt-1">Enquiry</h6>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
