@@ -15,6 +15,7 @@ import ProductEnquiryForm from './ProductEnquiryForm';
  import { getpopup } from '../Redux/products/PopupSlice';
  import { useSelector, useDispatch } from 'react-redux';
   import { setShow,setCategoryShow } from '../Redux/products/PopupSlice';
+import { NavLink, Link } from "react-router-dom";
 
 const Topcatagories = () => {
   const [title, SetTitle] = useState(sectionTitleData);
@@ -158,13 +159,13 @@ const Topcatagories = () => {
                               <SwiperSlide className="product__item swiper-slide">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    <a href="#">
+                                    <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
-                                    </a>
+                                    </Link>
                                   </div>
                                   {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
@@ -173,7 +174,9 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                    <a href="#">{detail.product_name}</a>
+                                  <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                                   {detail.product_name}
+                                 </NavLink>
                                   </h6>
 
 
@@ -493,13 +496,13 @@ const Topcatagories = () => {
                               <SwiperSlide className="product__item swiper-slide">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    <a href="#">
+                                    <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
-                                    </a>
+                                    </Link>
                                   </div>
                                   {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
@@ -518,7 +521,9 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                    <a href="#">{detail.modalNum}</a>
+                                  <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.product_name}
+                                  </NavLink>
                                   </h6>
 
 
@@ -616,7 +621,7 @@ const Topcatagories = () => {
                                   <div className="product-image w-img">
                                     <a href="#">
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
@@ -639,7 +644,9 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                    <a href="#">{detail.modalNum}</a>
+                                  <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                                      {detail.product_name}
+                                 </NavLink>
                                   </h6>
 
 
@@ -726,13 +733,13 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <a href="#">
+                                <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                                   <img
-                                    src={`http://localhost:5001/${detail.image}`}
+                                    src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                                     alt="product"
                                     className="radius pimg"
                                   />
-                                </a>
+                                </Link>
                               </div>
                               {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
@@ -751,7 +758,9 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                               <h6>
-                                <a href="#">{detail.modalNum}</a>
+                              <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                            {detail.product_name}
+                              </NavLink>
                               </h6>
                               
                              
@@ -836,13 +845,13 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <a href="#">
+                                <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                                   <img
-                                    src={`http://localhost:5001/${detail.image}`}
+                                    src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                                     alt="product"
                                     className="radius pimg"
                                   />
-                                </a>
+                                </Link>
                               </div>
                               {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
@@ -861,7 +870,9 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                               <h6>
-                                <a href="#">{detail.modalNum}</a>
+                              <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                                   {detail.product_name}
+                                   </NavLink>
                               </h6>
                               
                              
@@ -947,13 +958,13 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <a href="#">
+                                <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                                   <img
-                                    src={`http://localhost:5001/${detail.image}`}
+                                    src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                                     alt="product"
                                     className="radius pimg"
                                   />
-                                </a>
+                                </Link>
                               </div>
                               {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
@@ -972,7 +983,9 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                               <h6>
-                                <a href="#">{detail.modalNum}</a>
+                              <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                               {detail.product_name}
+                                </NavLink>
                               </h6>
                               
                              

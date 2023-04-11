@@ -90,17 +90,17 @@ const LatestProduct = () => {
                     <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide pitem1">
                     <div className="product__thumb fix">
                       <div className="product-image w-img">
-                        <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
-                          <img className='pimg' src={`http://localhost:5001/${detail.image}`} alt="product"/>
+                        <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                          <img className='pimg' src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"/>
                         </Link>
                       </div>                  
                      
                     </div>
                     <div className="product__content product__content-2">
                       <h6>
-                        <a href="product-details.html">
-                        {detail.product_name}
-                        </a>
+                      <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                      {detail.product_name}
+                       </NavLink>          
                       </h6>               
                       
                     </div>

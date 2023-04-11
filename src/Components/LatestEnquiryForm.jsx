@@ -135,7 +135,7 @@ const LatestEnquiryForm = ({ show, onHide }) => {
               <Row>
                 <Col md={6} className="modmar">
                   <img
-                    src={`http://localhost:5001/${detail.image}`}
+                    src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
                     alt="d1"
                     className="modal-img"
                   />

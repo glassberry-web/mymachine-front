@@ -91,7 +91,7 @@ const TopMost = () => {
             <SwiperSlide key={i} className="product__item pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
               <div className="product__thumb fix">
                 <div className="product-image w-img">
-                  <Link to="https://my-machine-store-restapi.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                  <Link to={"https://my-machine-store-0l73.onrender.com/productDetails"} state={{id:`${detail._id}`}}>
                     <img className='pimg' src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"  />
                   </Link>
                 </div>                  
@@ -109,12 +109,12 @@ const TopMost = () => {
               </div>
               <div className="product__content product__content-2">
                 <h6>
-                  <NavLink className="productlink" to="https://my-machine-store-restapi.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                  <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                   {detail.product_name}
                   </NavLink>
                 </h6> 
                 <h4 className='h4size'>
-                  <NavLink className="productlink" to="https://my-machine-store-restapi.onrender.com/productDetails" state={{id:`${detail._id}`}}>
+                  <NavLink className="productlink" to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                   {detail.category}
                   </NavLink>
                 </h4>               

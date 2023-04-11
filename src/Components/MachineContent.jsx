@@ -158,7 +158,7 @@ const MachineContent = () => {
               <div className="product-image w-img">
                 <a href="product-detail.html">
                   <img
-                    src={`http://localhost:5001/${product.image}`}
+                    src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`}
                     alt="product"
                   />
                 </a>
@@ -283,7 +283,7 @@ const MachineContent = () => {
               <div className="product-image w-img">
                 <a href="product-detail.html">
                   <img
-                    src={`http://localhost:5001/${product.image}`}
+                    src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`}
                     alt="product"
                   />
                 </a>
@@ -338,7 +338,7 @@ const MachineContent = () => {
                 <div className="features-thum">
                   <div className="features-product-image w-img">
                     <a href="#">
-                      <img src={`http://localhost:5001/${product.image}`} alt />
+                      <img src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                     </a>
                   </div>
                   <div className="product-action">
@@ -420,7 +420,7 @@ const MachineContent = () => {
               <div className="features-thum">
                 <div className="features-product-image w-img">
                   <a href="#">
-                    <img src={`http://localhost:5001/${product.image}`} alt />
+                    <img src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                   </a>
                 </div>
                 <div className="product-action">
