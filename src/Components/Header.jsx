@@ -104,38 +104,7 @@ const Header = () => {
         <div className="header__bottom">
           <div className="container">
             <div className="row g-0 align-items-center">
-              <div className="col-lg-12">
-                <div className="header__search">
-                  <form action="#">
-                    <div className="header__search-box">
-                      <input
-                        className="search-input"
-                        type="text"
-                        placeholder="I'm shopping for..."
-                      />
-                      <button className="button" type="submit">
-                        <i className="far fa-search" />
-                      </button>
-                    </div>
-                    <div className="header__search-cat">
-                      <select>
-                        <option>All Categories</option>
-                        <option>Best Seller Products</option>
-                        <option>Top 10 Offers</option>
-                        <option>New Arrivals</option>
-                        <option>Metal Machine</option>
-                        <option>Electronics</option>
-                        <option>Food processing machines</option>
-                        <option>Sheet Metal Machine</option>
-                        <option>Wood Working Machine</option>
-                        <option>Textile Machine</option>
-                        <option>Packaging Machine</option>
-                        <option>Metal Machine</option>
-                      </select>
-                    </div>
-                  </form>
-                </div>
-              </div>
+            <DebounceSearch  />
             </div>
           </div>
         </div>
