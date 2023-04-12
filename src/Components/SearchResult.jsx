@@ -42,7 +42,7 @@ const SearchResult = ()=>{
 
   useEffect(()=>{
     const fetchFilters = async ()=>{
-      const res = await axios.get("http://localhost:5000/fetch")
+      const res = await axios.get("https://my-machine-store-restapi.onrender.com/fetch")
       .catch((error)=>{
 console.log("err=>", error);
       });
@@ -96,7 +96,7 @@ console.log("err=>", error);
                     <div className="product__thumb fix fix-height">
                       <div className="product-image w-img">
                         <a href="product-detail.html">
-                          <img src={`http://localhost:5001/${product.image}`} alt="product" />
+                          <img src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt="product" />
                         </a>
                       </div>
                       <div className="product-action">
@@ -131,7 +131,7 @@ console.log("err=>", error);
           <div className="features-thum">
             <div className="features-product-image w-img">
               <a href="#">
-                <img src={`http://localhost:5001/${product.image}`} alt />
+                <img src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
               </a>
             </div>
             <div className="product-action">
