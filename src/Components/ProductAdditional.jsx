@@ -15,7 +15,7 @@ const ProductAdditional = () => {
   const { id } = location.state;
   console.log("additipon=>", id);
     const fetchData = () => {
-        fetch("http://localhost:5000/fetch")
+        fetch("https://my-machine-store-restapi.onrender.com/fetch")
         
           .then(response => {
             console.log(response);

@@ -76,7 +76,7 @@ const ProductDetailsComponent = () => {
                     <div className="product__details-content padcon">
                       <h6>{detail.product_name}</h6>
                       <div className="pd-rating mb-10">
-                        {detail.product_content}
+                        {detail.shortDiscription}
                       </div>
 
                       <div className="features-des mb-20 mt-10">
