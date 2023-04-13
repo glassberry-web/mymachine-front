@@ -22,7 +22,7 @@ const Home = () => {
   return(
   <>
   <Slider />
-  <SliderNavigation />
+  {/* <SliderNavigation /> */}
   <TopMost />
   {/* <Features /> */}
   <Homecta />
