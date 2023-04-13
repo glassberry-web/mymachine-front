@@ -24,7 +24,7 @@ const SliderNavigation = () => {
   }, [])
   const fetchCategory = () => {
    
-    fetch(" http://localhost:5000/uniquecategories")
+    fetch("http://localhost:5000/uniquecategories")
 
       .then(response => {
         console.log(response);
@@ -88,7 +88,7 @@ const SliderNavigation = () => {
                       <li>
                         <ul>
                           <li className="title">
-                            <a href="shop.html">{detail.subCategory === subcategory[0] ? detail.subCategory : "no"}</a>
+                            <a href="shop.html">{detail.subCategory === subcategory[0] ? "" : detail.subCategory}</a>
                           </li>
                           <li>
                             <a href="shop.html">{detail.product_name}</a>
@@ -109,6 +109,9 @@ const SliderNavigation = () => {
                       </li>
                       <li> 
                          <ul>
+                         <li className="title">
+                            <a href="shop.html">{detail.subCategory === subcategory[1] ? "" : detail.subCategory}</a>
+                          </li>
                          <li>
                             <a href="shop.html">{detail.product_name}</a>
                           </li>
@@ -129,6 +132,7 @@ const SliderNavigation = () => {
                           </li> */}
                         </ul>
                       </li>
+                      
                       {/* <li>
                         <ul>
                           <li className="title">

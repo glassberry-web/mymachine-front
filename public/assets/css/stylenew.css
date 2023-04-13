@@ -7107,7 +7107,7 @@ padding: 40px 40px 40px 40px!important;
 }
 .product-details
 {
-  margin-top: 50px;
+  margin-top: 5rem;
 }
 .detaildiv
 {
@@ -7570,5 +7570,16 @@ padding-left: 15px !important;
 .flexcen{
   justify-content: center !important;
 }
+.pt-60{
+  padding-top: 60px;
+}
+.backalign{
+  background: linear-gradient(158deg, #000000, #fcbe00);
+  background: linear-gradient(158deg, #d2d2d278, #d1d1d1);
+    border-radius: 10px 100px 100px 10px;
+    padding: 2rem 2rem;
+}
+
+
 
 

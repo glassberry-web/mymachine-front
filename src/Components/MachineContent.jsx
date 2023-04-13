@@ -67,7 +67,7 @@ const MachineContent = () => {
   useEffect(() => {
     const fetchMachine = async () => {
       const res = await axios
-        .get("https://my-machine-store-restapi.onrender.com/fetch")
+        .get("http://localhost:5000/fetch")
 
         .catch((error) => {
           console.log("err=>", error);
@@ -158,7 +158,7 @@ const MachineContent = () => {
               <div className="product-image w-img">
                 <a href="product-detail.html">
                   <img
-                    src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`}
+                    src={`http://localhost:5001/${product.image}`}
                     alt="product"
                   />
                 </a>
@@ -281,11 +281,15 @@ const MachineContent = () => {
           <div className="product__item product__item-d">
             <div className="product__thumb fix fix-height">
               <div className="product-image w-img">
-                <a href="product-detail.html">
-                  <img
-                    src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`}
+                <a href="#">
+                  {/* <img
+                    src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`}
                     alt="product"
-                  />
+                  /> */}
+                  <img
+                    src={`http://localhost:5001/${product.image}`}
+                    alt="product"
+                  /> 
                 </a>
               </div>
               <div className="product-action">
@@ -337,8 +341,11 @@ const MachineContent = () => {
               <div className="col-md-4">
                 <div className="features-thum">
                   <div className="features-product-image w-img">
+                    {/* <a href="#">
+                      <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
+                    </a> */}
                     <a href="#">
-                      <img src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
+                      <img src={`http://localhost:5001/${product.image}`} alt />
                     </a>
                   </div>
                   <div className="product-action">
@@ -419,8 +426,11 @@ const MachineContent = () => {
             <div className="col-md-4">
               <div className="features-thum">
                 <div className="features-product-image w-img">
+                  {/* <a href="#">
+                    <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
+                  </a> */}
                   <a href="#">
-                    <img src={`https://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
+                    <img src={`http://localhost:5001/${product.image}`} alt />
                   </a>
                 </div>
                 <div className="product-action">

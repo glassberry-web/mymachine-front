@@ -5,7 +5,7 @@ import PageBanner from '../Components/PageBanner'
 const Companies = () => {
   return (
     <>
-     <PageBanner title="Machines" info = "Home" />
+     <PageBanner title="Companies" info = "Home" />
     <CompaniesComponent />
     </>
    

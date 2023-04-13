@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import SpeedoMeter from './SpeedoMeter'
+import CompanyAbout from './CompanyAbout'
 
 const CompanyDeatails = () => {
     const location = useLocation()
@@ -24,6 +26,7 @@ const CompanyDeatails = () => {
     }, [])
   return (
     <>
+    <CompanyAbout />
       <div className="blog-area mt-75 mb-55">
                 <div className="container">
                     <div className="row">
@@ -32,7 +35,7 @@ const CompanyDeatails = () => {
                                 <div className="row">
                                     {
                                         data.map((detail) => (
-                                        id === detail.user_id ? (                                            
+                                        id === detail._id ? (                                            
                                                 <div className="col-xl-3">
                                                     <div className="single-smblog mb-30 boxbr">
                                                         <div className="smblog-thum">

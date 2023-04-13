@@ -252,8 +252,13 @@ const ProductEnquiryForm = ({ show, onHide }) => {
             <ModalBody>
               <Row>
                 <Col md={6} className="modmar">
+                  {/* <img
+                    src={`http://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
+                    alt="d1"
+                    className="modal-img"
+                  /> */}
                   <img
-                    src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`}
+                    src={`http://localhost:5001/${detail.image}`}
                     alt="d1"
                     className="modal-img"
                   />

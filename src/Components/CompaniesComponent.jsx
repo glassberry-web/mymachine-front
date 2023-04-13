@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import SpeedoMeter from './SpeedoMeter';
 
 const CompaniesComponent = () => {
     const [data, setData] = useState([])
@@ -21,8 +22,7 @@ const CompaniesComponent = () => {
     }, [])
 
     return (
-    <>
-
+        <>    
 
             <div className="blog-area mt-75 mb-55">
                 <div className="container">
@@ -32,7 +32,7 @@ const CompaniesComponent = () => {
                                 <div className="row">
                                     {
                                         data.map((detail) => (
-                                        detail.status === "Active" && detail.logo &&  detail.company_name  ? (                                            
+                                         detail.logo &&  detail.company_name  ? (                                            
                                                 <div className="col-xl-3">
                                                     <div className="single-smblog mb-30 boxbr">
                                                         <div className="smblog-thum">
