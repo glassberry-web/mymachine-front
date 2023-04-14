@@ -19,7 +19,7 @@ const LatestProduct = () => {
     const popup = useSelector(getLatestpopup);
     const dispatch = useDispatch();
     const fetchData = () => {
-      fetch("http://15.206.68.236:5000/fetch")
+      fetch("http://15.207.31.23:5000/fetch")
       
         .then(response => {
           console.log(response);
@@ -90,8 +90,8 @@ const LatestProduct = () => {
                     <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide pitem1">
                     <div className="product__thumb fix">
                       <div className="product-image w-img">
-                        <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
-                          <img className='pimg' src={`http://15.206.68.236:5001/${detail.image}`} alt="product"/>
+                        <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                          <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"/>
                         </Link>
                         {/* <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                           <img className='pimg' src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"/>
@@ -101,7 +101,7 @@ const LatestProduct = () => {
                     </div>
                     <div className="product__content product__content-2">
                       <h6>
-                      <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
+                      <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                       {detail.product_name}
                        </NavLink>          
                       </h6>               

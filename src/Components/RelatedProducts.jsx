@@ -17,7 +17,7 @@ const RelatedProducts = ({titlee}) => {
   const handleClose = () => setShow(false);
 
     const fetchData = () => {
-      fetch("http://15.206.68.236:5000/fetch")
+      fetch("http://15.207.31.23:5000/fetch")
       
         .then(response => {
           console.log(response);
@@ -89,8 +89,8 @@ const RelatedProducts = ({titlee}) => {
             <SwiperSlide className="product__item pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
               <div className="product__thumb fix">
                 <div className="product-image w-img">
-                  <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
-                    <img className='pimg' src={`http://15.206.68.236:5001/${detail.image}`} alt="product"  />
+                  <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                    <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"  />
                   </Link>
                 </div>                  
                 <div className="product-action product-action-2">

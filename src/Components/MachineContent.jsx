@@ -67,7 +67,7 @@ const MachineContent = () => {
   useEffect(() => {
     const fetchMachine = async () => {
       const res = await axios
-        .get("http://15.206.68.236:5000/fetch")
+        .get("http://15.207.31.23:5000/fetch")
 
         .catch((error) => {
           console.log("err=>", error);
@@ -158,7 +158,7 @@ const MachineContent = () => {
               <div className="product-image w-img">
                 <a href="#">
                   <img
-                    src={`http://15.206.68.236:5001/${product.image}`}
+                    src={`http://15.207.31.23:5001/${product.image}`}
                     alt="product"
                   />
                 </a>
@@ -287,7 +287,7 @@ const MachineContent = () => {
                     alt="product"
                   /> */}
                   <img
-                    src={`http://15.206.68.236:5001/${product.image}`}
+                    src={`http://15.207.31.23:5001/${product.image}`}
                     alt="product"
                   /> 
                 </a>
@@ -345,7 +345,7 @@ const MachineContent = () => {
                       <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                     </a> */}
                     <a href="#">
-                      <img src={`http://15.206.68.236:5001/${product.image}`} alt />
+                      <img src={`http://15.207.31.23:5001/${product.image}`} alt />
                     </a>
                   </div>
                   <div className="product-action">
@@ -430,7 +430,7 @@ const MachineContent = () => {
                     <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                   </a> */}
                   <a href="#">
-                    <img src={`http://15.206.68.236:5001/${product.image}`} alt />
+                    <img src={`http://15.207.31.23:5001/${product.image}`} alt />
                   </a>
                 </div>
                 <div className="product-action">

@@ -10,7 +10,7 @@ const CompanyDeatails = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch("http://15.206.68.236:5000/companyproducts")
+        fetch("http://15.207.31.23:5000/companyproducts")
 
             .then(response => {
                 console.log(response);
@@ -44,7 +44,7 @@ const CompanyDeatails = () => {
                                                                     <img src={`http://localhost:5001/${detail.logo}`} alt />
                                                                 </Link> */}
                                                                  <Link to="/" >
-                                                                    <img src={`http://15.206.68.236:5001/${detail.image}`} alt />
+                                                                    <img src={`http://15.207.31.23:5001/${detail.image}`} alt />
                                                                 </Link> 
                                                                 
                                                             </div>
