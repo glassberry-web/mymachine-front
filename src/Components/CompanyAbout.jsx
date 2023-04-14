@@ -10,7 +10,7 @@ const CompanyAbout = () => {
     const {id} = location.state
 
     const fetchData = () => {
-        fetch("http://localhost:5000/machinelisting")
+        fetch("http://15.206.68.236:5000/machinelisting")
 
             .then(response => {
                 console.log(response);

@@ -42,7 +42,7 @@ const SearchResult = ()=>{
 
   useEffect(()=>{
     const fetchFilters = async ()=>{
-      const res = await axios.get("http://localhost:5000/fetch")
+      const res = await axios.get("http://15.206.68.236:5000/fetch")
       .catch((error)=>{
 console.log("err=>", error);
       });
@@ -95,8 +95,8 @@ console.log("err=>", error);
                   <div className="product__item product__item-d">
                     <div className="product__thumb fix fix-height">
                       <div className="product-image w-img">
-                        <a href="product-detail.html">
-                          <img src={`http://localhost:5001/${product.image}`} alt="product" />
+                        <a href="#">
+                          <img src={`http://15.206.68.236:5001/${product.image}`} alt="product" />
                         </a>
                       </div>
                       <div className="product-action">
@@ -111,7 +111,7 @@ console.log("err=>", error);
                       </div>
                     </div>
                     <div className="product__content-3">
-                      <h6><a href="product-detail.html">{product.product_name}</a></h6>
+                      <h6><a href="#">{product.product_name}</a></h6>
                       
                     </div>
                     <div className="product__add-cart-s text-center">
@@ -131,7 +131,7 @@ console.log("err=>", error);
           <div className="features-thum">
             <div className="features-product-image w-img">
               <a href="#">
-                <img src={`http://localhost:5001/${product.image}`} alt />
+                <img src={`http://15.206.68.236:5001/${product.image}`} alt />
               </a>
             </div>
             <div className="product-action">

@@ -35,7 +35,7 @@ const FilteredProducts = () => {
   useEffect(() => {
     const fetchFilters = async () => {
       const res = await axios
-        .get("http://localhost:5000/fetch")
+        .get("http://15.206.68.236:5000/fetch")
         .catch((error) => {
           console.log("err=>", error);
         });
@@ -63,7 +63,7 @@ const FilteredProducts = () => {
               <div className="product-image w-img">
                 <a href="product-detail.html">
                   <img
-                    src={`http://localhost:5001/${product.image}`}
+                    src={`http://15.206.68.236:5001/${product.image}`}
                     alt="product"
                   />
                 </a>

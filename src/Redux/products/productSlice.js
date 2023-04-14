@@ -6,7 +6,7 @@ export const fetchAsyncProducts = createAsyncThunk(
   "products/fetchAsyncProducts",
   async (debouceSearchTerm) => {
     const response = await axios.get(
-        `http://localhost:5000/search/${debouceSearchTerm}`
+        `http://15.206.68.236:5000/search/${debouceSearchTerm}`
     );
     console.log("slice==>", response
     );

@@ -26,7 +26,7 @@ const Topcatagories = () => {
   console.log("popop=>", popup);
 
   const fetchData = () => {
-    fetch("http://localhost:5000/fetch")
+    fetch("http://15.206.68.236:5000/fetch")
 
       .then(response => {
         console.log(response);
@@ -166,9 +166,9 @@ const Topcatagories = () => {
                                         className="radius pimg"
                                       />
                                     </Link> */}
-                                     <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                     <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`http://15.206.68.236:5001/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
@@ -181,7 +181,7 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                  <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                    {detail.product_name}
                                  </NavLink>
                                   </h6>
@@ -503,9 +503,9 @@ const Topcatagories = () => {
                               <SwiperSlide className="product__item swiper-slide">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                    <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`http://15.206.68.236:5001/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
@@ -528,7 +528,7 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                  <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -628,7 +628,7 @@ const Topcatagories = () => {
                                   <div className="product-image w-img">
                                     <a href="#">
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`http://15.206.68.236:5001/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
@@ -651,7 +651,7 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                  <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                       {detail.product_name}
                                  </NavLink>
                                   </h6>
@@ -740,9 +740,9 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                   <img
-                                    src={`http://localhost:5001/${detail.image}`}
+                                    src={`http://15.206.68.236:5001/${detail.image}`}
                                     alt="product"
                                     className="radius pimg"
                                   />
@@ -765,7 +765,7 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                               <h6>
-                              <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                              <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                             {detail.product_name}
                               </NavLink>
                               </h6>
@@ -852,9 +852,9 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                   <img
-                                    src={`http://localhost:5001/${detail.image}`}
+                                    src={`http://15.206.68.236:5001/${detail.image}`}
                                     alt="product"
                                     className="radius pimg"
                                   />
@@ -877,7 +877,7 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                               <h6>
-                              <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                              <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                    {detail.product_name}
                                    </NavLink>
                               </h6>
@@ -965,9 +965,9 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                <Link to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                   <img
-                                    src={`http://localhost:5001/${detail.image}`}
+                                    src={`http://15.206.68.236:5001/${detail.image}`}
                                     alt="product"
                                     className="radius pimg"
                                   />
@@ -990,7 +990,7 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                               <h6>
-                              <NavLink className="productlink" to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                              <NavLink className="productlink" to="http://15.206.68.236:3000/productDetails" state={{id:`${detail._id}`}}>
                                {detail.product_name}
                                 </NavLink>
                               </h6>

@@ -8,7 +8,7 @@ const SliderNavigation = () => {
   const [subcategory, setSubCategory] = useState([])
   const fetchData = () => {
     // http://localhost:5000/uniquecategories
-    fetch("http://localhost:5000/fetch")
+    fetch("http://15.206.68.236:5000/fetch")
 
       .then(response => {
         console.log(response);
@@ -24,7 +24,7 @@ const SliderNavigation = () => {
   }, [])
   const fetchCategory = () => {
    
-    fetch("http://localhost:5000/uniquecategories")
+    fetch("http://15.206.68.236:5000/uniquecategories")
 
       .then(response => {
         console.log(response);
@@ -40,7 +40,7 @@ const SliderNavigation = () => {
   }, [])
   const fetchSubCategory = () => {
    
-    fetch(" http://localhost:5000/uniquesubcategories")
+    fetch("http://15.206.68.236:5000/uniquesubcategories")
 
       .then(response => {
         console.log(response);
