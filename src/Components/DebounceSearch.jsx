@@ -58,7 +58,7 @@ const DebounceSearch = () => {
                           <HiOutlineSearch style={{ fontSize: "30px" }} />
                         </button>
                       </div>
-                      <Select />
+                      {/* <Select /> */}
                     </form>
                   </div>
                 </div>

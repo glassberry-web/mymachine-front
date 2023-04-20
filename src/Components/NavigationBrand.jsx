@@ -27,9 +27,7 @@ const NavigationBrand = () => {
               <GoThreeBars style={{ fontSize: "30px" }} /> Shop by Brands
             </button>
             <div
-              className={
-                toggle ? "cat__menu brand-block" : "cat__menu brand-none"
-              }
+              className="cat__menu"
             >
               <nav id="mobile-menu" style={{ display: "block" }}>
                 <ul>

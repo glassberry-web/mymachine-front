@@ -63,7 +63,7 @@ const SectionTitle = (props) => {
               <div className="button-wrap">
                 <Link to={`${titles.link}`}>
                   {titles.See}{" "}
-                  {titles.name === "Top Categories" ? "" : <FaChevronRight />}
+                  {titles.name === "Top Categories" || "Testimonials" ? "" : <FaChevronRight />}
                 </Link>
               </div>
             )}

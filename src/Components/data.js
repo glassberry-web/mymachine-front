@@ -168,6 +168,11 @@ const data = [
       See :'See All Blogs',
       link:"/blogs"
     },
+    {
+      id:6,
+      name:'Testimonials',
+      See :'',
+        },
   ]
 
   const  blogcon = [
@@ -242,5 +247,26 @@ const SliderNavigationData = [
 //   }
 // ]
 
-  export  {data, latestSubData, topSubData, sectionTitleData, blogcon, condetails } 
+const TestimonialsData = [
+  {
+    id:1,
+    review:"Most databases, text processing functions and data transfer protocols default to the English alphabet. Testing software applications with only English looking text, like Lorem Ipsum, may not reveal potential mismatches between different parts of the application or ensure that the font can display all necessary characters.",
+    name:"Arvind Khosla",
+    deg:"Customer",
+  },
+  {
+    id:2,
+    review:"Most databases, text processing functions and data transfer protocols default to the English alphabet. Testing software applications with only English looking text, like Lorem Ipsum, may not reveal potential mismatches between different parts of the application or ensure that the font can display all necessary characters.",
+    name:"Sushant Verma",
+    deg:"Customer",
+  },
+  {
+    id:3,
+    review:"Most databases, text processing functions and data transfer protocols default to the English alphabet. Testing software applications with only English looking text, like Lorem Ipsum, may not reveal potential mismatches between different parts of the application or ensure that the font can display all necessary characters.",
+    name:"Rani Bisnoi",
+    deg:"Customer",
+  },
+]
+
+  export  {data, TestimonialsData, latestSubData, topSubData, sectionTitleData, blogcon, condetails } 
   

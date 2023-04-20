@@ -132,7 +132,7 @@ const Topcatagories = () => {
                             },
                             1024: {
                               // width: 768,
-                              slidesPerView: 5,
+                              slidesPerView: 4,
                             },
                           }}
                           modules={[
@@ -145,7 +145,7 @@ const Topcatagories = () => {
                           ]}
 
                           spaceBetween={50}
-                          slidesPerView={5}
+                          slidesPerView={4}
                           navigation={{
                             prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
 
@@ -156,12 +156,12 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item swiper-slide">
+                              <SwiperSlide className="product__item swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    {/* <Link to="http://localhost:3000/productDetails" state={{id:`${detail._id}`}}>
+                                    {/* <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                       <img
-                                        src={`http://localhost:5001/${detail.image}`}
+                                        src={`http://15.207.31.23:5001/${detail.image}`}
                                         alt="product"
                                         className="radius pimg"
                                       />
@@ -476,7 +476,7 @@ const Topcatagories = () => {
                             },
                             1024: {
                               // width: 768,
-                              slidesPerView: 5,
+                              slidesPerView: 4,
                             },
                           }}
                           modules={[
@@ -489,7 +489,7 @@ const Topcatagories = () => {
                           ]}
 
                           spaceBetween={50}
-                          slidesPerView={5}
+                          slidesPerView={4}
                           navigation={{
                             prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
 
@@ -500,7 +500,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item swiper-slide">
+                              <SwiperSlide className="product__item swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -599,7 +599,7 @@ const Topcatagories = () => {
                             },
                             1024: {
                               // width: 768,
-                              slidesPerView: 5,
+                              slidesPerView: 4,
                             },
                           }}
                           modules={[
@@ -612,7 +612,7 @@ const Topcatagories = () => {
                           ]}
 
                           spaceBetween={50}
-                          slidesPerView={5}
+                          slidesPerView={4}
                           navigation={{
                             prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
 
@@ -623,7 +623,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item swiper-slide">
+                              <SwiperSlide className="product__item swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <a href="#">
@@ -713,7 +713,7 @@ const Topcatagories = () => {
                         },
                         1024: {
                           // width: 768,
-                          slidesPerView: 5,
+                          slidesPerView: 4,
                         },
                       }}
                         modules={[
@@ -726,7 +726,7 @@ const Topcatagories = () => {
                         ]}
                         
                         spaceBetween={50}
-                        slidesPerView={5}
+                        slidesPerView={4}
                         navigation ={{
                           prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
                           
@@ -737,7 +737,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item swiper-slide">
+                            <SwiperSlide className="product__item swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -821,11 +821,11 @@ const Topcatagories = () => {
                         },
                         768: {
                           // width: 768,
-                          slidesPerView: 1,
+                          slidesPerView: 3,
                         },
                         1024: {
                           // width: 768,
-                          slidesPerView: 5,
+                          slidesPerView: 4,
                         },
                       }}
                         modules={[
@@ -838,7 +838,7 @@ const Topcatagories = () => {
                         ]}
                         
                         spaceBetween={50}
-                        slidesPerView={5}
+                        slidesPerView={4}
                         navigation ={{
                           prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
                           
@@ -849,7 +849,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item swiper-slide">
+                            <SwiperSlide className="product__item swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -962,7 +962,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item swiper-slide">
+                            <SwiperSlide className="product__item swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>

@@ -10,6 +10,7 @@ import SliderNavigation from '../Components/SliderNavigation'
 import Topcatagories from '../Components/Topcatagories'
 import TopMost from '../Components/TopMost'
 import { fetchAsyncProducts } from '../Redux/products/productSlice'
+import Testimonials from '../Components/Testimonials'
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,12 +24,15 @@ const Home = () => {
   <>
   <Slider />
   {/* <SliderNavigation /> */}
-  <TopMost />
-  {/* <Features /> */}
-  <Homecta />
   <Topcatagories />
+  <TopMost />
+  
   <PopularBrands />
+  
+  {/* <Features /> */}
+  <Homecta />  
   <LatestProduct />
+  <Testimonials />
   <HomeBlog />
   </>
    

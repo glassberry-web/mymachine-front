@@ -1223,9 +1223,9 @@ input ::placeholder
 
 .logo .logo-image img {
   display: block;
-  max-width: 210px;
+  max-width: 240px;
   padding: 5px 0;
-  width: 12rem;
+  width: 15rem;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .logo .logo-image img {
@@ -1313,7 +1313,7 @@ input ::placeholder
   border: 2px solid #ffffff;
   outline: none;
   padding: 0 15px;
-  padding-left: 170px;
+  padding-left: 16px;
   padding-right: 60px;
 }
 @media (max-width: 575px) {
@@ -1785,12 +1785,12 @@ input ::placeholder
   position: absolute;
   top: 120%;
   left: 0;
-  min-width: 200px;
-  background: #ffffff;
+  min-width: 225px;
+  background: black;
   -webkit-box-shadow: 0px 15px 30px 0px rgba(0, 3, 143, 0.1);
   -moz-box-shadow: 0px 15px 30px 0px rgba(0, 3, 143, 0.1);
   box-shadow: 0px 15px 30px 0px rgba(0, 3, 143, 0.1);
-  border: 1px solid #b0c6c64d;
+  /* border: 1px solid #b0c6c64d; */
   visibility: hidden;
   opacity: 0;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -1808,9 +1808,9 @@ input ::placeholder
 .main-menu ul li ul.submenu li a {
   position: relative;
   padding: 5px 25px;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: capitalize;
-  color: #666 !important;
+  color: #fff !important;
   font-weight: 400;
 }
 .main-menu ul li ul.submenu li a i {
@@ -2297,15 +2297,7 @@ input ::placeholder
   position: relative;
 }
 
-.cat__menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 83%;
-  box-shadow: 0px 15px 30px 0px rgba(0, 3, 143, 0.1);
-  z-index: 2;
-  display: none;
-}
+
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .cat__menu {
     width: 88%;
@@ -2347,6 +2339,24 @@ input ::placeholder
 .cat-toggle-btn-1:hover {
   background: #fcbe00;
   color: #222;
+
+}
+.cat-toggle:hover .cat__menu {  
+    visibility: visible !important;
+    opacity: 1 !important;
+  
+}
+.cat__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 54%;
+  box-shadow: 0px 15px 30px 0px rgba(0, 3, 143, 0.1);
+  z-index: 99999;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition:  all 0.3s linear;
+
 }
 
 /*----------------------------------------*/
@@ -3118,7 +3128,7 @@ input ::placeholder
 /*  13. product CSS
 /*----------------------------------------*/
 .product__item {
-  padding: 20px;
+  padding: 0 0 20px;
   position: relative;
   transition: 0.3s;
   z-index: 3;
@@ -3130,7 +3140,11 @@ input ::placeholder
   box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 15px;
 }
 .pimg{
-  height: 180px;
+  height: 230px;
+}
+.pbm1{
+  margin-bottom: 1rem;
+  border-radius: 1rem;
 }
 .product__item {
   box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.1);
@@ -3244,7 +3258,7 @@ input ::placeholder
 .product__thumb .product-image {
   overflow: hidden;
   /* border: 1px solid #a8a8a8; */
-  border-radius: 1rem 0 1rem 0;
+  /* border-radius: 1rem 0 1rem 0; */
   background-image: linear-gradient(180deg, #c8c8c8, #b3b3b394);
 }
 .product__thumb .product-image img {
@@ -3303,7 +3317,7 @@ input ::placeholder
   transition: 0.3s;
 }
 .product__content-2 h6:hover {
-  color: #16bcdc;
+  color: #fcbe00;
 }
 .product__content-2 .price {
   transition: 0.3s;
@@ -3367,6 +3381,7 @@ input ::placeholder
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
+  margin-top: 0.5rem;
 }
 @media (max-width: 575px) {
   .product__nav-tab {
@@ -3403,9 +3418,9 @@ input ::placeholder
 }
 .product__nav-tab .nav-link.active {
   color: #fcbe00 !important;
-  background: black !important;
+  /* background: black !important; */
   padding: 0.3rem 0.4rem;
-  border: 8px 0 8px 0;
+  /* border: 8px 0 8px 0; */
 }
 .product__nav-tab-red .nav-link:hover {
   color: #CC1414;
@@ -5672,14 +5687,15 @@ box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px
 }
 
 .news-quote-title {
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 16px;
+  line-height: 25px;
 }
 
 .news-quote-area {
   border: 2px solid #f3f3f3;
   box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.06);
-  padding: 50px;
+  padding: 30px;
+  background: white;
 }
 @media (max-width: 575px) {
   .news-quote-area {
@@ -7335,7 +7351,7 @@ padding-left: 15px !important;
 }
 .brand-block{
   display: block;
-  margin-left: 108px;
+  /* margin-left: 108px; */
   height: 274px;
   transition: all 0.3s linear;
 }
@@ -7562,7 +7578,7 @@ padding-left: 15px !important;
   margin-top: 0.5rem;
 }
 .postioncategory{
-  top: 260px !important;
+  top: 285px !important;
 }
 .backres{
   background-image:url(../img/slider/resslider2.jpg) !important ;
@@ -7578,6 +7594,9 @@ padding-left: 15px !important;
   background: linear-gradient(158deg, #d2d2d278, #d1d1d1);
     border-radius: 10px 100px 100px 10px;
     padding: 2rem 2rem;
+}
+.tesh{
+  height: 420px;
 }
 
 

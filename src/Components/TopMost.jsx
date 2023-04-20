@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade,  Autoplay } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade,  Autoplay, EffectCoverflow  } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
 import { sectionTitleData, topSubData } from "./data";
@@ -35,6 +35,24 @@ const TopMost = () => {
     useEffect(() => {
       fetchData()
     }, [])
+    const [swiper, setSwiper] = useState(0);
+    const slideTo = (index) => {
+      if(swiper) 
+      swiper.slideTo(index)};
+
+    const swiperOptions = {
+      effect:"coverflow",
+      grabCursor:true,
+      centeredSlides:true,
+      slidesPerView:5,
+      // coverflowEffect: {
+      //   rotate: 50,
+      //   stretch: 0,
+      //   depth: 100,
+      //   modifier: 1,
+      //   slideShadows: true,
+      // },
+    };
   return (
     <>
    
@@ -47,6 +65,7 @@ const TopMost = () => {
        data.length > 0 && (
         <div className="product-slider swiper-container">
         <Swiper
+         onSwiper={setSwiper}
         breakpoints={{
             370: {
               // width: 576,
@@ -62,7 +81,7 @@ const TopMost = () => {
             },
             1024: {
               // width: 768,
-              slidesPerView: 5,
+              slidesPerView: 4,
             },
           }}
             modules={[
@@ -70,12 +89,13 @@ const TopMost = () => {
               Pagination,
               Scrollbar,
               A11y,
+              // EffectCoverflow,
               EffectFade,
               Autoplay,
             ]}
            loop
             spaceBetween={50}
-            slidesPerView={5}
+            slidesPerView={4}
             navigation ={{
               prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
               
