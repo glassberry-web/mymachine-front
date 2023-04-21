@@ -35,6 +35,7 @@
 /*  01. THEME DEFAULT CSS START
 /*----------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&amp;display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;500;600;700;800&family=Work+Sans&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -45,7 +46,7 @@
     typography css start 
 ---------------------------------*/
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: normal;
   color: #666;
@@ -62,7 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #1F2024;
   margin-top: 0px;
   font-weight: 500;
@@ -586,15 +587,18 @@ input ::placeholder
 }
 
 .cart-btn {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 9px 30px;
-  background-color: #fcbe00;
-  color: #222;
+  padding: 9px 6px;
+  background-color: black;
+  color: white;
   display: inline-block;
   border: 1px solid transparent;
   text-transform: uppercase;
   text-align: center;
+  width: 50% !important;
+  margin: auto;
+  border-radius: 10px;
 }
 .cart-btn:hover {
   background-color: #222;
@@ -606,19 +610,22 @@ input ::placeholder
   font-size: 12px;
   font-weight: 500;
   padding: 7px 7px;
-  background-color: #fcbe00;
+  background-color: black;
   color: #ffffff;
   display: inline-block;
   border: 1px solid transparent;
   text-transform: uppercase;
   text-align: center;
-  border-radius: 25px;
+  border-radius: 10px;
+  width: 50% !important;
+  margin: auto;
+
 }
-.cart-btn-3:hover {
-  border-color: #fcbe00;
+/* .cart-btn-3:hover {
+  border-color: #;
   background-color: #fcbe00;
   color: #ffffff;
-}
+} */
 
 .cart-btn-4 {
   font-size: 13px;
@@ -2079,7 +2086,7 @@ input ::placeholder
 }
 
 .cat__menu ul {
-  background: #ffffff;
+  background: black;
   -webkit-border-radius: 0 0 5px 3px;
   -moz-border-radius: 0 0 5px 3px;
   border-radius: 0 0 5px 3px;
@@ -2095,10 +2102,10 @@ input ::placeholder
   display: inline-block;
   padding: 10px 20px;
   text-transform: capitalize;
-  color: #1F2024;
-  border-bottom: 1px solid #e5e5e5;
+  color: white;
+  border-bottom: 1px solid #a09f9f;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   width: 100%;
 }
@@ -3128,7 +3135,7 @@ input ::placeholder
 /*  13. product CSS
 /*----------------------------------------*/
 .product__item {
-  padding: 0 0 20px;
+  /* padding: 0 0 20px; */
   position: relative;
   transition: 0.3s;
   z-index: 3;
@@ -3259,7 +3266,8 @@ input ::placeholder
   overflow: hidden;
   /* border: 1px solid #a8a8a8; */
   /* border-radius: 1rem 0 1rem 0; */
-  background-image: linear-gradient(180deg, #c8c8c8, #b3b3b394);
+  /* background-image: linear-gradient(180deg, #c8c8c8, #b3b3b394); */
+  background-color: #b3b3b394;
 }
 .product__thumb .product-image img {
   transition: all 0.3s ease-out 0s;
@@ -3269,19 +3277,22 @@ input ::placeholder
 }
 .product__content {
   overflow: hidden;
-  padding-bottom: 70px;
+  /* padding-bottom: 70px; */
+ display: none;
+  
 }
 .product__content h6 {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.2;
-  font-weight: 500;
-  color: #616161;
+  font-weight: 400;
+  color: #000000;
   margin-bottom: 0;
   margin-top: 15px;
   text-align: center;
+  padding: 0 24px;
 }
 .product__content h6:hover {
-  color: #fcbe00;
+  color: white;
 }
 .product__content .price {
   transition: 0.3s;
@@ -3301,7 +3312,7 @@ input ::placeholder
 }
 .product__content .features-des ul li a {
   font-size: 14px;
-  color: #666;
+  color: #000000;
 }
 .product__content .features-des ul li a i {
   font-size: 6px;
@@ -3317,7 +3328,7 @@ input ::placeholder
   transition: 0.3s;
 }
 .product__content-2 h6:hover {
-  color: #fcbe00;
+  color: white;
 }
 .product__content-2 .price {
   transition: 0.3s;
@@ -3442,7 +3453,7 @@ input ::placeholder
     display: none;
   }
 }
-@media (hover : hover) {
+/* @media (hover : hover) {
   .cart-btn-3{
     background-color: #fcbe00;
     border-color: #fcbe00;
@@ -3453,7 +3464,7 @@ input ::placeholder
     opacity: 1;
     bottom: 20px;
 }
-}
+} */
 @media (max-width: 575px) {
   .product__nav-tab-3 {
     margin-top: 20px;
@@ -4897,7 +4908,7 @@ box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px
   font-size: 60px;
   color: #F2F4F7;
   display: inline-block;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
 
@@ -4947,7 +4958,7 @@ box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px
   line-height: 1.4;
   margin-bottom: 20px;
   color: #ffffff;
-  margin-right: 80px;
+  /* margin-right: 80px; */
 }
 
 .team-image:hover .inner-timg img {
@@ -7578,7 +7589,7 @@ padding-left: 15px !important;
   margin-top: 0.5rem;
 }
 .postioncategory{
-  top: 285px !important;
+  top: 120px !important;
 }
 .backres{
   background-image:url(../img/slider/resslider2.jpg) !important ;
@@ -7598,6 +7609,85 @@ padding-left: 15px !important;
 .tesh{
   height: 420px;
 }
+.flexalign{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product__item::after{
+  position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 80%;
+    background: #fcbe00;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+.product__item:hover::after{
+  width: 100%;
+    opacity: 0.7;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+}
+.product__item:hover .product__content{
+  transform: translateY(-50%);
+  display: block;
+  opacity: 1;
+  position: absolute;
+  top: 25%;
+  left: 0%;
+  /* display: flex;
+  justify-self: center;
+  align-items: center;
+   */
+  z-index: 99;
+  
+}
+.product__item:hover .product__content h6 {
+  visibility: visible;
+  opacity: 1;
+}
+.product__item.product__content .product__add-cart a {
+  position: relative;
+  transition: all 0.25s ease-in-out;
+  top: 50%;
+ visibility: visible;
+  opacity: 1;
+
+}
+.product__item:hover .product__add-cart{
+  visibility: visible;
+  opacity: 1;
+  bottom: 30px;
+  z-index: 999;
+}
+
+.product__item:hover{
+  transform: scale(1.1);
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+
 
 
 

@@ -40,8 +40,8 @@ const CompanyDeatails = () => {
                                                     <div className="single-smblog mb-30 boxbr">
                                                         <div className="smblog-thum">
                                                             <div className="blog-image w-img">
-                                                                {/* <Link to={`http://localhost:3000/companies/${detail._id}`}>
-                                                                    <img src={`http://localhost:5001/${detail.logo}`} alt />
+                                                                {/* <Link to={`http://15.207.31.23:3000/companies/${detail._id}`}>
+                                                                    <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
                                                                 </Link> */}
                                                                  <Link to="/" >
                                                                     <img src={`http://15.207.31.23:5001/${detail.image}`} alt />

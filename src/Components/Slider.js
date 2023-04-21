@@ -79,11 +79,11 @@ const Slider = () => {
                     <p className="pr-20 slider_text pt-2 resnone" data-animation="fadeInLeft" data-delay="1.9s">The GE IV series can cut both sheet and tube metals, replacing the need of having a seperate professional sheet laser cutting machine and tube laser cutting machine.</p>
                     <div className="row pt-4">
                       <div className="col-lg-4 col-6">
-                        <div className="ab-counter-item mb-30">
+                        <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
-                            <div className="counter-icon mr-10">
+                            {/* <div className="counter-icon mr-10">
                               <img src="assets/img/about/c-icon-01.png" alt />
-                            </div>
+                            </div> */}
                             <div className="counter_info">
                               <span className="counter">100</span>
                               <p>+</p>                                             
@@ -94,11 +94,11 @@ const Slider = () => {
                       </div>
                       {/*  */}
                       <div className="col-lg-4 col-6">
-                        <div className="ab-counter-item mb-30">
+                        <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
-                            <div className="counter-icon mr-10">
+                            {/* <div className="counter-icon mr-10">
                               <img src="assets/img/about/c-icon-01.png" alt />
-                            </div>
+                            </div> */}
                             <div className="counter_info">
                               <span className="counter">80</span>
                               <p>+</p>                                             
@@ -109,11 +109,11 @@ const Slider = () => {
                       </div>
                       {/*  */}
                       <div className="col-lg-4 col-6 marauto">
-                        <div className="ab-counter-item mb-30">
+                        <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
-                            <div className="counter-icon mr-10">
+                            {/* <div className="counter-icon mr-10">
                               <img src="assets/img/about/c-icon-01.png" alt />
-                            </div>
+                            </div> */}
                             <div className="counter_info">
                               <span className="counter">70</span>
                               <p>+</p>  
@@ -133,7 +133,7 @@ const Slider = () => {
           </div>
         </div>
       </SwiperSlide>{/* /single-slider */}
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center backres" style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}} >
+      {/* <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center backres" style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}} >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -160,7 +160,7 @@ const Slider = () => {
             </div>
           </div>
         </div>
-      </SwiperSlide>{/* /single-slider */}
+      </SwiperSlide>
       <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center"  style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}}>
         <div className="container">
           <div className="row">
@@ -187,7 +187,7 @@ const Slider = () => {
             
           </div>
         </div>
-      </SwiperSlide>{/* /single-slider */}
+      </SwiperSlide> */}
       <div className="main-slider-paginations" />
     </Swiper>
   </div>

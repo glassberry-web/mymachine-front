@@ -10,6 +10,7 @@ import { tabData } from "./data";
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
+import {GiLaserPrecision} from "react-icons/gi"
 import { useEffect } from "react";
 import ProductEnquiryForm from './ProductEnquiryForm';
  import { getpopup } from '../Redux/products/PopupSlice';
@@ -181,10 +182,17 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
+                                    <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                    {detail.product_name}
                                  </NavLink>
                                   </h6>
+                                  <h6>
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                   {detail.discription}
+                                 </NavLink>
+                                  </h6>
+                                 
 
 
                                 </div>
@@ -203,6 +211,7 @@ const Topcatagories = () => {
                                     </button>
                                   </a>
                                 </div>
+                                
                               </SwiperSlide>
                             ))
                           }
@@ -528,8 +537,14 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
+                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
+                                  </NavLink>
+                                  </h6>
+                                  <h6>                                 
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.discription}
                                   </NavLink>
                                   </h6>
 
@@ -650,10 +665,16 @@ const Topcatagories = () => {
                                   </div>
                                 </div>
                                 <div className="product__content">
-                                  <h6>
+                                <h6>
+                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                      {detail.product_name}
-                                 </NavLink>
+                                 {detail.product_name}
+                                  </NavLink>
+                                  </h6>
+                                  <h6>                                 
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.discription}
+                                  </NavLink>
                                   </h6>
 
 
@@ -764,11 +785,17 @@ const Topcatagories = () => {
                               </div>
                             </div>
                             <div className="product__content">
-                              <h6>
-                              <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                            {detail.product_name}
-                              </NavLink>
-                              </h6>
+                            <h6>
+                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.product_name}
+                                  </NavLink>
+                                  </h6>
+                                  <h6>                                 
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.discription}
+                                  </NavLink>
+                                  </h6>
                               
                              
                             </div>
@@ -876,11 +903,17 @@ const Topcatagories = () => {
                               </div>
                             </div>
                             <div className="product__content">
-                              <h6>
-                              <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                   {detail.product_name}
-                                   </NavLink>
-                              </h6>
+                            <h6>
+                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.product_name}
+                                  </NavLink>
+                                  </h6>
+                                  <h6>                                 
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.discription}
+                                  </NavLink>
+                                  </h6>
                               
                              
                             </div>
@@ -989,12 +1022,17 @@ const Topcatagories = () => {
                               </div>
                             </div>
                             <div className="product__content">
-                              <h6>
-                              <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                               {detail.product_name}
-                                </NavLink>
-                              </h6>
-                              
+                            <h6>
+                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.product_name}
+                                  </NavLink>
+                                  </h6>
+                                  <h6>                                 
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.discription}
+                                  </NavLink>
+                                  </h6>
                              
                             </div>
                             <div className="product__add-cart text-center postioncategory">

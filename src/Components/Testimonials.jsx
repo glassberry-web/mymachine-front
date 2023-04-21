@@ -60,7 +60,7 @@ const Testimonials = () => {
         className="swiper-wrapper">{
           TestimonialsData.map((detail,i) => (
             
-            <SwiperSlide key={i} className="product__item pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
+            <SwiperSlide key={i} className="product__item1 pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
              <div class="news-quote-area text-center">
                            <FaQuoteLeft  style={{display:"flex", fontSize:"2rem", margin:"1rem auto"}}/>
                            <a class="news-quote-title mt-25">{detail.review}</a>

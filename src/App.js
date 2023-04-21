@@ -15,6 +15,7 @@ import { getAllProducts } from "./Redux/products/productSlice";
 import { getAllFilters } from "./Redux/products/FilteredProductslice";
 import ProductDetails from "./Pages/ProductDetails";
 import ProductEnquiryForm from "./Components/ProductEnquiryForm";
+import Whatapp from "./Components/Whatapp";
 
 function App() {
   const products = useSelector(getAllProducts);
@@ -60,6 +61,7 @@ function App() {
         {/* <Route path="/machines/:filters"  element={<SearchResult />} /> */}
  
       </Routes> 
+      <Whatapp />
       <Footer />
     </div>
   );

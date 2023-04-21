@@ -9,6 +9,7 @@ import ProductEnquiryForm from './ProductEnquiryForm';
  import { getpopup } from '../Redux/products/PopupSlice';
  import { useSelector, useDispatch } from 'react-redux';
   import { setShow } from '../Redux/products/PopupSlice';
+  import {GiLaserPrecision} from "react-icons/gi"
 
 const TopMost = () => {
     const [title, SetTitle] = useState(sectionTitleData); 
@@ -108,7 +109,7 @@ const TopMost = () => {
         className="swiper-wrapper">{
           data.map((detail,i) => (
             detail.featured === "true" ?
-            <SwiperSlide key={i} className="product__item pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
+            <SwiperSlide key={i} className="product__item  product__item-2 b-radius-2 mb-20 swiper-slide">
               <div className="product__thumb fix">
                 <div className="product-image w-img">
                   {/* <Link to={"http://my-machine-store-0l73.onrender.com/productDetails"} state={{id:`${detail._id}`}}>
@@ -118,32 +119,28 @@ const TopMost = () => {
                     <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"  />
                   </Link>
                 </div>                  
-                <div className="product-action product-action-2">
-                  <a
-                    href="#"
-                    className="icon-box icon-box-1"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModalId"
-                  >
-                    <FaRegEye />
-                    {/* <FaRegEye /> */}
-                  </a>                   
-                </div>
+               
               </div>
               <div className="product__content product__content-2">
-                <h6>
-                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                  {detail.product_name}
-                  </NavLink>
-                </h6> 
-                <h4 className='h4size'>
+              <h6>
+                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.product_name}
+                                  </NavLink>
+                                  </h6>
+                                  <h6>                                 
+                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                 {detail.discription}
+                                  </NavLink>
+                                  </h6>    
+                {/* <h4 className='h4size'>
                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                   {detail.category}
                   </NavLink>
-                </h4>               
+                </h4>                */}
                 
               </div>
-              <div className="product__add-cart text-center">
+              <div className="product__add-cart text-center  postioncategory">
                 <button 
                   type="submit"
                   className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"

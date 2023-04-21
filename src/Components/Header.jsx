@@ -28,9 +28,9 @@ const Header = () => {
                 <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
                   <div className="header__info">
                     <div className="logo">
-                      <a href="#" className="logo-image">
+                      <Link to="/" className="logo-image">
                         <img src="../assets/img/new/logo3.png" alt="logo" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
