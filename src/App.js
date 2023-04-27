@@ -16,14 +16,15 @@ import { getAllFilters } from "./Redux/products/FilteredProductslice";
 import ProductDetails from "./Pages/ProductDetails";
 import ProductEnquiryForm from "./Components/ProductEnquiryForm";
 import Whatapp from "./Components/Whatapp";
+import ShopByBrand from "./Components/ShopByBrand";
 
 function App() {
   const products = useSelector(getAllProducts);
   const filters = useSelector(getAllFilters);
   const [originalTitle, setOriginalTitle] = useState();
-//   const location = useLocation();
-//   const {state} = location.state;
-// console.log("location", location.state) 
+  // const location = useLocation();
+  // const {brand} = location.state;
+// console.log("appbrand", brand) 
 
   // const {id} = useParams();
   // console.log("avi==>", id)
@@ -58,6 +59,7 @@ function App() {
         <Route path="/:id" element={<ProductDetails />} />
         {/* <Route path="/:id" element={<ProductEnquiryForm />} /> */}
         <Route path="/machines/:debouceSearchTerm"  element={<SearchResult />} />
+        <Route path="/shopbybrand"  element={<ShopByBrand />} />
         {/* <Route path="/machines/:filters"  element={<SearchResult />} /> */}
  
       </Routes> 

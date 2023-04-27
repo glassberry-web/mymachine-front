@@ -25,7 +25,7 @@ const DebounceSearch = () => {
 //   },[debouceSearchTerm]) 
 
 //   const fetchProduct = (debouceSearchTerm) => {
-//     fetch(`http://localhost:5000/search/${debouceSearchTerm}`)
+//     fetch(`http://15.207.31.23:5000/search/${debouceSearchTerm}`)
 //     .then((res) => res.json())
 //     .then((response) => {
 //       console.log('Reponse', response);
@@ -38,7 +38,7 @@ const DebounceSearch = () => {
     dispatch(fetchAsyncProducts(debouceSearchTerm));
     // dispatch(fetchAsyncShows(term));
     setSearchTerm("");
-    navigate(`/machines/${debouceSearchTerm}`)
+    navigate(`/machines/${debouceSearchTerm.replace(/ +/g, "")}`)
     console.log("nav=>", navigate)
   }
   return ( 

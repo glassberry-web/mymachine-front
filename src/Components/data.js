@@ -154,7 +154,7 @@ const data = [
       id:3,
       name:'Popular Brands',
       See :'See All brands ',
-      link:"/brands"
+      link:"/Companies"
     },
     {
       id:4,

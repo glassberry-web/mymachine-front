@@ -30,7 +30,7 @@ const MachineContent = () => {
   //                     <div className="product__thumb fix">
   //                       <div className="product-image w-img">
   //                         <a href="product-detail.html">
-  //                           <img src={`http://localhost:5001/${product.image}`} alt="product" />
+  //                           <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
   //                         </a>
   //                       </div>
   //                       <div className="product-action">
@@ -152,10 +152,10 @@ const MachineContent = () => {
             Checked.includes(machine.category) ||
             Checked.includes(machine.brand)
         ).map((product, index)=>(
-          <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-          <div className="product__item product__item-d">
+          <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 machine-mb">
+          <div className="product__item product__item-d proalign">
             <div className="product__thumb fix fix-height">
-              <div className="product-image w-img">
+              <div className="product-image w-img proimg-height">
                 <a href="#">
                   <img
                     src={`http://15.207.31.23:5001/${product.image}`}
@@ -201,7 +201,7 @@ const MachineContent = () => {
         //         <div className="product-image w-img">
         //           <a href="product-detail.html">
         //             <img
-        //               src={`http://localhost:5001/${product.image}`}
+        //               src={`http://15.207.31.23:5001/${product.image}`}
         //               alt="product"
         //             />
         //           </a>
@@ -241,7 +241,7 @@ const MachineContent = () => {
         //         <div className="product-image w-img">
         //           <a href="product-detail.html">
         //             <img
-        //               src={`http://localhost:5001/${product.image}`}
+        //               src={`http://15.207.31.23:5001/${product.image}`}
         //               alt="product"
         //             />
         //           </a>
@@ -277,10 +277,10 @@ const MachineContent = () => {
         // )) 
     ) : (
       machineData.map((product, index) => (
-        <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-          <div className="product__item product__item-d">
-            <div className="product__thumb fix fix-height">
-              <div className="product-image w-img">
+        <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 machine-mb">
+          <div className="product__item product__item-d proalign">
+            <div className="product__thumb fix fix-height ">
+              <div className="product-image w-img proimg-height">
                 <a href="#">
                   {/* <img
                     src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`}
@@ -292,7 +292,7 @@ const MachineContent = () => {
                   /> 
                 </a>
               </div>
-              <div className="product-action">
+              {/* <div className="product-action">
                 <a
                   href="#"
                   className="icon-box icon-box-1"
@@ -306,10 +306,10 @@ const MachineContent = () => {
                   <i className="fal fa-heart" />
                   <i className="fal fa-heart" />
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="product__content-3">
-              <h6>
+              <h6 className="">
                 <a href="#">{product.product_name}</a>
               </h6>
             </div>
@@ -340,7 +340,7 @@ const MachineContent = () => {
             <div className="row  g-0 align-items-center">
               <div className="col-md-4">
                 <div className="features-thum">
-                  <div className="features-product-image w-img">
+                  <div className="features-product-image w-img proimg-height">
                     {/* <a href="#">
                       <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                     </a> */}
@@ -364,14 +364,14 @@ const MachineContent = () => {
               </div>
               <div className="col-md-8">
                 <div className="product__content product__content-d">
-                  <h6>
+                  <h6 className="textleft">
                     <a href="#">{product.product_name}</a>
                   </h6>
                  
                   <div className="features-des">
                     <ul>
                     <li>
-                        <a href="product-detail.html">
+                        <a href="#">
                           <RxDotFilled/> <span>Model-No:</span>{product.modelnum}
                         </a>
                       </li>
@@ -449,7 +449,7 @@ const MachineContent = () => {
             </div>
             <div className="col-md-8">
               <div className="product__content product__content-d">
-                <h6>
+                <h6 className="textleft">
                   <a href="#">{product.product_name}</a>
                 </h6>
                
@@ -511,7 +511,7 @@ const MachineContent = () => {
   //                     <div className="product__thumb fix fix-height">
   //                       <div className="product-image w-img">
   //                         <a href="product-detail.html">
-  //                           <img src={`http://localhost:5001/${product.image}`} alt="product" />
+  //                           <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
   //                         </a>
   //                       </div>
   //                       <div className="product-action">
@@ -544,7 +544,7 @@ const MachineContent = () => {
   //                    <div className="product__thumb fix fix-height">
   //                      <div className="product-image w-img">
   //                        <a href="product-detail.html">
-  //                          <img src={`http://localhost:5001/${product.image}`} alt="product" />
+  //                          <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
   //                        </a>
   //                      </div>
   //                      <div className="product-action">

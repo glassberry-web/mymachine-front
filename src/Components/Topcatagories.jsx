@@ -157,7 +157,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item swiper-slide pbm1">
+                              <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     {/* <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -182,35 +182,40 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                    <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                   
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                    {detail.product_name}
                                  </NavLink>
                                   </h6>
-                                  <h6>
+                                  {/* <h6>
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                    {detail.discription}
                                  </NavLink>
-                                  </h6>
+                                  </h6> */}
                                  
 
 
                                 </div>
-                                <div className="product__add-cart text-center postioncategory">
-                                  <a
-                                    href
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalone"
-                                  >
-                                    <button
-                                      type="button"
-                                      className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                                      onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
-                                    >
-                                      enquire now
-                                    </button>
-                                  </a>
-                                </div>
+                                <div className="product__add-cart text-center  postioncategory btnflex">
+                             <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
+                <button 
+                  type="submit"
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
+                  
+                >
+                 Enquire Now
+                </button>
+               
+                
+              </div>
                                 
                               </SwiperSlide>
                             ))
@@ -509,7 +514,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item swiper-slide pbm1">
+                              <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -537,34 +542,39 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                   <h6>
-                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
-                                  <h6>                                 
+                                  {/* <h6>                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
-                                  </h6>
+                                  </h6> */}
 
 
                                 </div>
-                                <div className="product__add-cart text-center postioncategory">
-                                  <a
-                                    href
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalone"
-                                  >
-                                    <button
-                                      type="button"
-                                      className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
-                                      onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
-                                    >
-                                      enquire now
-                                    </button>
-                                  </a>
-                                </div>
+                                <div className="product__add-cart text-center  postioncategory btnflex">
+              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
+                <button 
+                  type="submit"
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
+                  
+                >
+                 Enquire Now
+                </button>
+               
+                
+              </div>
                               </SwiperSlide>
                             ))
                           }
@@ -638,7 +648,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item swiper-slide pbm1">
+                              <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <a href="#">
@@ -666,34 +676,39 @@ const Topcatagories = () => {
                                 </div>
                                 <div className="product__content">
                                 <h6>
-                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
-                                  <h6>                                 
+                                  {/* <h6>                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
-                                  </h6>
+                                  </h6> */}
 
 
                                 </div>
-                                <div className="product__add-cart text-center postioncategory">
-                                  <a
-                                    href
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalone"
-                                  >
-                                    <button
-                                      type="button"
-                                      className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
-                                      onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
-                                    >
-                                      enquire now
-                                    </button>
-                                  </a>
-                                </div>
+                                <div className="product__add-cart text-center  postioncategory btnflex">
+              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
+                <button 
+                  type="submit"
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
+                  
+                >
+                 Enquire Now
+                </button>
+               
+                
+              </div>
                               </SwiperSlide>
                             ))
                           }
@@ -758,7 +773,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item swiper-slide pbm1">
+                            <SwiperSlide className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -786,34 +801,39 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                             <h6>
-                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
-                                  <h6>                                 
+                                  {/* <h6>                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
-                                  </h6>
+                                  </h6> */}
                               
                              
                             </div>
-                            <div className="product__add-cart text-center postioncategory">
-                              <a
-                                href
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalone"
-                              >
-                                <button
-                                  type="button"
-                                  className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 postioncategory"
-                                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
-                                >
-                                  enquire now
-                                </button>
-                              </a>
-                            </div>
+                            <div className="product__add-cart text-center  postioncategory btnflex">
+              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
+                <button 
+                  type="submit"
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
+                  
+                >
+                 Enquire Now
+                </button>
+               
+                
+              </div>
                           </SwiperSlide>
                           ))
                         }                       
@@ -876,7 +896,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item swiper-slide pbm1">
+                            <SwiperSlide className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
@@ -904,16 +924,16 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                             <h6>
-                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                  {/* */}
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
-                                  <h6>                                 
+                                  {/* <h6>                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
-                                  </h6>
+                                  </h6> */}
                               
                              
                             </div>
@@ -1023,16 +1043,16 @@ const Topcatagories = () => {
                             </div>
                             <div className="product__content">
                             <h6>
-                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
-                                  <h6>                                 
+                                  {/* <h6>                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
-                                  </h6>
+                                  </h6> */}
                              
                             </div>
                             <div className="product__add-cart text-center postioncategory">
@@ -1044,6 +1064,7 @@ const Topcatagories = () => {
                                 <button
                                   type="button"
                                   className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                  onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
                                 >
                                   enquire now
                                 </button>

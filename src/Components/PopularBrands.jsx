@@ -3,36 +3,54 @@ import { Navigation, Pagination, Scrollbar, A11y, EffectFade,  Autoplay } from '
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SectionTitle from "./SectionTitle";
 import { sectionTitleData } from "./data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const PopularBrands = () => {
     const [title , SetTitle] = useState(sectionTitleData);
-    const brandsdata = [
-        {   
-            id:1,
-           src :"assets/image/brands/1.png"
-        },
-        {   
-            id:2,
-           src :"assets/image/brands/2.png"
-        },
-        {   
-            id:3,
-           src :"assets/image/brands/3.png"
-        },
-        {   
-            id:4,
-           src :"assets/image/brands/4.png"
-        },
-        {   
-            id:5,
-           src :"assets/image/brands/5.png"
-        },
-        {   
-            id:6,
-           src :"assets/image/brands/3.png"
-        },
-    ]
+    const [data, setData] = useState([])
+
+    const fetchData = () => {
+        fetch("http://15.207.31.23:5000/machinelisting")
+
+            .then(response => {
+                console.log(response);
+                return response.json()
+            })
+            .then(data => {
+                setData(data)
+            })
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+    // const brandsdata = [
+    //     {   
+    //         id:1,
+    //        src :"assets/image/brands/1.png"
+    //     },
+    //     {   
+    //         id:2,
+    //        src :"assets/image/brands/2.png"
+    //     },
+    //     {   
+    //         id:3,
+    //        src :"assets/image/brands/3.png"
+    //     },
+    //     {   
+    //         id:4,
+    //        src :"assets/image/brands/4.png"
+    //     },
+    //     {   
+    //         id:5,
+    //        src :"assets/image/brands/5.png"
+    //     },
+    //     {   
+    //         id:6,
+    //        src :"assets/image/brands/3.png"
+    //     },
+    // ]
   return (
     <>
       <section
@@ -85,16 +103,21 @@ const PopularBrands = () => {
                 disableOnInteraction: false,
               }} className="swiper-wrapper">
                 {
-                    brandsdata.map((data)=>(
+                    data.map((detail)=>(
+                      detail.logo &&  detail.company_name  ?(
                         <SwiperSlide className="brand-item w-img swiper-slide">
-                        <a  key={data.id} href="#">
+                           <Link to="http://15.207.31.23:3000/companiesDetails" state={{id:`${detail._id}`}} >
+                              <img src={`http://15.207.31.23:5001/${detail.logo}`}  alt="brand"
+                            className="shadow" />
+                            </Link> 
+                        {/* <Link to  key={data._id}>
                           <img
                             src={data.src}
-                            alt="brand"
-                            className="shadow"
+                           
                           />
-                        </a>
+                        </Link> */}
                       </SwiperSlide>
+                      ) : ""
                     ))
                 }
               {/* <div className="brand-item w-img swiper-slide">

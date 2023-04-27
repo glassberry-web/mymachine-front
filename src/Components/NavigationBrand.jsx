@@ -1,15 +1,34 @@
 import { GoThreeBars } from "react-icons/go";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const NavigationBrand = () => {
-  const unordered = [
-    "HSG",
-    "Alfexlaser",
-    "G30",
-    "GCC Technologies",
-    "Laser Technologies",
-  ];
+  const [data, setData] = useState([])
+
+  const fetchData = () => {
+      fetch("http://15.207.31.23:5000/fetch")
+
+          .then(response => {
+              console.log(response);
+              return response.json()
+          })
+          .then(data => {
+              setData(data)
+          })
+  }
+
+  useEffect(() => {
+      fetchData()
+  }, [])
+  const machineData = Object.values(data);
+  let uniqueBrand = [...new Set(machineData.map((brand) => brand.brand))];
+  // const unordered = [
+  //   "HSG",
+  //   "Alfexlaser",
+  //   "G30",
+  //   "GCC Technologies",
+  //   "Laser Technologies",
+  // ];
   const [toggle, setToggle] = useState(false);
   const handleClick = () => {
     setToggle((prev) => !prev);
@@ -31,10 +50,12 @@ const NavigationBrand = () => {
             >
               <nav id="mobile-menu" style={{ display: "block" }}>
                 <ul>
-                  {unordered.map((list) => (
+                  {uniqueBrand.map((detail) => (                 
+
                     <li>
-                      <a href="/something">{list}</a>
+                      <Link to="/shopbybrand" state={{brand:`${detail}`}}>{detail}</Link>
                     </li>
+                   
                   ))}
                 </ul>
               </nav>

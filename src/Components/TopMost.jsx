@@ -109,9 +109,9 @@ const TopMost = () => {
         className="swiper-wrapper">{
           data.map((detail,i) => (
             detail.featured === "true" ?
-            <SwiperSlide key={i} className="product__item  product__item-2 b-radius-2 mb-20 swiper-slide">
-              <div className="product__thumb fix">
-                <div className="product-image w-img">
+            <SwiperSlide key={i} className="product__item prr product__item-2 b-radius-2 mb-20 swiper-slide">
+              <div className="product__thumb fix ">
+                <div className="product-image w-img ">
                   {/* <Link to={"http://my-machine-store-0l73.onrender.com/productDetails"} state={{id:`${detail._id}`}}>
                     <img className='pimg' src={`http://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"  />
                   </Link> */}
@@ -122,17 +122,17 @@ const TopMost = () => {
                
               </div>
               <div className="product__content product__content-2">
-              <h6>
-                                  <GiLaserPrecision style={{marginRight:"0.7rem", fontSize:"1.5rem"}} />
+              <h6>                             
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
-                                  <h6>                                 
+                                  {/* <h6 className='sech6'>                                 
                                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
-                                  </h6>    
+                                  </h6>   */}
+                                 
                 {/* <h4 className='h4size'>
                   <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
                   {detail.category}
@@ -140,7 +140,27 @@ const TopMost = () => {
                 </h4>                */}
                 
               </div>
-              <div className="product__add-cart text-center  postioncategory">
+              <div className="product__add-cart text-center  postioncategory btnflex">
+              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
+                <button 
+                  type="submit"
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  onClick={()=>dispatch(setShow(["true", i]))}
+                  
+                >
+                 Enquire Now
+                </button>
+               
+                
+              </div>
+              {/* <div className="product__add-cart text-center">
                 <button 
                   type="submit"
                   className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
@@ -149,7 +169,9 @@ const TopMost = () => {
                 >
                  Enquire Now
                 </button>
-              </div>
+               
+                
+              </div> */}
             </SwiperSlide>
              : ""
           )

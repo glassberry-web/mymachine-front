@@ -6,7 +6,7 @@ const CompaniesComponent = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch("http://15.207.31.23:5000/machinelisting")
+        fetch("http://localhost:5000/machinelisting")
 
             .then(response => {
                 console.log(response);
@@ -32,16 +32,16 @@ const CompaniesComponent = () => {
                                 <div className="row">
                                     {
                                         data.map((detail) => (
-                                         detail.logo &&  detail.company_name  ? (                                            
+                                         detail.status === "Active" && detail.logo &&  detail.company_name  ? (                                            
                                                 <div className="col-xl-3">
                                                     <div className="single-smblog mb-30 boxbr">
                                                         <div className="smblog-thum">
                                                             <div className="blog-image w-img">
-                                                                {/* <Link to={`http://15.207.31.23:3000/companies/${detail._id}`}>
-                                                                    <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
+                                                                {/* <Link to={`http://localhost:3000/companies/${detail._id}`}>
+                                                                    <img src={`http://localhost:5001/${detail.logo}`} alt />
                                                                 </Link> */}
-                                                                 <Link to="http://15.207.31.23:3000/companiesDetails" state={{id:`${detail._id}`}} >
-                                                                    <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
+                                                                 <Link to="http://localhost:3000/companiesDetails" state={{id:`${detail._id}`}} >
+                                                                    <img src={`http://localhost:5001/${detail.logo}`} alt />
                                                                 </Link> 
                                                                 
                                                             </div>
