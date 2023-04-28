@@ -116,7 +116,8 @@ const TopMost = () => {
                     <img className='pimg' src={`http://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"  />
                   </Link> */}
                   <Link to={"http://15.207.31.23:3000/productDetails"} state={{id:`${detail._id}`}}>
-                    <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"  />
+                    {/* <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"  /> */}
+                    <img className='pimg' src={detail.image} alt="product"  />
                   </Link>
                 </div>                  
                

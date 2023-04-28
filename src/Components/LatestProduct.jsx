@@ -93,7 +93,7 @@ const LatestProduct = () => {
                     <div className="product__thumb fix">
                       <div className="product-image w-img">
                         <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                          <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"/>
+                          <img className='pimg' src={detail.image} alt="product"  />
                         </Link>
                         {/* <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
                           <img className='pimg' src={`https://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"/>

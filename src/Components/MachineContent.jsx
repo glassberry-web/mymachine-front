@@ -158,7 +158,7 @@ const MachineContent = () => {
               <div className="product-image w-img proimg-height">
                 <a href="#">
                   <img
-                    src={`http://15.207.31.23:5001/${product.image}`}
+                    src={product.image}
                     alt="product"
                   />
                 </a>
@@ -286,10 +286,7 @@ const MachineContent = () => {
                     src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`}
                     alt="product"
                   /> */}
-                  <img
-                    src={`http://15.207.31.23:5001/${product.image}`}
-                    alt="product"
-                  /> 
+                  <img src={product.image} alt="product" />
                 </a>
               </div>
               {/* <div className="product-action">
@@ -345,7 +342,7 @@ const MachineContent = () => {
                       <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                     </a> */}
                     <a href="#">
-                      <img src={`http://15.207.31.23:5001/${product.image}`} alt />
+                      <img src={product.image} alt="product" />
                     </a>
                   </div>
                   <div className="product-action">
@@ -430,7 +427,7 @@ const MachineContent = () => {
                     <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                   </a> */}
                   <a href="#">
-                    <img src={`http://15.207.31.23:5001/${product.image}`} alt />
+                    <img src={product.image} alt="product" />
                   </a>
                 </div>
                 <div className="product-action">

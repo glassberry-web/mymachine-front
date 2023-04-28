@@ -96,7 +96,7 @@ console.log("err=>", error);
                     <div className="product__thumb fix fix-height">
                       <div className="product-image w-img">
                         <a href="#">
-                          <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
+                          <img src={product.image} alt="product" />                          
                         </a>
                       </div>
                       <div className="product-action">
@@ -131,7 +131,7 @@ console.log("err=>", error);
           <div className="features-thum">
             <div className="features-product-image w-img">
               <a href="#">
-                <img src={`http://15.207.31.23:5001/${product.image}`} alt />
+                <img src={product.image} alt="product" />
               </a>
             </div>
             <div className="product-action">
@@ -208,7 +208,7 @@ console.log("err=>", error);
   //                   <div className="product__thumb fix fix-height">
   //                     <div className="product-image w-img">
   //                       <a href="product-detail.html">
-  //                         <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
+  //                         <img src={product.image} alt="product" />
   //                       </a>
   //                     </div>
   //                     <div className="product-action">
@@ -241,7 +241,7 @@ console.log("err=>", error);
   //                     <div className="product__thumb fix fix-height">
   //                       <div className="product-image w-img">
   //                         <a href="product-detail.html">
-  //                           <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
+  //                           <img src={product.image} alt="product" />
   //                         </a>
   //                       </div>
   //                       <div className="product-action">
@@ -274,7 +274,7 @@ console.log("err=>", error);
   //                     <div className="product__thumb fix fix-height">
   //                       <div className="product-image w-img">
   //                         <a href="product-detail.html">
-  //                           <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
+  //                           <img src={product.image} alt="product" />
   //                         </a>
   //                       </div>
   //                       <div className="product-action">
@@ -308,7 +308,7 @@ console.log("err=>", error);
     //                   <div className="product__thumb fix">
     //                     <div className="product-image w-img">
     //                       <a href="product-detail.html">
-    //                         <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
+    //                         <img src={product.image} alt="product" />
     //                       </a>
     //                     </div>
     //                     <div className="product-action">

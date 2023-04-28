@@ -56,10 +56,10 @@ const ProductDetailsComponent = () => {
                                     alt: "Wristwatch by Ted Baker London",
                                     isFluidWidth: true,
                                     imageClassName: "proimg",
-                                    src: `http://15.207.31.23:5001/${detail.image}`,
+                                    src: `${detail.image}`,
                                   },
                                   largeImage: {
-                                    src: `http://15.207.31.23:5001/${detail.image}`,
+                                    src: `${detail.image}`,
                                     width: 2000,
                                     height: 1800,
                                   },

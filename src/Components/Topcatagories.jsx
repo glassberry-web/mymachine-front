@@ -161,18 +161,10 @@ const Topcatagories = () => {
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     {/* <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                      <img
-                                        src={`http://15.207.31.23:5001/${detail.image}`}
-                                        alt="product"
-                                        className="radius pimg"
-                                      />
+                                     <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link> */}
                                      <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                      <img
-                                        src={`http://15.207.31.23:5001/${detail.image}`}
-                                        alt="product"
-                                        className="radius pimg"
-                                      />
+                                     <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link>
                                   </div>
                                   {/*   <div class="product__offer">
@@ -518,11 +510,7 @@ const Topcatagories = () => {
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                      <img
-                                        src={`http://15.207.31.23:5001/${detail.image}`}
-                                        alt="product"
-                                        className="radius pimg"
-                                      />
+                                     <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link>
                                   </div>
                                   {/*   <div class="product__offer">
@@ -652,11 +640,7 @@ const Topcatagories = () => {
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <a href="#">
-                                      <img
-                                        src={`http://15.207.31.23:5001/${detail.image}`}
-                                        alt="product"
-                                        className="radius pimg"
-                                      />
+                                     <img className='pimg radius' src={detail.image} alt="product"  />
                                     </a>
                                   </div>
                                   {/*   <div class="product__offer">
@@ -777,11 +761,7 @@ const Topcatagories = () => {
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                  <img
-                                    src={`http://15.207.31.23:5001/${detail.image}`}
-                                    alt="product"
-                                    className="radius pimg"
-                                  />
+                                  <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
                               {/*   <div class="product__offer">
@@ -900,11 +880,7 @@ const Topcatagories = () => {
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                  <img
-                                    src={`http://15.207.31.23:5001/${detail.image}`}
-                                    alt="product"
-                                    className="radius pimg"
-                                  />
+                                  <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
                               {/*   <div class="product__offer">
@@ -1019,11 +995,7 @@ const Topcatagories = () => {
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
-                                  <img
-                                    src={`http://15.207.31.23:5001/${detail.image}`}
-                                    alt="product"
-                                    className="radius pimg"
-                                  />
+                                  <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
                               {/*   <div class="product__offer">

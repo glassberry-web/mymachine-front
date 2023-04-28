@@ -44,7 +44,7 @@ const CompanyDeatails = () => {
                                                                     <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
                                                                 </Link> */}
                                                                  <Link to="/" >
-                                                                    <img src={`http://15.207.31.23:5001/${detail.image}`} alt />
+                                                                    <img src={detail.image} alt />
                                                                 </Link> 
                                                                 
                                                             </div>

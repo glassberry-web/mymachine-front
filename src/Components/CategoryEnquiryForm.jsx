@@ -258,7 +258,7 @@ const CategoryEnquiryForm = ({ show, onHide }) => {
                     className="modal-img"
                   /> */}
                   <img 
-                    src={`http://15.206.68.236:5001/${detail.image}`}
+                    src={detail.image}
                     alt="d1"
                     className="modal-img"
                   />

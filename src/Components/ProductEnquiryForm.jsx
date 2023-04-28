@@ -258,7 +258,7 @@ const ProductEnquiryForm = ({ show, onHide }) => {
                     className="modal-img"
                   /> */}
                   <img
-                    src={`http://15.207.31.23:5001/${detail.image}`}
+                    src={detail.image}
                     alt="d1"
                     className="modal-img"
                   />

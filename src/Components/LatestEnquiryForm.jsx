@@ -135,7 +135,7 @@ const LatestEnquiryForm = ({ show, onHide }) => {
               <Row>
                 <Col md={6} className="modmar">
                   <img
-                    src={`http://15.207.31.23:5001/${detail.image}`}
+                    src={detail.image}
                     alt="d1"
                     className="modal-img"
                   />
