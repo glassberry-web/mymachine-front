@@ -8,7 +8,7 @@ const SubSection = () => {
   const [user , setUser] = useState()
   async function fetchData() {
     try {
-      const response = await axios.get("http://localhost:5000/fetch")
+      const response = await axios.get("http://15.207.31.23:5000/fetch")
       setUser(response.data)
       console.log(setUser);
     } catch (error) {
@@ -32,7 +32,7 @@ const SubSection = () => {
                       <div className="features-thum">
                         <div className="features-product-image w-img">
                           <a href="#">
-                            <img src={`http://localhost:5001/${top.image}`} alt="mymachinestore" />
+                            <img src={`http://15.207.31.23:5001/${top.image}`} alt="mymachinestore" />
                           </a>
                         </div>
                       </div>

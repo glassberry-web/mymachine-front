@@ -48,19 +48,19 @@ const Slider = () => {
                   Autoplay,
                 ]}
                 loop
-                spaceBetween={50}
+                // spaceBetween={50}
                 slidesPerView={1}
                 navigation ={{
                   prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
                   
               }}
-                autoplay={{
-                  delay: 13500,
-                  disableOnInteraction: false,
-                }} 
+                // autoplay={{
+                //   delay: 13500,
+                //   disableOnInteraction: false,
+                // }} 
     
     className="slider-wrapper swiper-wrapper">
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center" style={{backgroundImage: "url(assets/img/slider/slider.jpg)"}}>
+      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center" style={{backgroundImage: "url(assets/img/slider/real.jpg)"}}>
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
@@ -125,9 +125,9 @@ const Slider = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-6">
+                {/* <div className="col-lg-6">
                   <img src="assets/image/slider/slider1.png" className="img-fluid" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { RxDotFilled } from "react-icons/rx";
 import { getpopup, setShow, getSelectedFilter, setFilterShow, getFilterpopup } from '../Redux/products/PopupSlice';
 import ProductEnquiryForm from './ProductEnquiryForm'; 
  import { useSelector, useDispatch } from 'react-redux';
+ import {Link} from "react-router-dom"
  
 
 // import { getAllProducts } from "../Redux/products/productSlice";
@@ -29,7 +30,7 @@ const MachineContent = () => {
   //                   <div className="product__item product__item-d">
   //                     <div className="product__thumb fix">
   //                       <div className="product-image w-img">
-  //                         <a href="product-detail.html">
+  //                         <a href="">
   //                           <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
   //                         </a>
   //                       </div>
@@ -45,7 +46,7 @@ const MachineContent = () => {
   //                       </div>
   //                     </div>
   //                     <div className="product__content-3">
-  //                       <h6><a href="product-detail.html">{product.product_name}</a></h6>
+  //                       <h6><a href="">{product.product_name}</a></h6>
 
   //                     </div>
   //                     <div className="product__add-cart-s text-center">
@@ -152,40 +153,33 @@ const MachineContent = () => {
             Checked.includes(machine.category) ||
             Checked.includes(machine.brand)
         ).map((product, index)=>(
-          <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 machine-mb">
+          <div key={index} className="col-xl-4 col-lg-4 col-md-6 col-sm-6 machine-mb">
           <div className="product__item product__item-d proalign">
             <div className="product__thumb fix fix-height">
               <div className="product-image w-img proimg-height">
-                <a href="#">
-                  <img
-                    src={product.image}
-                    alt="product"
-                  />
-                </a>
+              <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                    {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
+                    <img className='' src={product.image} alt={product.product_name}  />
+                  </Link>
               </div>
-              <div className="product-action">
-                <a
-                  href="#"
-                  className="icon-box icon-box-1"
-                  data-bs-toggle="modal"
-                  data-bs-target="#productModalId"
-                >
-                   <FaRegEye/>
-                  <FaRegEye />
-                </a>
-               
-              </div>
+              
             </div>
             <div className="product__content-3">
-              <h6>
-                <a href="#">{product.product_name}</a>
-              </h6>
+            <h6><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
             </div>
-            <div className="product__add-cart-s text-center">
+            <div className="product__add-cart-s text-center btnflex">
+            <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
+                  
+                  className="cart-btn-31 w50 product-modal-sidebar-open-btn mb-20 d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
               <button
                 type="button"
                 onClick={()=>dispatch(setFilterShow(["true", index, product.category]))}
-                className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
+                className="cart-btn-31 d-flex w50 align-items-center justify-content-center w-100"
               >
                 enquire now
               </button>
@@ -199,7 +193,7 @@ const MachineContent = () => {
         //     <div className="product__item product__item-d">
         //       <div className="product__thumb fix fix-height">
         //         <div className="product-image w-img">
-        //           <a href="product-detail.html">
+        //           <a href="">
         //             <img
         //               src={`http://15.207.31.23:5001/${product.image}`}
         //               alt="product"
@@ -221,7 +215,7 @@ const MachineContent = () => {
         //       </div>
         //       <div className="product__content-3">
         //         <h6>
-        //           <a href="product-detail.html">{product.product_name}</a>
+        //           <a href="">{product.product_name}</a>
         //         </h6>
         //       </div>
         //       <div className="product__add-cart-s text-center">
@@ -239,7 +233,7 @@ const MachineContent = () => {
         //     <div className="product__item product__item-d">
         //       <div className="product__thumb fix fix-height">
         //         <div className="product-image w-img">
-        //           <a href="product-detail.html">
+        //           <a href="">
         //             <img
         //               src={`http://15.207.31.23:5001/${product.image}`}
         //               alt="product"
@@ -261,7 +255,7 @@ const MachineContent = () => {
         //       </div>
         //       <div className="product__content-3">
         //         <h6>
-        //           <a href="product-detail.html">{product.product_name}</a>
+        //           <a href="">{product.product_name}</a>
         //         </h6>
         //       </div>
         //       <div className="product__add-cart-s text-center">
@@ -277,17 +271,14 @@ const MachineContent = () => {
         // )) 
     ) : (
       machineData.map((product, index) => (
-        <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 machine-mb">
+        <div key={index} className="col-xl-4 col-lg-4 col-md-6 col-sm-6 machine-mb">
           <div className="product__item product__item-d proalign">
             <div className="product__thumb fix fix-height ">
               <div className="product-image w-img proimg-height">
-                <a href="#">
-                  {/* <img
-                    src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`}
-                    alt="product"
-                  /> */}
-                  <img src={product.image} alt="product" />
-                </a>
+              <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                    {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
+                    <img className='' src={product.image} alt={product.product_name}  />
+                  </Link>
               </div>
               {/* <div className="product-action">
                 <a
@@ -306,15 +297,21 @@ const MachineContent = () => {
               </div> */}
             </div>
             <div className="product__content-3">
-              <h6 className="">
-                <a href="#">{product.product_name}</a>
-              </h6>
+            <h6><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
             </div>
-            <div className="product__add-cart-s text-center">
+            <div className="product__add-cart-s text-center btnflex">
+            <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
+                  
+                  className="cart-btn-31 w50 product-modal-sidebar-open-btn  d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
               <button
                 type="button"
                 onClick={()=>dispatch(setShow(["true", index]))}
-                className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
+                className="cart-btn-31 w50 d-flex align-items-center justify-content-center w-100"
               >
                 enquire now
               </button>
@@ -341,29 +338,17 @@ const MachineContent = () => {
                     {/* <a href="#">
                       <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                     </a> */}
-                    <a href="#">
-                      <img src={product.image} alt="product" />
-                    </a>
+                     <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                    {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
+                    <img className='' src={product.image} alt={product.product_name}  />
+                  </Link>
                   </div>
-                  <div className="product-action">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye/>
-                      <FaRegEye />
-                    </a>
-                   
-                  </div>
+                 
                 </div>
               </div>
               <div className="col-md-8">
                 <div className="product__content product__content-d">
-                  <h6 className="textleft">
-                    <a href="#">{product.product_name}</a>
-                  </h6>
+                <h6 className="textleft proh1"><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
                  
                   <div className="features-des">
                     <ul>
@@ -373,18 +358,18 @@ const MachineContent = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="product-detail.html">
+                        <a href="">
                           <RxDotFilled /><span>Category:</span>{product.category}
                         </a>
                       </li>
                       <li>
-                        <a href="product-detail.html">
+                        <a href="">
                           <RxDotFilled /><span>Brand:</span>{product.brand}
                         </a>
                       </li>
                      
                       <li>
-                        <a href="product-detail.html">
+                        <a href="">
                           <RxDotFilled/><span>Color:</span>{product.colour}
                         </a>
                       </li>
@@ -396,13 +381,21 @@ const MachineContent = () => {
           </div>
          </div>
          <div className="col-xl-3">
-         <div className="product-stock mb-15">
+         {/* <div className="product-stock mb-15">
            <h5>
              Availability: <span> 940 in stock</span>
            </h5>
            <h6>$125.00</h6>
-         </div>
+         </div> */}
          <div className="stock-btn ">
+         <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
+                  
+                  className="cart-btn product-modal-sidebar-open-btn mb-20 d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
            <button
              type="button"
              onClick={()=>dispatch(setFilterShow(["true", index, Checked[index]]))}
@@ -426,50 +419,38 @@ const MachineContent = () => {
                   {/* <a href="#">
                     <img src={`http://my-machine-store-dashboardapi.onrender.com/${product.image}`} alt />
                   </a> */}
-                  <a href="#">
-                    <img src={product.image} alt="product" />
-                  </a>
+                  <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                    {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
+                    <img className='' src={product.image} alt={product.product_name}  />
+                  </Link>
                 </div>
-                <div className="product-action">
-                  <a
-                    href="#"
-                    className="icon-box icon-box-1"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModalId"
-                  >
-                    <FaRegEye/>
-                    <FaRegEye />
-                  </a>
-                 
-                </div>
+               
               </div>
             </div>
             <div className="col-md-8">
               <div className="product__content product__content-d">
-                <h6 className="textleft">
-                  <a href="#">{product.product_name}</a>
-                </h6>
+              <h6 className="textleft proh1"><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
                
                 <div className="features-des">
                   <ul>
                   <li>
-                      <a href="product-detail.html">
+                      <a href="">
                         <RxDotFilled/> <span>Model-No:</span>{product.modalNum}
                       </a>
                     </li>
                     <li>
-                      <a href="product-detail.html">
+                      <a href="">
                         <RxDotFilled /><span>Category:</span>{product.category}
                       </a>
                     </li>
                     <li>
-                      <a href="product-detail.html">
+                      <a href="">
                         <RxDotFilled /><span>Brand:</span>{product.brand}
                       </a>
                     </li>
                    
                     <li>
-                      <a href="product-detail.html">
+                      <a href="">
                         <RxDotFilled/><span>Color:</span>{product.colour}
                       </a>
                     </li>
@@ -481,13 +462,21 @@ const MachineContent = () => {
         </div>
        </div>
        <div className="col-xl-3">
-       <div className="product-stock mb-15">
+       {/* <div className="product-stock mb-15">
          <h5>
            Availability: <span> 940 in stock</span>
          </h5>
          <h6>$125.00</h6>
-       </div>
+       </div> */}
        <div className="stock-btn ">
+       <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
+                  
+                  className="cart-btn product-modal-sidebar-open-btn mb-20 d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
          <button
            type="button"
            onClick={()=>dispatch(setShow(["true", index]))}
@@ -507,7 +496,7 @@ const MachineContent = () => {
   //                   <div className="product__item product__item-d">
   //                     <div className="product__thumb fix fix-height">
   //                       <div className="product-image w-img">
-  //                         <a href="product-detail.html">
+  //                         <a href="">
   //                           <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
   //                         </a>
   //                       </div>
@@ -523,7 +512,7 @@ const MachineContent = () => {
   //                       </div>
   //                     </div>
   //                     <div className="product__content-3">
-  //                       <h6><a href="product-detail.html">{product.product_name}</a></h6>
+  //                       <h6><a href="">{product.product_name}</a></h6>
 
   //                     </div>
   //                     <div className="product__add-cart-s text-center">
@@ -540,7 +529,7 @@ const MachineContent = () => {
   //                  <div className="product__item product__item-d">
   //                    <div className="product__thumb fix fix-height">
   //                      <div className="product-image w-img">
-  //                        <a href="product-detail.html">
+  //                        <a href="">
   //                          <img src={`http://15.207.31.23:5001/${product.image}`} alt="product" />
   //                        </a>
   //                      </div>
@@ -556,7 +545,7 @@ const MachineContent = () => {
   //                      </div>
   //                    </div>
   //                    <div className="product__content-3">
-  //                      <h6><a href="product-detail.html">{product.product_name}</a></h6>
+  //                      <h6><a href="">{product.product_name}</a></h6>
 
   //                    </div>
   //                    <div className="product__add-cart-s text-center">
@@ -617,7 +606,7 @@ const MachineContent = () => {
                   <ul>
                     <li className="product__sm-item d-flex align-items-center">
                       <div className="product__sm-thumb mr-20">
-                        <a href="product-detail.html">
+                        <a href="">
                           <img src="assets/img/product/sm-1.jpg" alt />
                         </a>
                       </div>
@@ -632,7 +621,7 @@ const MachineContent = () => {
                     </li>
                     <li className="product__sm-item d-flex align-items-center">
                       <div className="product__sm-thumb mr-20">
-                        <a href="product-detail.html">
+                        <a href="">
                           <img src="assets/img/product/sm-2.jpg" alt />
                         </a>
                       </div>
@@ -647,7 +636,7 @@ const MachineContent = () => {
                     </li>
                     <li className="product__sm-item d-flex align-items-center">
                       <div className="product__sm-thumb mr-20">
-                        <a href="product-detail.html">
+                        <a href="">
                           <img src="assets/img/product/sm-3.jpg" alt />
                         </a>
                       </div>
@@ -662,7 +651,7 @@ const MachineContent = () => {
                     </li>
                     <li className="product__sm-item d-flex align-items-center">
                       <div className="product__sm-thumb mr-20">
-                        <a href="product-detail.html">
+                        <a href="">
                           <img src="assets/img/product/sm-4.jpg" alt />
                         </a>
                       </div>
@@ -677,7 +666,7 @@ const MachineContent = () => {
                     </li>
                     <li className="product__sm-item d-flex align-items-center">
                       <div className="product__sm-thumb mr-20">
-                        <a href="product-detail.html">
+                        <a href="">
                           <img src="assets/img/product/sm-5.jpg" alt />
                         </a>
                       </div>
@@ -699,7 +688,7 @@ const MachineContent = () => {
                 <div className="banner-image">
                   <img
                     className="banner-l"
-                    src="assets/image/machine/machinebanner.png"
+                    src="assets/image/machine/machineslider.jpg"
                     alt
                   />
                 </div>

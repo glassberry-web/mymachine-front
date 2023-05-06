@@ -13,11 +13,11 @@ import { getpopup, setShow, getSelectedFilter, setFilterShow, getFilterpopup } f
 import ProductEnquiryForm from './ProductEnquiryForm';
  
 
-const ShopByBrand = () => {
+const ShopByCategory = () => {
     const location = useLocation();
-  const { brand } = location.state;
+  const { category } = location.state;
   const [data, setData] = useState([]);
-  console.log("brand=>", brand);
+  console.log("brand=>",category);
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
@@ -43,8 +43,8 @@ const ShopByBrand = () => {
       let searchProducts = "";
 
       searchProducts = gridview ? (
-      data.length > 0 &&  data.map((product, index) => (
-        brand === product.brand ? (
+      data.length > 0 ? data.map((product, index) => (
+        category === product.category ? (
        <div key={index} className="col-xl-3 col-lg-3 col-md-6 col-sm-6 machine-mb">
                   <div className="product__item product__item-d proalign">
                     <div className="product__thumb fix fix-height">
@@ -66,7 +66,7 @@ const ShopByBrand = () => {
                       </div> */}
                     </div>
                     <div className="product__content-3">
-                    <h6><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
+                      <h6><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
                       
                     </div>
                     <div className="product__add-cart-s text-center btnflex">
@@ -78,16 +78,17 @@ const ShopByBrand = () => {
                 >
                  Get Details
                 </Link>
-                      <button type="button"  onClick={()=>dispatch(setFilterShow(["true", index, product.brand]))} className="cart-btn-31 d-flex align-items-center justify-content-center w-100">
+                      <button type="button"  onClick={()=>dispatch(setFilterShow(["true", index, product.category]))} className="cart-btn-31 product-modal-sidebar-open-btn d-flex  align-items-center justify-content-center w-100">
                         enquire now
                       </button>
                     </div>
                   </div>
                 </div>
         ) : ""
-  )) ) :  (
+  )) : "no product found"
+   ) :  (
     data.length > 0 &&  data.map((product, index) => (
-        brand === product.brand ? (
+        category === product.category ? (
     <div key={index} className="row align-items-center">
     <div className="col-xl-9">
     <div className="single-features-item single-features-item-df b-radius mb-20">
@@ -97,7 +98,7 @@ const ShopByBrand = () => {
             <div className="features-product-image w-img">
             <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
                     {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
-                    <img className="" src={product.image} alt={product.product_name}  />
+                    <img className='pimg' src={product.image} alt={product.product_name}  />
                   </Link>
             </div>
             {/* <div className="product-action">
@@ -116,7 +117,13 @@ const ShopByBrand = () => {
         </div>
         <div className="col-md-8">
           <div className="product__content product__content-d">
-          <h6 className="textleft proh1"><Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
+            <h6 className="textleft proh1">
+                                       
+                                  <Link className="productlink" to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                                 {product.product_name}
+                                  </Link>
+                                  </h6>
+          
            
             <div className="features-des">
               <ul>
@@ -158,7 +165,7 @@ const ShopByBrand = () => {
    <div className="stock-btn ">
    <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
                   
-                  className="cart-btn product-modal-sidebar-open-btn mb-20 d-flex align-items-center justify-content-center w-100"
+                  className="cart-btn product-modal-sidebar-open-btn  mb-20 d-flex align-items-center justify-content-center w-100"
                    
                   
                 >
@@ -166,7 +173,8 @@ const ShopByBrand = () => {
                 </Link>
      <button
        type="button"
-       className="cart-btn d-flex  align-items-center justify-content-center w-100"
+       className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
+       onClick={()=>dispatch(setFilterShow(["true", index, product.category]))}
      >
        enquire now
      </button>
@@ -711,4 +719,4 @@ const ShopByBrand = () => {
   )
 }
 
-export default ShopByBrand
+export default ShopByCategory

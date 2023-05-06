@@ -47,18 +47,18 @@ const CompanyAbout = () => {
                                        
                                          </div>
                                          </div> */}
-                                     <SpeedoMeter title={"Machine " + "" + "Installed"} value ={item.machine}/>
+                                     <SpeedoMeter title={"Machine " + "" + "Installed"} value ={40}/>
                                  </div>
                                  <div className='col-lg-6'>
-                                     <SpeedoMeter title={"Service " + "" + "Engineers"}  value ={item.engineer} />
+                                     <SpeedoMeter title={"Service " + "" + "Engineers"}  value ={79} />
                                  </div>
                              </div>
                              <div className='row d-flex'>
                                  <div className='col-lg-6'>
-                                     <SpeedoMeter title={"Total " + "" + "Employess"}  value ={item.employess} />
+                                     <SpeedoMeter title={"Total " + "" + "Employess"}  value ={90} />
                                  </div>
                                  <div className='col-lg-6'>
-                                     <SpeedoMeter title={"Customer " + "" + "Served"} value ={item.customer} />
+                                     <SpeedoMeter title={"Customer " + "" + "Served"} value ={788} />
                                  </div>
                              </div>
                              {/* <SpeedoMeter /> */}

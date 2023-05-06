@@ -36,6 +36,8 @@ const TopMost = () => {
     useEffect(() => {
       fetchData()
     }, [])
+    const imageUrl = `data:image/png;base64,${data.image}`;
+
     const [swiper, setSwiper] = useState(0);
     const slideTo = (index) => {
       if(swiper) 
@@ -61,7 +63,7 @@ const TopMost = () => {
         <div className="container">
           <SectionTitle title={title.filter((data) => data.id === 1)} />
       <div className="row">
-        <div className="product-bs-slider">
+        <div className="product-bs-slider product-bs-slider-2">
         {
        data.length > 0 && (
         <div className="product-slider swiper-container">
@@ -94,7 +96,7 @@ const TopMost = () => {
               EffectFade,
               Autoplay,
             ]}
-           loop
+            loop
             spaceBetween={50}
             slidesPerView={4}
             navigation ={{
@@ -103,7 +105,7 @@ const TopMost = () => {
           }}
             autoplay={{
               delay: 3500,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}       
         
         className="swiper-wrapper">{
@@ -115,7 +117,7 @@ const TopMost = () => {
                   {/* <Link to={"http://my-machine-store-0l73.onrender.com/productDetails"} state={{id:`${detail._id}`}}>
                     <img className='pimg' src={`http://my-machine-store-dashboardapi.onrender.com/${detail.image}`} alt="product"  />
                   </Link> */}
-                  <Link to={"http://15.207.31.23:3000/productDetails"} state={{id:`${detail._id}`}}>
+                  <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                     {/* <img className='pimg' src={`http://15.207.31.23:5001/${detail.image}`} alt="product"  /> */}
                     <img className='pimg' src={detail.image} alt="product"  />
                   </Link>
@@ -124,7 +126,7 @@ const TopMost = () => {
               </div>
               <div className="product__content product__content-2">
               <h6>                             
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -142,10 +144,10 @@ const TopMost = () => {
                 
               </div>
               <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  
+                   
                   
                 >
                  Get Details
@@ -362,7 +364,17 @@ const TopMost = () => {
             </div>
           </SwiperSlide>           */}
         </Swiper>
-      </div>      
+                <div className="bs-button bs2-button-prev">
+                     
+                     <FaAngleLeft style={{fontSize:'20px'}} />
+                   </div>
+                   <div className="bs-button bs2-button-next">
+                    
+                     <FaAngleRight style={{fontSize:'20px'}}  />
+      
+      </div> 
+        
+</div>   
     )
    }
          
@@ -370,6 +382,8 @@ const TopMost = () => {
       </div>
       </div>
       </section>
+
+      
 
       <ProductEnquiryForm show={popup}/>
 

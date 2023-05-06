@@ -17,13 +17,14 @@ import ProductDetails from "./Pages/ProductDetails";
 import ProductEnquiryForm from "./Components/ProductEnquiryForm";
 import Whatapp from "./Components/Whatapp";
 import ShopByBrand from "./Components/ShopByBrand";
+import ShopByCategory from "./Components/ShopByCategory";
 
 function App() {
   const products = useSelector(getAllProducts);
   const filters = useSelector(getAllFilters);
   const [originalTitle, setOriginalTitle] = useState();
   // const location = useLocation();
-  // const {brand} = location.state;
+  // const {category} = location.state;
 // console.log("appbrand", brand) 
 
   // const {id} = useParams();
@@ -56,10 +57,11 @@ function App() {
 
         {/* <Route path="*" element={<Page404 />} /> */}
         <Route path="/companies/:id" element={<CompanyDeatails />} />
-        <Route path="/:id" element={<ProductDetails />} />
+        <Route path="/productDetails/:productname" element={<ProductDetails />} />
         {/* <Route path="/:id" element={<ProductEnquiryForm />} /> */}
         <Route path="/machines/:debouceSearchTerm"  element={<SearchResult />} />
-        <Route path="/shopbybrand"  element={<ShopByBrand />} />
+        <Route path="/:brand"  element={<ShopByBrand />} />
+        <Route path="/products/:category"  element={<ShopByCategory />} />
         {/* <Route path="/machines/:filters"  element={<SearchResult />} /> */}
  
       </Routes> 

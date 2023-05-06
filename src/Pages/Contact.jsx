@@ -5,7 +5,7 @@ import PageBanner from '../Components/PageBanner'
 const Contact = () => {
   return (
     <>
-    <PageBanner title="Contact" info = "Home"  />
+    <PageBanner background="url(assets/img/new/p_bg2.jpg)" title="Contact" info = "Home"  />
       <ContactAllSections />
     </>
   

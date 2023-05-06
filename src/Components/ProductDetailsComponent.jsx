@@ -1,15 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
+import {Button} from "react-bootstrap";
 import { RxDotFilled } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
-import ReactImageMagnify from 'react-image-magnify';
+import ReactImageMagnify from "react-image-magnify";
+import { Trade_Enquiry, User_Enquiry } from "../Api/ApiEndpoint";
+import Axios from "../Api/Axios";
 import { getpopup } from "../Redux/products/PopupSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { setShow } from '../Redux/products/PopupSlice';
+import { ToastContainer, toast } from "react-toastify";
+import { setShow } from "../Redux/products/PopupSlice";
 import ProductEnquiryForm from "./ProductEnquiryForm";
+import { MdCall} from "react-icons/md"
+import {IoMdMail} from "react-icons/io"
 
-const ProductDetailsComponent = () => {
-  const location = useLocation();
-  const { id } = location.state;
+
+const ProductDetailsComponent = (props) => {
+  const [inputFeild, setInputFeild] = useState({
+    product_name: "",
+    email: "",
+    phone_number: "",
+    location: "",    
+  });
+  const ref = useRef(null)
+  const inputHandler = (e) => {
+    const { name, value } = e.target;
+    const updateValues = {product_name:ref.current.value, [name]: value }
+    setInputFeild((pre)=>({...pre, ...updateValues}));
+  }
+  const {namee} = props
+  const locationn = useLocation();
+  const {id} = locationn.state;
   console.log("productdetail=>", id);
   const [data, setData] = useState([]);
   const popup = useSelector(getpopup);
@@ -29,6 +49,39 @@ const ProductDetailsComponent = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  const register = async (e) => {
+    e.preventDefault();    
+    console.log("inputfeild=>", inputFeild);    
+    const config = {
+      headers: {
+        // "Content-Type": "multipart/form-data"
+        "Content-Type": "application/json",
+      },
+    };
+    const { product_name,  email, phone_number, location } = inputFeild;
+
+    if ( product_name && email && phone_number && location) {
+      try {
+        let res = await Axios.post(User_Enquiry, inputFeild, config);
+        if (res.status === 200) {
+          console.log("added succesfully");
+          // navigate("/about");
+         
+          toast.success("Submitted Successfully !", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          setInputFeild("")
+
+          
+          // submit ?
+          //   setSubmit(false) : setSubmit(true)
+        }
+      } catch (error) {
+        console.log("error===>", error);
+      }
+    }
+  };
+ 
 
   return (
     <>
@@ -39,8 +92,8 @@ const ProductDetailsComponent = () => {
             data.map((detail) =>
               id === detail._id ? (
                 <div className="row">
-                  <div className="col-xl-6">
-                    <div className="product__details-nav d-sm-flex align-items-start justify-content-center">
+                  <div className="col-xl-4">
+                    <div className="product__details-nav d-sm-flex align-items-start justify-content-center pdalign">
                       <div className="product__details-thumb">
                         <div className="tab-content" id="productThumbContent">
                           <div
@@ -49,11 +102,11 @@ const ProductDetailsComponent = () => {
                             role="tabpanel"
                             aria-labelledby="thumbOne-tab"
                           >
-                            <div className="product__details-nav-thumb w-img proimg detailimg">
+                            <div className="product__details-nav-thumb w-img">
                               <ReactImageMagnify
                                 {...{
                                   smallImage: {
-                                    alt: "Wristwatch by Ted Baker London",
+                                    alt: `${detail.product_name}`,
                                     isFluidWidth: true,
                                     imageClassName: "proimg",
                                     src: `${detail.image}`,
@@ -71,15 +124,16 @@ const ProductDetailsComponent = () => {
                         </div>
                       </div>
                     </div>
+                    
                   </div>
-                  <div className="col-xl-6">
+                   <div className="col-xl-5">
                     <div className="product__details-content">
-                      <h6>{detail.product_name}</h6>
+                      <h1 className="proh1">{detail.product_name}</h1>
                       <div className="pd-rating mb-10">
                         {detail.shortDiscription}
                       </div>
 
-                      <div className="features-des mb-20 mt-10">
+                      {/* <div className="features-des mb-20 mt-10">
                         <ul>
                           <li>
                             <a className="adet" href="">
@@ -111,7 +165,7 @@ const ProductDetailsComponent = () => {
                             </a>
                           </li>
                         </ul>
-                      </div>
+                      </div> */}
                       {/* <hr />
                       <div className="product-tag-area mt-15">
                         <div className="product_info">
@@ -135,13 +189,78 @@ const ProductDetailsComponent = () => {
                           </span>
                         </div>
                       </div> */}
-                      <div class="cart-option mb-15">
-                                <div class="product-quantity">
-                              
-                                </div>
-                                <a href="" class="cart-btn"  onClick={()=>dispatch(setShow(["true", id]))}>Enquire Now</a>
-                            </div>
-                    </div>
+                      {/* <div class="cart-option mb-15">
+                        <div class="product-quantity"></div>
+                        <a
+                          href=""
+                          class="cart-btn"
+                          onClick={() => dispatch(setShow(["true", id]))}
+                        >
+                          Enquire Now
+                        </a>
+                      </div> */}
+                     </div>
+                  </div> 
+                  <div className="col-lg-3 col-sm-3">
+                    <div className="formalign">
+                      <div className="basic-login">
+                      <h5>Enquiry Form</h5>
+                      <form  onSubmit={register}>
+                        <input
+                           id="product_name"
+                           name="product_name"
+                          type="text"
+                          value={namee}
+                          ref={ref}
+                          disabled
+                          
+                        />
+
+                        <input
+                         id="email"
+                         name="email"
+                          type="text"
+                          onChange={inputHandler}
+                          value={inputFeild.email}
+                          required
+                          placeholder="Email address..."
+                        />
+
+                       
+
+                        <input
+                          id="phone_number"
+                          name="phone_number"
+                          value={inputFeild.phone_number}
+                          type="text"
+                          placeholder="Enter phone number..."
+                          onChange={inputHandler}
+                          required
+                        />
+                         <input
+                           id="location"
+                           name="location"
+                          type="text"
+                          onChange={inputHandler}
+                        value={inputFeild.location}
+                        required
+                          placeholder="Enter location"
+                        />
+
+                        <Button onClick={register} className="tp-in-btn w-100">
+                          Submit
+                        </Button>
+                      </form>
+                       </div>
+                    </div>                    
+                    {/* <div className="callto">
+                      <h4 className="text-center mb-10">24/7 ONLINE SUPPORT</h4>
+                      <span className="dot"></span>
+                      <p>Assertively pontificate high standards in scenarios rather than sustainable system. Interactively empower.</p>
+                      <p className="contact mb-0">< IoMdMail color="black" fontSize="1.5rem" marginLeft="1rem"/><a href="mailto: info@mymachinestore.com"> info@mymachinestore.com</a></p>
+                      <p className="contact">< MdCall fontSize="1.5rem" /><a href="tel:+917038586215"> 7038586215</a></p>
+                      
+                    </div> */}
                   </div>
                 </div>
               ) : (
@@ -259,7 +378,7 @@ const ProductDetailsComponent = () => {
       </div> */}
         </div>
       </div>
-      <ProductEnquiryForm show={popup}/>
+      <ProductEnquiryForm show={popup} />
       {/* product-details-end */}
     </>
   );

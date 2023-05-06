@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="col-xl-4">
               <div className="footer__widget">
                 <div className="footer__widget-title mb-20">
-                  <h4>About The Store</h4>
+                  <h4>About The MyMachineStore</h4>
                 </div>
                 <div className="footer__widget-content">
                   <p className="footer-text mb-35">Our mission statement is to provide the absolute best customer experience available in the  industry without exception.</p>
@@ -34,16 +34,15 @@ const Footer = () => {
             <div className="col-xl-2 offset-md-1">
               <div className="footer__widget">
                 <div className="footer__widget-title">
-                  <h4>Customer Service</h4>
+                  <h4>Quick Links</h4>
                 </div>
                 <div className="footer__widget-content">
                   <div className="footer__link">
                     <ul>
-                      <li><a href>Help Center</a></li>
-                      <li><a href>Contact Us</a></li>
-                      <li><a href>Report Abuse</a></li>
-                      <li><a href>Submit a Dispute</a></li>
-                      <li><a href>Policies &amp; Rules</a></li>
+                    <li><Link to='/about'>About Us</Link></li>
+                      <li><Link to="/machines" href>Machines</Link></li>
+                      <li><Link to="/companies" href>Companies</Link></li>
+                      <li><Link to="/blogs" href>Blogs</Link></li>
                     </ul>
                   </div>
                 </div>
@@ -52,15 +51,15 @@ const Footer = () => {
             <div className="col-xl-2 offset-md-1">
               <div className="footer__widget text-left">
                 <div className="footer__widget-title">
-                  <h4>Quick Links</h4>
+                  <h4>Applications</h4>
                 </div>
                 <div className="footer__widget-content">
                   <div className="footer__link">
                     <ul>
-                      <li><Link to='/about'>About Us</Link></li>
-                      <li><a href>Career</a></li>
-                      <li><a href>Contact Us</a></li>
-                      <li><a href>FAQs</a></li>
+                      <li><Link to='/gymequipment'>Gym Equipment</Link></li>
+                      <li><Link to="/furniture" href>Furniture</Link></li>
+                      <li><Link to="/automobile" href>Automobile</Link></li>
+                      <li><Link to="/textile" href>Textile</Link></li>
                     </ul>
                   </div>
                 </div>
@@ -69,14 +68,14 @@ const Footer = () => {
             <div className="col-xl-2">
               <div className="footer__widget">
                 <div className="footer__widget-title">
-                  <h4>My Account</h4>
+                  <h4>Support</h4>
                 </div>
                 <div className="footer__widget-content">
                   <div className="footer__link">
                     <ul>
-                      <li><a href="#">Product Support</a></li>
-                      <li><a href="#">Compare</a></li>
-                      <li><a href="#">Terms &amp; Conditions &amp;</a></li>
+                      <li><Link to="/contact" href="#">Product Support</Link></li>
+                      <li><Link to="/compare" href="#">Compare</Link></li>
+                      <li><Link to="/terms" href="#">Terms &amp; Conditions</Link></li>
                     </ul>
                   </div>
                 </div>

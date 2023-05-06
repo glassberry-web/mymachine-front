@@ -5,7 +5,7 @@ import PageBanner from '../Components/PageBanner'
 const GymEquipment = () => {
   return (
     <>
-      <PageBanner title="Gym Equipment" info="Home" />
+      <PageBanner background="url(assets/img/new/p_bg2.jpg)" title="Gym Equipment" info="Home" />
       <div
         className="about-area pt-80 pb-80"
         style={{ backgroundColor: "#ffffff" }}

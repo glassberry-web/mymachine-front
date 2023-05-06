@@ -6,7 +6,7 @@ import PageBanner from '../Components/PageBanner'
 const About = () => {
   return (
     <>
-    <PageBanner title="About" info = "Home"  />
+    <PageBanner background="url(assets/img/new/p_bg2.jpg)" title="About" info = "Home"  />
     <Abouthero />
     <Aboutteam />
     </>

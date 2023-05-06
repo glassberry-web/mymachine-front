@@ -53,7 +53,7 @@ const NavigationBrand = () => {
                   {uniqueBrand.map((detail) => (                 
 
                     <li>
-                      <Link to="/shopbybrand" state={{brand:`${detail}`}}>{detail}</Link>
+                      <Link to={`/${detail.replace(/ +/g, "-").toLowerCase()}`} state={{brand:`${detail}`}}>{detail}</Link>
                     </li>
                    
                   ))}

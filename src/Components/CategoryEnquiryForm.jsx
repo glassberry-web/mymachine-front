@@ -106,7 +106,7 @@ const CategoryEnquiryForm = ({ show, onHide }) => {
   };
 
   // const fetchData = () => {
-  //   fetch("http://localhost:5000/fetch")
+  //   fetch("http://15.207.31.23:5000/fetch")
 
   //     .then(response => {
   //       console.log(response);
@@ -142,7 +142,7 @@ const CategoryEnquiryForm = ({ show, onHide }) => {
   //               <Row>
   //                 <Col md={6} className="modmar">
   //                   <img
-  //                     src={`http://localhost:5001/${image.image}`}
+  //                     src={`http://15.207.31.23:5001/${image.image}`}
   //                     alt="d1"
   //                     className="modal-img"
   //                   />
@@ -364,7 +364,7 @@ const CategoryEnquiryForm = ({ show, onHide }) => {
   //       <Row>
   //         <Col md={6} className="modmar">
   //           <img
-  //             src={`http://localhost:5001/${image.image}`}
+  //             src={`http://15.207.31.23:5001/${image.image}`}
   //             alt="d1"
   //             className="modal-img"
   //           />
