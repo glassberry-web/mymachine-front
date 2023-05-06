@@ -271,107 +271,149 @@ const TestimonialsData = [
  const ProductCategory=[
   {
     idx: 1,
-    Category: "Laser Solutions",
-  //   subCategory: [
-  //     {
-  //         id: 1,
-  //         sub: 'Fiber Laser Cutting Machine'
-  //     },
-  //     {
-  //         id: 2,
-  //         sub: 'Sheet Metal Cutting Machine',
+    Category: "Cutting Solution",
+    subCategory: [
+      {
+          id: 1,
+          sub: 'Fiber Laser Sheet Cutting Machine'
+      },
+      {
+          id: 2,
+          sub: ' Fiber Laser Sheet Plus Tube Cutting Machine',
           
-  //     },
-  //     {
-  //         id: 3,
-  //         sub: 'Tube Metal Cutting Machine',
+      },
+      {
+          id: 3,
+          sub: 'Fiber Laser Tube Cutting Machine',
           
-  //     },
-  // ]
+      },
+      {
+        id: 4,
+        sub: 'Electro Lamination',
+        
+    },
+    {
+      id: 5,
+      sub: 'Laser Non-metal Cutting Machine',
+      
+  },
+  ]
    
     
 
   },
   {
     idx: 2,
-    Category: "Electrolamination", 
-  //   subCategory: [
-  //     {
-  //         id: 1,
-  //         sub: 'Effective S'
-  //     },
-  //     {
-  //         id: 2,
-  //         sub: 'Effective L',
+    Category: "Welding Solution", 
+    subCategory: [
+      {
+          id: 1,
+          sub: 'Hand Helded Laser Welding'
+      },
+      {
+          id: 2,
+          sub: 'Mobile Laser Welding',
           
-  //     },
-    
-  // ]   
+      },
+      {
+        id: 3,
+        sub: 'Open Type Laser Welding',
+        
+    },
+    {
+      id: 4,
+      sub: 'Close Type Laser Welding',
+      
+  },
+  ]   
     
   },
   {
     idx: 3,
-    Category: "Engraving Machine",
-  //   subCategory: [
-  //     {
-  //         id: 1,
-  //         sub: 'Plotter Laser System Machine'
-  //     },
-  //     {
-  //         id: 2,
-  //         sub: 'Galvanometric Laser System',          
-  //     },    
-  // ]   
+    Category: "Forming Solution",
+    subCategory: [
+      {
+          id: 1,
+          sub: 'Bending Machine'
+      },       
+  ]   
    
 
   },
   {
     idx: 4,
-    Category: "Laser Welding Machine",
-  //   subCategory: [
-  //     {
-  //         id: 1,
-  //         sub: 'Mobile System'
-  //     },
-  //     {
-  //         id: 2,
-  //         sub: 'Open System',
+    Category: "Safety and Security Devices",
+    subCategory: [
+      {
+          id: 1,
+          sub: 'X-Ray Baggage Inspection System'
+      },
+      {
+          id: 2,
+          sub: 'Metal Detection System',
           
-  //     },
-  //     {
-  //         id: 3,
-  //         sub: 'Closed System',
-          
-  //     },
-  // ]    
+      },     
+  ]    
 
   },
   {
     idx: 5,
-    Category: "Laser Cladding",
+    Category: "Power Solutions", 
+    
+    
+    subCategory: [
+      {
+          id: 1,
+          sub: 'UPS Power Backup'
+      },
+      {
+          id: 2,
+          sub: 'Solar Panels',
+          
+      },
+      {
+        id: 3,
+        sub: 'Electric Chargers',
+        
+    },
+    {
+      id: 4,
+      sub: 'Power Generators',
+      
+  },
+]
 
   },
   {
-    idx: 6,
-    Category: "Laser Hardening",
+    idx: 6,    
+    
+   
+    
+    Category: "Surface Treatment",
+    subCategory: [
+      {
+          id: 1,
+          sub: 'Laser Marking'
+      },
+      {
+          id: 2,
+          sub: 'Laser Engraving',
+          
+      },
+      {
+        id: 3,
+        sub: 'Laser Hardening',
+        
+    },
+    {
+      id: 4,
+      sub: ' Laser Cladding',
+      
+  },
+]
 
   },
-  {
-    idx: 7,
-    Category: "Sheet-Metal Forming Machine",
-  },
-  {
-    idx: 8,
-    Category: "PhotonX Laser Marking Machine",
-  }, 
-  {
-    idx: 9,
-    Category: "Pillow Plate Laser Welding",
-  },
-  {
-    idx: 10,
-    Category: "Gujar Industries",
-  },
+ 
 ]
 
 
