@@ -18,40 +18,40 @@ const SectionTitle = (props) => {
               <div className="product__nav-tab">
                 <ul className="nav nav-tabs flexcen" id="flast-sell-tab" role="tablist">
                 <TabPhills
-                    title="Laser Solutions"
-                    id="Laser Solutions"
+                    title="Cutting Solution"
+                    id="Cutting Solution"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
                   <TabPhills
-                    title="Sheet-Metal Forming Machine
+                    title="Welding Solution
                     "
-                    id="Sheet-Metal Forming Machine"
+                    id="Welding Solution"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
                     <TabPhills
-                    title="Laser Welding Machine"
-                    id="Laser Welding Machine"
+                    title="Forming Solution"
+                    id="Forming Solution"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
                   <TabPhills
-                    title="Laser Cladding"
-                    id="Laser Cladding"
+                    title="Safety and Security Devices"
+                    id="Safety and Security Devices"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
                   <TabPhills
-                    title="Engraving Machine"
-                    id="Engraving Machine"
+                    title="Power Solutions"
+                    id="Power Solutions"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />
                  
                   <TabPhills
-                    title="Electrolamination"
-                    id="Electrolamination"
+                    title="Surface Treatment"
+                    id="Surface Treatment"
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
                   />

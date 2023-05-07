@@ -107,7 +107,7 @@ const Topcatagories = () => {
           <div className="row">
             <div className="col-xl-12">
               <div className="tab-content" id="flast-sell-tabContent">
-                <TabContent id="Laser Solutions" activeTab={activeTab}>
+                <TabContent id="Cutting Solution" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade active show"
                 id="engravingmachine"
@@ -454,7 +454,7 @@ const Topcatagories = () => {
                 </TabContent>
                 {/* second category */}
                 <TabContent
-                  id="Sheet-Metal Forming Machine"
+                  id="Welding Solution"
                   activeTab={activeTab}
                 >
                   {/* <div
@@ -584,7 +584,7 @@ const Topcatagories = () => {
                   {/* </div> */}
                 </TabContent>
                 {/* third */}
-                <TabContent id="Laser Welding Machine" activeTab={activeTab}>
+                <TabContent id="Forming Solution" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade"
                 id="htc"
@@ -706,7 +706,7 @@ const Topcatagories = () => {
                     
                     {/* </div> */}
                 </TabContent>
-                <TabContent id="Laser Cladding" activeTab={activeTab}>
+                <TabContent id="Safety and Security Devices" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade"
                 id="nokia"
@@ -825,7 +825,7 @@ const Topcatagories = () => {
                 
                   {/* </div> */}
                 </TabContent>
-                <TabContent id="Engraving Machine" activeTab={activeTab}>
+                <TabContent id="Power Solutions" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade"
                 id="cell"
@@ -940,7 +940,7 @@ const Topcatagories = () => {
                   {/* </div> */}
                 </TabContent>
                 {/*  */}
-                <TabContent id="Electrolamination" activeTab={activeTab}>
+                <TabContent id="Surface Treatment" activeTab={activeTab}>
                   {/* <div
                 className="tab-pane fade"
                 id="sheet-metal-foaming"
