@@ -92,7 +92,7 @@ const LatestProduct = () => {
                     <SwiperSlide className="product__item prr product__item-2 b-radius-2 mb-20 swiper-slide">
                     <div className="product__thumb fix">
                       <div className="product-image w-img">
-                        <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                        <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                           <img className='pimg' src={detail.image} alt="product"  />
                         </Link>
                         {/* <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
@@ -104,7 +104,7 @@ const LatestProduct = () => {
                     <div className="product__content product__content-2">
                     <h6>
                                  
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -116,7 +116,7 @@ const LatestProduct = () => {
                       
                     </div>
                     <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   

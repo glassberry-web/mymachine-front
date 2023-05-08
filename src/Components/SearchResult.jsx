@@ -95,27 +95,27 @@ console.log("err=>", error);
                   <div className="product__item product__item-d">
                     <div className="product__thumb fix fix-height">
                       <div className="product-image w-img">
-                        <a href="#">
-                          <img src={product.image} alt="product" />                          
-                        </a>
+                      <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                    {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
+                    <img className='' src={product.image} alt={product.product_name}  />
+                  </Link>
                       </div>
-                      <div className="product-action">
-                        <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                          <i className="fal fa-eye" />
-                          <i className="fal fa-eye" />
-                        </a>
-                        <a href="#" className="icon-box icon-box-1">
-                          <i className="fal fa-heart" />
-                          <i className="fal fa-heart" />
-                        </a>
-                      </div>
+                     
                     </div>
                     <div className="product__content-3">
-                      <h6><a href="#">{product.product_name}</a></h6>
+                      <h6><Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>{product.product_name}</Link></h6>
                       
                     </div>
-                    <div className="product__add-cart-s text-center">
-                      <button type="button" className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                    <div className="product__add-cart-s text-center btnflex">
+                    <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
+                      <button type="button" className="cart-btn d-flex  align-items-center justify-content-center w-100">
                         enquire now
                       </button>
                     </div>

@@ -20,7 +20,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Topcatagories = () => {
   const [title, SetTitle] = useState(sectionTitleData);
-  const [activeTab, setActiveTab] = useState("Laser Solutions");
+  const [activeTab, setActiveTab] = useState("Cutting Solution");
   const [data, setData] = useState([])
   const popup = useSelector(getpopup);
   const dispatch = useDispatch();
@@ -160,10 +160,10 @@ const Topcatagories = () => {
                               <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    {/* <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                    {/* <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link> */}
-                                     <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                     <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link>
                                   </div>
@@ -175,12 +175,12 @@ const Topcatagories = () => {
                                 <div className="product__content">
                                   <h6>
                                    
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                    {detail.product_name}
                                  </NavLink>
                                   </h6>
                                   {/* <h6>
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                    {detail.discription}
                                  </NavLink>
                                   </h6> */}
@@ -189,7 +189,7 @@ const Topcatagories = () => {
 
                                 </div>
                                 <div className="product__add-cart text-center  postioncategory btnflex">
-                             <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+                             <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -509,7 +509,7 @@ const Topcatagories = () => {
                               <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                    <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link>
                                   </div>
@@ -531,12 +531,12 @@ const Topcatagories = () => {
                                 <div className="product__content">
                                   <h6>
                                  
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
                                   {/* <h6>                                 
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
                                   </h6> */}
@@ -544,7 +544,7 @@ const Topcatagories = () => {
 
                                 </div>
                                 <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -661,12 +661,12 @@ const Topcatagories = () => {
                                 <div className="product__content">
                                 <h6>
                                  
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
                                   {/* <h6>                                 
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
                                   </h6> */}
@@ -674,7 +674,7 @@ const Topcatagories = () => {
 
                                 </div>
                                 <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -760,7 +760,7 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                   <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
@@ -782,12 +782,12 @@ const Topcatagories = () => {
                             <div className="product__content">
                             <h6>
                                  
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
                                   {/* <h6>                                 
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
                                   </h6> */}
@@ -795,7 +795,7 @@ const Topcatagories = () => {
                              
                             </div>
                             <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -879,7 +879,7 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                   <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
@@ -901,12 +901,12 @@ const Topcatagories = () => {
                             <div className="product__content">
                             <h6>
                                   {/* */}
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
                                   {/* <h6>                                 
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
                                   </h6> */}
@@ -994,7 +994,7 @@ const Topcatagories = () => {
                             <SwiperSlide className="product__item swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                   <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
@@ -1016,12 +1016,12 @@ const Topcatagories = () => {
                             <div className="product__content">
                             <h6>
                                  
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
                                   {/* <h6>                                 
-                                  <NavLink className="productlink" to="http://15.207.31.23:3000/productDetails" state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                  {detail.discription}
                                   </NavLink>
                                   </h6> */}
