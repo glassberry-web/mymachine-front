@@ -272,6 +272,7 @@ const TestimonialsData = [
   {
     idx: 1,
     Category: "Cutting Solution",
+    img:"assets/image/cutting.gif",
     subCategory: [
       {
           id: 1,
@@ -305,6 +306,7 @@ const TestimonialsData = [
   {
     idx: 2,
     Category: "Welding Solution", 
+    img:"assets/image/welding.gif",
     subCategory: [
       {
           id: 1,
@@ -331,6 +333,7 @@ const TestimonialsData = [
   {
     idx: 3,
     Category: "Forming Solution",
+    img:"assets/image/forming.png",
     subCategory: [
       {
           id: 1,
@@ -343,6 +346,7 @@ const TestimonialsData = [
   {
     idx: 4,
     Category: "Safety and Security Devices",
+    img:"assets/image/sas.gif",
     subCategory: [
       {
           id: 1,
@@ -359,6 +363,7 @@ const TestimonialsData = [
   {
     idx: 5,
     Category: "Power Solutions", 
+    img:"assets/image/power.gif",
     
     
     subCategory: [
@@ -390,6 +395,7 @@ const TestimonialsData = [
    
     
     Category: "Surface Treatment",
+    img:"assets/image/surface.gif",
     subCategory: [
       {
           id: 1,

@@ -44,7 +44,7 @@ const LatestProduct = () => {
       <div className="container">
       <SectionTitle title={title.filter((data)=>data.id === 4)} />
       <div className="row">
-        <div className="product-bs-slider">
+        <div className="product-bs-slider product-bs-slider-2">
           <div className="product-slider swiper-container">
             <Swiper
             breakpoints={{
@@ -73,7 +73,7 @@ const LatestProduct = () => {
                   EffectFade,
                   Autoplay,
                 ]}
-                
+                loop
                 spaceBetween={50}
                 slidesPerView={4}
                 navigation ={{
@@ -81,8 +81,8 @@ const LatestProduct = () => {
                   
               }}
                 autoplay={{
-                  delay: 8500,
-                  disableOnInteraction: false,
+                  delay: 3500,
+                  disableOnInteraction: true,
                 }}       
             
             className="swiper-wrapper">
@@ -92,7 +92,7 @@ const LatestProduct = () => {
                     <SwiperSlide className="product__item prr product__item-2 b-radius-2 mb-20 swiper-slide">
                     <div className="product__thumb fix">
                       <div className="product-image w-img">
-                        <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                        <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                           <img className='pimg' src={detail.image} alt="product"  />
                         </Link>
                         {/* <Link to="https://my-machine-store-0l73.onrender.com/productDetails" state={{id:`${detail._id}`}}>
@@ -104,7 +104,7 @@ const LatestProduct = () => {
                     <div className="product__content product__content-2">
                     <h6>
                                  
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -116,7 +116,7 @@ const LatestProduct = () => {
                       
                     </div>
                     <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -406,6 +406,15 @@ const LatestProduct = () => {
                 </div>
               </SwiperSlide> */}
             </Swiper>
+            <div className="bs-button bs2-button-prev">
+                     
+                     <FaAngleLeft style={{fontSize:'20px'}} />
+                   </div>
+                   <div className="bs-button bs2-button-next">
+                    
+                     <FaAngleRight style={{fontSize:'20px'}}  />
+      
+      </div> 
           </div>
         </div>
       </div>

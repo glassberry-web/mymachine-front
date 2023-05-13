@@ -97,7 +97,7 @@ const SliderNavigation = () => {
               Autoplay,
             ]}
            loop
-            spaceBetween={30}
+            spaceBetween={10}
             slidesPerView={6}
             navigation ={{
               prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
@@ -116,7 +116,7 @@ const SliderNavigation = () => {
             <SwiperSlide className="box-item disflex">            
                 
               <Link to={`/products/${category.Category.replace(/ +/g, "-").toLowerCase()}`} state={{category:`${category.Category}`}}>
-              <img src="assets/image/press-machine.gif" className="wid-mr" />
+              <img src={category.img} className="wid-mr" />
              
                       {category.Category}
                </Link>      

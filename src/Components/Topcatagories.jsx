@@ -144,16 +144,16 @@ const Topcatagories = () => {
                             EffectFade,
                             Autoplay,
                           ]}
-
+                           loop
                           spaceBetween={50}
                           slidesPerView={4}
                           navigation={{
-                            prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                            prevEl: ".bs2-button-prev1", nextEl: ".bs2-button-next1"
 
                           }}
                           autoplay={{
-                            delay: 8500,
-                            disableOnInteraction: false,
+                            delay: 3500,
+                            disableOnInteraction: true,
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
@@ -163,7 +163,7 @@ const Topcatagories = () => {
                                     {/* <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link> */}
-                                     <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                     <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link>
                                   </div>
@@ -175,7 +175,7 @@ const Topcatagories = () => {
                                 <div className="product__content">
                                   <h6>
                                    
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                    {detail.product_name}
                                  </NavLink>
                                   </h6>
@@ -189,7 +189,7 @@ const Topcatagories = () => {
 
                                 </div>
                                 <div className="product__add-cart text-center  postioncategory btnflex">
-                             <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
+                             <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}` , namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -212,240 +212,18 @@ const Topcatagories = () => {
                               </SwiperSlide>
                             ))
                           }
-                          {/* <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Engraving machine/GCCC180II-06.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                           
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">GCC C 180</a>
-                            </h6>
-                            
-                           
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide> */}
-                          {/* <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Engraving machine/GCCMercury.png"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">GCC Mercury</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide> */}
-                          {/* <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Engraving machine/GCCSpirit.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                            
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">GCC SPRIT</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide> */}
-                          {/* <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Engraving machine/HS-B1390M.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                           
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">PhotonX - iCut</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide> */}
-                          {/* <SwiperSlide className="product__item swiper-slide">
-                          <div className="product__thumb fix">
-                            <div className="product-image w-img">
-                              <a href="#">
-                                <img
-                                  src="assets/image/categories/Engraving machine/venus.png"
-                                  alt="product"
-                                  className="radius"
-                                />
-                              </a>
-                            </div>
-                             <div className="product-action">
-                            <a
-                                href="#"
-                                className="icon-box icon-box-1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#productModalId"
-                              >
-                                 <FaRegEye />
-                                <FaRegEye />
-                              </a>
-                            </div>
-                          </div>
-                          <div className="product__content">
-                            <h6>
-                              <a href="#">Venus</a>
-                            </h6>
-                            
-                          </div>
-                          <div className="product__add-cart text-center">
-                            <a
-                              href
-                              data-bs-toggle="modal"
-                              data-bs-target="#modalone"
-                            >
-                              <button
-                                type="button"
-                                className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                              >
-                                enquire now
-                              </button>
-                            </a>
-                          </div>
-                        </SwiperSlide> */}
+                         
                         </Swiper>
                       </div>
                     )
                   }
 
                     {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev">
+                    <div className="bs-button bs2-button-prev bs2-button-prev1">
 
                       <FaAngleLeft style={{ fontSize: '20px' }} />
                     </div>
-                    <div className="bs-button bs2-button-next">
+                    <div className="bs-button bs2-button-next bs2-button-next1">
 
                       <FaAngleRight style={{ fontSize: '20px' }} />
                     </div>
@@ -493,45 +271,35 @@ const Topcatagories = () => {
                             EffectFade,
                             Autoplay,
                           ]}
-
+                          loop
                           spaceBetween={50}
                           slidesPerView={4}
                           navigation={{
-                            prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                            prevEl: ".bs2-button-prev1", nextEl: ".bs2-button-next1"
 
                           }}
                           autoplay={{
                             delay: 8500,
-                            disableOnInteraction: false,
+                            disableOnInteraction: true,
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
                               <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                    <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
                                     </Link>
                                   </div>
                                   {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
                                               </div> */}
-                                  <div className="product-action">
-                                    <a
-                                      href="#"
-                                      className="icon-box icon-box-1"
-                                      data-bs-toggle="modal"
-                                      data-bs-target="#productModalId"
-                                    >
-                                      <FaRegEye />
-                                      <FaRegEye />
-                                    </a>
-                                  </div>
+                                 
                                 </div>
                                 <div className="product__content">
                                   <h6>
                                  
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -544,7 +312,7 @@ const Topcatagories = () => {
 
                                 </div>
                                 <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -572,11 +340,11 @@ const Topcatagories = () => {
                   }
 
                     {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev">
+                    <div className="bs-button bs2-button-prev bs2-button-prev1">
 
                       <FaAngleLeft style={{ fontSize: '20px' }} />
                     </div>
-                    <div className="bs-button bs2-button-next">
+                    <div className="bs-button bs2-button-next bs2-button-next1">
 
                       <FaAngleRight style={{ fontSize: '20px' }} />
                     </div>
@@ -632,21 +400,21 @@ const Topcatagories = () => {
                           }}
                           autoplay={{
                             delay: 8500,
-                            disableOnInteraction: false,
+                            disableOnInteraction: true,
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
                               <SwiperSlide className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
-                                    <a href="#">
+                                  <Link  to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                      <img className='pimg radius' src={detail.image} alt="product"  />
-                                    </a>
+                                    </Link>
                                   </div>
                                   {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
                                               </div> */}
-                                  <div className="product-action">
+                                  {/* <div className="product-action">
                                     <a
                                       href="#"
                                       className="icon-box icon-box-1"
@@ -656,12 +424,12 @@ const Topcatagories = () => {
                                       <FaRegEye />
                                       <FaRegEye />
                                     </a>
-                                  </div>
+                                  </div> */}
                                 </div>
                                 <div className="product__content">
                                 <h6>
                                  
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -674,7 +442,7 @@ const Topcatagories = () => {
 
                                 </div>
                                 <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -753,14 +521,14 @@ const Topcatagories = () => {
                       }}
                         autoplay={{
                           delay: 8500,
-                          disableOnInteraction: false,
+                          disableOnInteraction: true,
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
                             <SwiperSlide className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                   <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
@@ -782,7 +550,7 @@ const Topcatagories = () => {
                             <div className="product__content">
                             <h6>
                                  
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -795,7 +563,7 @@ const Topcatagories = () => {
                              
                             </div>
                             <div className="product__add-cart text-center  postioncategory btnflex">
-              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
@@ -872,36 +640,26 @@ const Topcatagories = () => {
                       }}
                         autoplay={{
                           delay: 8500,
-                          disableOnInteraction: false,
+                          disableOnInteraction: true,
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
                             <SwiperSlide className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                   <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
                               {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
                                               </div> */}
-                               <div className="product-action">
-                              <a
-                                  href="#"
-                                  className="icon-box icon-box-1"
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#productModalId"
-                                >
-                                   <FaRegEye />
-                                  <FaRegEye />
-                                </a>
-                              </div>
+                             
                             </div>
                             <div className="product__content">
                             <h6>
                                   {/* */}
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -913,12 +671,20 @@ const Topcatagories = () => {
                               
                              
                             </div>
-                            <div className="product__add-cart text-center postioncategory">
+                            <div className="product__add-cart text-center postioncategory btnflex">
                               <a
                                 href
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalone"
                               >
+                                 <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
                                 <button
                                   type="button"
                                   className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
@@ -987,14 +753,14 @@ const Topcatagories = () => {
                       }}
                         autoplay={{
                           delay: 8500,
-                          disableOnInteraction: false,
+                          disableOnInteraction: true,
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
                             <SwiperSlide className="product__item swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
-                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
                                   <img className='pimg radius' src={detail.image} alt="product"  />
                                 </Link>
                               </div>
@@ -1016,7 +782,7 @@ const Topcatagories = () => {
                             <div className="product__content">
                             <h6>
                                  
-                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
+                                  <NavLink className="productlink" to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`,namee:`${detail.product_name}`}}>
                                  {detail.product_name}
                                   </NavLink>
                                   </h6>
@@ -1027,12 +793,20 @@ const Topcatagories = () => {
                                   </h6> */}
                              
                             </div>
-                            <div className="product__add-cart text-center postioncategory">
+                            <div className="product__add-cart text-center postioncategory btnflex">
                               <a
                                 href
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalone"
                               >
+                                    <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  
+                  
+                >
+                 Get Details
+                </Link>
                                 <button
                                   type="button"
                                   className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "

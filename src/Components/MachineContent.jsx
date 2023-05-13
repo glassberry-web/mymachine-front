@@ -170,7 +170,7 @@ const MachineContent = () => {
             <div className="product__add-cart-s text-center btnflex">
             <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
                   
-                  className="cart-btn-31 w50 product-modal-sidebar-open-btn mb-20 d-flex align-items-center justify-content-center w-100"
+                  className="cart-btn-31 w50 product-modal-sidebar-open-btn  d-flex align-items-center justify-content-center w-100"
                    
                   
                 >

@@ -115,7 +115,7 @@ console.log("err=>", error);
                 >
                  Get Details
                 </Link>
-                      <button type="button" className="cart-btn d-flex  align-items-center justify-content-center w-100">
+                      <button type="button" className=" cart-btn-31 cart-btn d-flex  align-items-center justify-content-center w-100">
                         enquire now
                       </button>
                     </div>
@@ -134,18 +134,7 @@ console.log("err=>", error);
                 <img src={product.image} alt="product" />
               </a>
             </div>
-            <div className="product-action">
-              <a
-                href="#"
-                className="icon-box icon-box-1"
-                data-bs-toggle="modal"
-                data-bs-target="#productModalId"
-              >
-                <FaRegEye/>
-                <FaRegEye />
-              </a>
-             
-            </div>
+           
           </div>
         </div>
         <div className="col-md-8">
@@ -185,13 +174,16 @@ console.log("err=>", error);
     </div>
    </div>
    <div className="col-xl-3">
-   <div className="product-stock mb-15">
-     <h5>
-       Availability: <span> 940 in stock</span>
-     </h5>
-     {/* <h6>$125.00</h6> */}
-   </div>
+ 
    <div className="stock-btn ">
+   <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}
+                  
+                  className="cart-btn product-modal-sidebar-open-btn mb-20 d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
      <button
        type="button"
        className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
