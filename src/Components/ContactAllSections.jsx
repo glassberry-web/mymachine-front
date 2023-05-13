@@ -13,7 +13,7 @@ const ContactAllSections = () => {
             <Imagesec />
             <ContactForm />
             <ConDetails />
-            <Googlemap />
+            {/* <Googlemap /> */}
           </div>
         </div>
       </div>
