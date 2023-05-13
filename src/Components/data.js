@@ -1,5 +1,7 @@
 
 import { FaStar, FaRegEye } from "react-icons/fa";
+import {FiPhoneCall} from "react-icons/fi"
+import {IoMdMail}  from "react-icons/io"
 const data = [
     {
       id: 1,
@@ -206,25 +208,27 @@ const data = [
 ]
 
 const condetails =[
-  {
-      id:1,
-      type:"Food Beverage",
-      detail:"Rue Saint-Antoine, Paris, France",
-      icon:"fal fa-map-marker-alt"
+  // {
+  //     id:1,
+  //     type:"Food Beverage",
+  //     detail:"Rue Saint-Antoine, Paris, France",
+  //     icon:"fal fa-map-marker-alt"
      
-  },
+  // },
   {
       id:2,
       type:"Call us",
-      detail:"(+100) 123 456 7890",
-      icon:"fal fa-map-marker-alt"
+      detail:"+91 8669190014",
+      dir:"tel:+918669190014",
+      icon:<FiPhoneCall />
      
   },
   {
       id:3,
       type:"Mail us",
-      detail:"abc@gmail.com",
-      icon:"fal fa-map-marker-alt"
+      detail:"info@mymachinestore.com",
+      dir:"mailto:info@mymachinestore.com",
+      icon:<IoMdMail />
      
   }
 ]

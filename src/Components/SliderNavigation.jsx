@@ -116,7 +116,7 @@ const SliderNavigation = () => {
             <SwiperSlide className="box-item disflex">            
                 
               <Link to={`/products/${category.Category.replace(/ +/g, "-").toLowerCase()}`} state={{category:`${category.Category}`}}>
-              <img src={category.img} className="wid-mr" />
+              <img src={category.img} className={category.idx === 3 || category.idx === 4 ? "wid-mr wid44" : "wid-mr"} />
              
                       {category.Category}
                </Link>      

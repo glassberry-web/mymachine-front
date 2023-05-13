@@ -67,10 +67,10 @@ const Slider = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="slider-content pt-4">                                  
-                    <h2 data-animation="fadeInLeft" data-delay="1.7s" className="pt-15 slider-title pb-5">SALE 30% OFF <br />
+                    <h2 data-animation="fadeInLeft" data-delay="1.7s" className="pt-15 slider-title pb-5">Find Top Suppliers for <br />
                     <Typewriter
                       options={{
-                        strings: ['Engraving Machine', 'Fiber Laser Cutting Machine', 'Laser Hardening', 'Laser Welding Machine'],
+                        strings: ['Cutting Solution', 'Welding Solution', 'Forming Solution', 'Safety and Security Devices', 'Power Solutions', 'Surface Treatment'],
                         autoStart: true,
                         loop: true,
                       }}
@@ -78,7 +78,7 @@ const Slider = () => {
                     </h2>
                     <p className="pr-20 slider_text pt-2 resnone" data-animation="fadeInLeft" data-delay="1.9s">The GE IV series can cut both sheet and tube metals, replacing the need of having a seperate professional sheet laser cutting machine and tube laser cutting machine.</p>
                     <div className="row pt-4">
-                      <div className="col-lg-4 col-6">
+                      <div className="col-lg-3 col-6">
                         <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
                             {/* <div className="counter-icon mr-10">

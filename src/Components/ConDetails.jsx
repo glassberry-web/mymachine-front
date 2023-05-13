@@ -6,9 +6,9 @@ const ConDetails = () => {
     <>
       <section className="banner__area pt-70 pb-10">
         <div className="container">
-          <div className="row">
+          <div className="row d-flex justify-content-center">
             {condetails .map((contact) => (
-              <div className="col-xl-4 col-lg-4 col-md-6" key={contact.id}>
+              <div className="col-xl-4 col-md col-lg-4 col-md-6" key={contact.id}>
                 <div className="banner__item p-relative w-img mb-30">
                   <div className="banner__img">
                     <a href="">
@@ -18,10 +18,10 @@ const ConDetails = () => {
                   <div className="banner__content banner__content_one">
                     <h6 style={{ color: "#fcbe00" }}>
                       {" "}
-                      <i className="fal fa-map-marker-alt mr-10"></i>
-                      <a href="product-details.html">{contact.type}</a>
+                      {contact.icon} 
+                      <a className="ml1rem">{contact.type}</a>
                     </h6>
-                    <p>{contact.detail}</p>
+                    <a href={contact.dir} className="afs">{contact.detail}</a>
                   </div>
                 </div>
               </div>

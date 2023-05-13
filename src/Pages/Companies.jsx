@@ -5,7 +5,7 @@ import PageBanner from '../Components/PageBanner'
 const Companies = () => {
   return (
     <>
-     <PageBanner background="url(assets/img/new/companies.jpg)" title="Companies" info = "Home" />
+     <PageBanner background="url(assets/img/new/companies.jpg)" title="" info = "" />
     <CompaniesComponent />
     </>
    

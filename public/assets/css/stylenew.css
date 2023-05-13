@@ -2635,6 +2635,15 @@ input ::placeholder
   background-position: center top;
   background-repeat: no-repeat;
 }
+.page-banner-area1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  background-size: cover;
+  background-position: 72% 16%;
+  background-repeat: no-repeat;
+}
 .page-banner-area::before {
   position: absolute;
   content: "";
@@ -2649,6 +2658,13 @@ input ::placeholder
  
   padding-top: 100px;
   padding-bottom: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.page-banner-height1 {
+ 
+  padding-top: 130px;
+  padding-bottom: 130px;
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -7411,7 +7427,7 @@ padding-left: 15px !important;
 }
 
 .wid-mr{
-  width: 50px;
+  width: 60px;
   margin-right: 0.6rem;
 }
 
@@ -7652,7 +7668,7 @@ padding-left: 15px !important;
 .flexalign{
   display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 /* .prr::after{
   position: absolute;
@@ -7834,6 +7850,19 @@ margin-bottom: 3rem;
 }
 .w50{
   width: 50% !important;
+}
+.wid44{
+  width: 44px;
+}
+.afs{
+  color: white;
+  font-size: 1.5rem;
+}
+.ml1rem{
+  margin-left: 1rem;
+}
+.afs:hover{
+  color: white;
 }
 
 

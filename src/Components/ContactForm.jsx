@@ -7,12 +7,12 @@ const ContactForm = () => {
         <div className="basic-login">
           <h5>Send message to us</h5>
           <form action="#">
-            <input id="username" type="text" placeholder="Enter Username" />
+            <input id="user" type="text" placeholder="Enter Username" />
 
-            <input id="email-id" type="text" placeholder="Email address..." />
+            <input id="emai" type="text" placeholder="Email address..." />
 
             <input
-              id="userpass"
+              id="user"
               type="password"
               placeholder="Enter password..."
             />

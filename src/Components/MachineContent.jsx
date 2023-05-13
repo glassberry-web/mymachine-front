@@ -688,7 +688,7 @@ const MachineContent = () => {
                 <div className="banner-image">
                   <img
                     className="banner-l"
-                    src="assets/image/machine/machineslider.jpg"
+                    src="assets/image/machine/macslider.jpg"
                     alt
                   />
                 </div>

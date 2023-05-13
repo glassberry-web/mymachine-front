@@ -4,7 +4,7 @@ const PageBanner = (props) => {
     const { title, info, background} = props
   return (
     <>
-     <div className="page-banner-area page-banner-height" style={{backgroundImage: background}} data-background="assets/img/new/p_bg2.jpg">
+     <div className={title ==="" ? "page-banner-area1 page-banner-height1" : "page-banner-area page-banner-height"} style={{backgroundImage: background}} data-background="assets/img/new/p_bg2.jpg">
   <div className="container">
     <div className="row">
       <div className="col-xl-12">
