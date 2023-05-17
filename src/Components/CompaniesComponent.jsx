@@ -32,16 +32,16 @@ const CompaniesComponent = () => {
                                 <div className="row">
                                     {
                                         data.map((detail) => (
-                                         detail.logo &&  detail.company_name  ? (                                            
+                                        detail.status==="Active" && detail.logo &&  detail.company_name  ? (                                            
                                                 <div className="col-xl-3">
                                                     <div className="single-smblog mb-30 boxbr">
                                                         <div className="smblog-thum">
-                                                            <div className="blog-image w-img">
+                                                            <div className="blog-image w-img logoimage">
                                                                 {/* <Link to={`http://15.207.31.23:3000/companies/${detail._id}`}>
                                                                     <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
                                                                 </Link> */}
                                                                  <Link to="http://15.207.31.23:3000/companiesDetails" state={{id:`${detail._id}`}} >
-                                                                    <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
+                                                                    <img className='brandlogo1' src={detail.logo} alt={detail.company_name} />
                                                                 </Link> 
                                                                 
                                                             </div>

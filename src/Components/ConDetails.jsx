@@ -10,9 +10,9 @@ const ConDetails = () => {
             {condetails .map((contact) => (
               <div className="col-xl-4 col-md col-lg-4 col-md-6" key={contact.id}>
                 <div className="banner__item p-relative w-img mb-30">
-                  <div className="banner__img">
+                  <div className="banner__img bgblack">
                     <a href="">
-                      <img src="assets/image/offer2.png" alt="" />
+                      <img src="assets/image/offer2.png" alt=""  className="vishid"/>
                     </a>
                   </div>
                   <div className="banner__content banner__content_one">

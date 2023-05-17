@@ -105,10 +105,10 @@ const PopularBrands = () => {
                 {
                     data.map((detail)=>(
                       detail.logo &&  detail.company_name  ?(
-                        <SwiperSlide className="brand-item w-img swiper-slide">
+                        <SwiperSlide className="brand-item w-img  swiper-slide">
                            <Link to="http://15.207.31.23:3000/companiesDetails" state={{id:`${detail._id}`}} >
-                              <img src={`http://15.207.31.23:5001/${detail.logo}`}  alt="brand"
-                            className="shadow" />
+                              <img src={detail.logo}  alt="brand"
+                            className="shadow  brandlogo" />
                             </Link> 
                         {/* <Link to  key={data._id}>
                           <img

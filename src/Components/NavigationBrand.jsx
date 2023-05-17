@@ -6,7 +6,7 @@ const NavigationBrand = () => {
   const [data, setData] = useState([])
 
   const fetchData = () => {
-      fetch("http://15.207.31.23:5000/fetch")
+      fetch("http://localhost:5000/fetch")
 
           .then(response => {
               console.log(response);
@@ -22,6 +22,9 @@ const NavigationBrand = () => {
   }, [])
   const machineData = Object.values(data);
   let uniqueBrand = [...new Set(machineData.map((brand) => brand.brand))];
+  // console.log("uniqueyy=>", uniqueBrand);
+  // let newuniqueBrand = uniqueBrand.join().replace(/^\s+|\s+$/gm,'');
+  // console.log("newunique=>", newuniqueBrand);
   // const unordered = [
   //   "HSG",
   //   "Alfexlaser",

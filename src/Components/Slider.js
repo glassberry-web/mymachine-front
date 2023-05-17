@@ -78,7 +78,7 @@ const Slider = () => {
                     </h2>
                     <p className="pr-20 slider_text pt-2 resnone" data-animation="fadeInLeft" data-delay="1.9s">The GE IV series can cut both sheet and tube metals, replacing the need of having a seperate professional sheet laser cutting machine and tube laser cutting machine.</p>
                     <div className="row pt-4">
-                      <div className="col-lg-3 col-6">
+                      <div className="col-lg-4 col-6">
                         <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
                             {/* <div className="counter-icon mr-10">
@@ -104,7 +104,7 @@ const Slider = () => {
                               <p>+</p>                                             
                             </div>
                           </div> 
-                          <h5>Peak Pulse Power</h5> 
+                          <h5>Peak <br/> Pulse Power</h5> 
                         </div>
                       </div>
                       {/*  */}
@@ -119,7 +119,7 @@ const Slider = () => {
                               <p>+</p>  
                             </div>                                    
                           </div>  
-                          <h5>Max Acceleration</h5> 
+                          <h5>Max<br/> Acceleration</h5> 
                         </div>
                       </div>
                     </div>

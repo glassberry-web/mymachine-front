@@ -1268,7 +1268,7 @@ input ::placeholder
 .logo .logo-image img {
   display: block;
   max-width: 240px;
-  padding: 5px 0;
+  padding: 5px 0 5px 25px;
   width: 15rem;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -1302,6 +1302,7 @@ input ::placeholder
 .header__search {
  /* margin-left: 40px;*/
   width: 630px;
+  margin-left: 4rem;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .header__search {
@@ -1494,7 +1495,7 @@ input ::placeholder
 }
 
 .header__bottom-left {
-  margin-left: -30px;
+  margin-left: -47px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .header__bottom-left {
@@ -1602,7 +1603,7 @@ input ::placeholder
   top: 2px;
 }
 .header-action .icon-link span {
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.1;
   display: block;
   color: #ffffff;
@@ -1780,7 +1781,7 @@ input ::placeholder
 
 .main-menu ul li {
   display: inline-block;
-  margin-right: 22px;
+  margin-right: 23px;
   position: relative;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -1813,7 +1814,7 @@ input ::placeholder
 }
 .main-menu ul li a {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff !important;
   font-weight: 500;
   text-transform: uppercase;
@@ -7585,7 +7586,7 @@ padding-left: 15px !important;
   font-weight: 500;
   text-align: center;
   padding-bottom: 20px;
-  font-size: 20px;
+  font-size: 17px;
 }
 .rel{
   position: relative;
@@ -7863,6 +7864,30 @@ margin-bottom: 3rem;
 }
 .afs:hover{
   color: white;
+}
+.vishid{
+  visibility: hidden;
+}
+.bgblack{
+  background: black;
+}
+.absp{
+  position: absolute;
+  top: 74%;
+  left: 45%;
+}
+.logoimage{
+  padding: 1rem 2rem;
+  /* height: 50%;
+  margin-bottom: 1rem; */
+}
+.brandlogo{
+  aspect-ratio: 5/3;
+  object-fit: contain;
+}
+.brandlogo1{
+  aspect-ratio: 7/3;
+  object-fit: contain;
 }
 
 

@@ -61,7 +61,7 @@ const Header = () => {
                 <div className="header-action">
                   <div className="block-wishlist action">
                     <a className="icon-link" href="#">
-                      <img src="assets/image/slider/compare-new.png" />
+                      <img src="assets/image/slider/compare-new.png" style={{width:"35px;"}} />
                       <span className="text mt-1">&nbsp;Compare</span>
                     </a>
                   </div>
