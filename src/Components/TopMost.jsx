@@ -24,7 +24,7 @@ const TopMost = () => {
     const fetchData = () => {
       // fetch("http://my-machine-store-restapi.onrender.com/fetch")
         //  fetch("http://15.207.31.23:5000/fetch")
-        fetch("http://mymachinestore.com/api/fetch")
+        fetch("https://mymachinestore.com/api/fetch")
         .then(response => {
           console.log(response);
           return response.json()
