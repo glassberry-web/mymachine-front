@@ -10,7 +10,8 @@ const CompanyDeatails = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch("http://15.207.31.23:5000/companyproducts")
+        // fetch("http://15.207.31.23:5000/companyproducts")
+        fetch("https://mymachinestore.com/api/companyproducts")
 
             .then(response => {
                 console.log(response);

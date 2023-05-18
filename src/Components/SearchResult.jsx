@@ -42,7 +42,7 @@ const SearchResult = ()=>{
 
   useEffect(()=>{
     const fetchFilters = async ()=>{
-      const res = await axios.get("http://15.207.31.23:5000/fetch")
+      const res = await axios.get("https://mymachinestore.com/api/fetch")
       .catch((error)=>{
 console.log("err=>", error);
       });

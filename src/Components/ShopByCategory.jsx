@@ -21,7 +21,7 @@ const ShopByCategory = () => {
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
-            .get("http://15.207.31.23:5000/fetch")
+            .get("https://mymachinestore.com/api/fetch")
     
             .catch((error) => {
               console.log("err=>", error);

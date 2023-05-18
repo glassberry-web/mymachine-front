@@ -6,7 +6,8 @@ const NavigationBrand = () => {
   const [data, setData] = useState([])
 
   const fetchData = () => {
-      fetch("http://localhost:5000/fetch")
+      // fetch("http://localhost:5000/fetch")
+      fetch("https://mymachinestore.com/api/fetch")
 
           .then(response => {
               console.log(response);
