@@ -27,7 +27,8 @@ const Topcatagories = () => {
   console.log("popop=>", popup);
 
   const fetchData = () => {
-    fetch("http://15.207.31.23:5000/fetch")
+    // fetch("http://15.207.31.23:5000/fetch")
+    fetch("http://mymachinestore.com/api/fetch")
 
       .then(response => {
         console.log(response);
