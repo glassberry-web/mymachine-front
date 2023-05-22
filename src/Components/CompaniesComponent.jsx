@@ -8,6 +8,7 @@ const CompaniesComponent = () => {
     const fetchData = () => {
         // fetch("http://15.207.31.23:5000/machinelisting")
         fetch("https://mymachinestore.com/api/machinelisting")
+        // fetch("http://localhost:5000/api/machinelisting")
 
             .then(response => {
                 console.log(response);
@@ -41,7 +42,7 @@ const CompaniesComponent = () => {
                                                                 {/* <Link to={`http://15.207.31.23:3000/companies/${detail._id}`}>
                                                                     <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
                                                                 </Link> */}
-                                                                 <Link to="https://mymachinestore.com/companiesDetails" state={{id:`${detail._id}`}} >
+                                                                 <Link to="/companiesDetails" state={{id:`${detail._id}`}} >
                                                                     <img className='brandlogo1' src={detail.logo} alt={detail.company_name} />
                                                                 </Link> 
                                                                 

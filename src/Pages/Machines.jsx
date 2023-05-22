@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import MachineContent from '../Components/MachineContent'
 import { fetchAsyncProducts } from '../Redux/products/productSlice';
+import Pagination from '../Components/Pagination';
 
 const Machines = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Machines = () => {
   return (
     <>
     <MachineContent />
+   
     </>
   )
 }

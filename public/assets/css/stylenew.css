@@ -1323,6 +1323,7 @@ input ::placeholder
 @media (max-width: 575px) {
   .header__search {
     width: 100%;
+    margin-left: 0;
   }
 }
 .header__search form {
@@ -4450,7 +4451,7 @@ input ::placeholder
   margin-right: 10px;
   margin-bottom: 10px;
 }
-.basic-pagination ul li a {
+.basic-pagination ul li button {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -4462,7 +4463,7 @@ input ::placeholder
   background: #f5f5f5;
   border: 1px solid #e5e5e5;
 }
-.basic-pagination ul li a:hover, .basic-pagination ul li a.active {
+.basic-pagination ul li button:hover, .basic-pagination ul li button .active {
   background: #fcbe00;
   color: #ffffff;
   border-color: #fcbe00;
@@ -7882,12 +7883,18 @@ margin-bottom: 3rem;
   margin-bottom: 1rem; */
 }
 .brandlogo{
-  aspect-ratio: 5/3;
+  aspect-ratio: 6/3;
+  padding: 1rem;
   object-fit: contain;
 }
 .brandlogo1{
   aspect-ratio: 7/3;
   object-fit: contain;
+}
+.pfs{
+  font-size: 1.2rem;
+  font-weight: 500;
+  
 }
 
 
