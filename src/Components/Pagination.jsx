@@ -1,7 +1,8 @@
 import React from 'react'
  import {FiChevronsLeft, FiChevronsRight} from "react-icons/fi"
 
-const Pagination = () => {
+const Pagination = ({props}) => {
+    const {pages} = props.pages
     return (
         <>
             <div className="tp-pagination text-center">
@@ -16,6 +17,7 @@ const Pagination = () => {
                                             <FiChevronsLeft />
                                         </a>
                                     </li>
+                                  
                                     <li>
                                         <a href="shop.html" className="active">1</a>
                                     </li>

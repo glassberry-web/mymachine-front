@@ -310,7 +310,7 @@ const TestimonialsData = [
   {
     idx: 2,
     Category: "Welding Solution", 
-    img:"assets/image/welding.gif",
+    img:"assets/image/wed.gif",
     subCategory: [
       {
           id: 1,
@@ -350,7 +350,7 @@ const TestimonialsData = [
   {
     idx: 4,
     Category: "Safety and Security Devices",
-    img:"assets/image/sas.gif",
+    img:"assets/image/sss.gif",
     subCategory: [
       {
           id: 1,
@@ -367,7 +367,7 @@ const TestimonialsData = [
   {
     idx: 5,
     Category: "Power Solutions", 
-    img:"assets/image/power.gif",
+    img:"assets/image/pow.gif",
     
     
     subCategory: [
@@ -399,7 +399,7 @@ const TestimonialsData = [
    
     
     Category: "Surface Treatment",
-    img:"assets/image/surface.gif",
+    img:"assets/image/sar.gif",
     subCategory: [
       {
           id: 1,

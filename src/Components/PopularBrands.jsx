@@ -12,6 +12,7 @@ const PopularBrands = () => {
 
     const fetchData = () => {
         fetch("https://mymachinestore.com/api/machinelisting")
+        // fetch("http://localhost:5000/api/machinelisting")
 
             .then(response => {
                 console.log(response);
@@ -78,7 +79,7 @@ const PopularBrands = () => {
             breakpoints={{
               370: {
                 // width: 576,
-                slidesPerView: 1,
+                slidesPerView: 2,
               },
               450: {
                 // width: 576,
@@ -106,7 +107,7 @@ const PopularBrands = () => {
                     data.map((detail)=>(
                       detail.logo &&  detail.company_name  ?(
                         <SwiperSlide className="brand-item w-img  swiper-slide">
-                           <Link to="https://mymachinestore.com/companiesDetails" state={{id:`${detail._id}`}} >
+                           <Link to="/companiesDetails" state={{id:`${detail._id}`}} >
                               <img src={detail.logo}  alt="brand"
                             className="shadow  brandlogo" />
                             </Link> 

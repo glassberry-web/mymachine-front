@@ -60,7 +60,7 @@ const Slider = () => {
                 // }} 
     
     className="slider-wrapper swiper-wrapper">
-      <SwiperSlide className="single-slider swiper-slide slider-height d-flex align-items-center" style={{backgroundImage: "url(assets/img/slider/real.jpg)"}}>
+      <SwiperSlide className="single-slider swiper-slide slider-height d-flex backimg">
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
@@ -78,7 +78,7 @@ const Slider = () => {
                     </h2>
                     <p className="pr-20 slider_text pt-2 resnone" data-animation="fadeInLeft" data-delay="1.9s">The GE IV series can cut both sheet and tube metals, replacing the need of having a seperate professional sheet laser cutting machine and tube laser cutting machine.</p>
                     <div className="row pt-4">
-                      <div className="col-lg-4 col-6">
+                      <div className="col-lg-4 slider-text">
                         <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
                             {/* <div className="counter-icon mr-10">
@@ -89,11 +89,11 @@ const Slider = () => {
                               <p>+</p>                                             
                             </div>
                           </div>  
-                          <h5>Max Power</h5> 
+                          <h5>Max <br/> Power</h5> 
                         </div>
                       </div>
                       {/*  */}
-                      <div className="col-lg-4 col-6">
+                      <div className="col-lg-4 slider-text">
                         <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
                             {/* <div className="counter-icon mr-10">
@@ -108,7 +108,7 @@ const Slider = () => {
                         </div>
                       </div>
                       {/*  */}
-                      <div className="col-lg-4 col-6 marauto">
+                      <div className="col-lg-4 slider-text">
                         <div className="ab-counter-item mb-30 flexalign">
                           <div className="ab-counter">
                             {/* <div className="counter-icon mr-10">

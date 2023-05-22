@@ -27,7 +27,7 @@ const Topcatagories = () => {
   console.log("popop=>", popup);
 
   const fetchData = () => {
-    // fetch("http://15.207.31.23:5000/fetch")
+    // fetch("http://localhost:5000/api/fetch")
     fetch("https://mymachinestore.com/api/fetch")
 
       .then(response => {
@@ -470,6 +470,14 @@ const Topcatagories = () => {
                     )
 
                   }
+                   <div className="bs-button bs2-button-prev bs2-button-prev1">
+
+<FaAngleLeft style={{ fontSize: '20px' }} />
+</div>
+<div className="bs-button bs2-button-next bs2-button-next1">
+
+<FaAngleRight style={{ fontSize: '20px' }} />
+</div>
                   </div>
 
                     
@@ -589,7 +597,15 @@ const Topcatagories = () => {
                       </Swiper>
                     </div>
                     )
-                  }   
+                  }  
+                   <div className="bs-button bs2-button-prev bs2-button-prev1">
+
+<FaAngleLeft style={{ fontSize: '20px' }} />
+</div>
+<div className="bs-button bs2-button-next bs2-button-next1">
+
+<FaAngleRight style={{ fontSize: '20px' }} />
+</div> 
                   </div>               
                 
                   {/* </div> */}

@@ -29,7 +29,7 @@ const Header = () => {
                   <div className="header__info">
                     <div className="logo">
                       <Link to="/" className="logo-image">
-                        <img src="../assets/img/new/logo3.png" alt="logo" />
+                        <img src="../assets/img/new/mynew.png" alt="logo" />
                       </Link>
                     </div>
                   </div>
