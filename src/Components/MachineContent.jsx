@@ -73,7 +73,7 @@ const MachineContent = () => {
   useEffect(() => {
     const fetchMachine = async () => {
       const res = await axios
-        .get(`http://mymachinestore.com/api/products?page=${pageNo}`)
+        .get(`https://mymachinestore.com/api/products?page=${pageNo}`)
         // .get("https://mymachinestore.com/api/fetch")
 
         .catch((error) => {
