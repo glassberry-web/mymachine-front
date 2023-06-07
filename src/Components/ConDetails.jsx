@@ -7,6 +7,9 @@ const ConDetails = () => {
       <section className="banner__area pt-70 pb-10">
         <div className="container">
           <div className="row d-flex justify-content-center">
+            <div className="col-lg-12 text-center">
+              <h4 className="conde">Our Contact Details</h4>
+            </div>
             {condetails .map((contact) => (
               <div className="col-xl-4 col-md col-lg-4 col-md-6" key={contact.id}>
                 <div className="banner__item p-relative w-img mb-30">

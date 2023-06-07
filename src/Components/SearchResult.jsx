@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { getAllProducts } from "../Redux/products/productSlice";
+
+import { getAllProducts, setSearchTerm , getsearch } from "../Redux/products/productSlice";
 import { filterProducts, filterUniqueProducts } from "../Redux/products/FilteredProductslice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { Link,  useParams } from "react-router-dom";
+import { Link,  useParams, useLocation } from "react-router-dom";
 //  import { getAllFilters } from "../Redux/products/FilteredProductslice";
  import { setCategoryFilter } from "../Redux/products/filterSlice";
 import { TiThList } from "react-icons/ti";
@@ -13,10 +13,19 @@ import { getgridView } from "../Redux/products/FilteredProductslice";
 import { setGrid_view } from "../Redux/products/FilteredProductslice";
 import { FaRegEye } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
+import ProductEnquiryForm from "./ProductEnquiryForm";
+import SearchEnquiryForm from "./SearchEnquiryForm";
+import { setShow, getpopup } from "../Redux/products/PopupSlice";
+import { setSearchShow, getSearchpopup, getAllSearchpopup } from "../Redux/products/SearchPopupSlice";
 
 
 
 const SearchResult = ()=>{
+  const location = useLocation();
+  const debounceSearchTerm = location.state;
+  console.log("debounce=>", debounceSearchTerm);
+  const searchpopup = useSelector(getSearchpopup);
+
   const gridview = useSelector(getgridView);
   const [filterTags, setFilterTags] = useState([])
   
@@ -40,28 +49,40 @@ const SearchResult = ()=>{
   };
   
 
-  useEffect(()=>{
-    const fetchFilters = async ()=>{
-      const res = await axios.get("https://mymachinestore.com/api/fetch")
-      .catch((error)=>{
-console.log("err=>", error);
-      });
-      dispatch(filterProducts(res.data))
-    } 
-    fetchFilters();  
-  },[])
+//   useEffect(()=>{
+//     const fetchFilters = async ()=>{
+//       const res = await axios.get("https://mymachinestore.com/api/fetch")
+//       .catch((error)=>{
+// console.log("err=>", error);
+//       });
+//       dispatch(filterProducts(res.data))
+//     } 
+//     fetchFilters();  
+//   },[])
  
   
   const products = useSelector(getAllProducts);
+  const searchTerm = useSelector(getsearch);
+  console.log("searchhi=>", debounceSearchTerm)
   console.log("products==>", products);
+  let proarray = Object.values(products);
+  console.log("searchh=>", proarray)
+  const filteredProducts = proarray.filter(item => 
+    item.brand.toLowerCase().includes(debounceSearchTerm.toLowerCase()) ||
+    item.product_name.toLowerCase().includes(debounceSearchTerm.toLowerCase()) ||
+    item.category.toLowerCase().includes(debounceSearchTerm.toLowerCase()) ||
+    item.subCategory.toLowerCase().includes(debounceSearchTerm.toLowerCase()) 
+  );
+  console.log("serfil=>", filteredProducts);
+  // dispatch(setSearchTerm(filteredProducts))
   // const filters = useSelector(getAllFilters);
   // console.log("selector==>", filters)
-  let proarray = Object.values(products);
+  // let proarray = Object.values(products);
 
   
   // const filteredDATA = filters.filter((node) =>
   //   filterTags.length > 0
-  //     ? filterTags.every((filterTag) =>
+      // ? filterTags.every((filterTag) =>
   //         node.category.includes(filterTag)
   //       )
   //     : filters
@@ -79,25 +100,25 @@ console.log("err=>", error);
 
   // filter by category
 
-  const handleFilterCategory = (category) => {
-    const filterCategory = proarray?.filter(product => product.category === category)
-    console.log("filtercategory", filterCategory);
-    dispatch(setCategoryFilter(filterCategory))
-  }
+  // const handleFilterCategory = (category) => {
+  //   const filterCategory = proarray?.filter(product => product.category === category)
+  //   console.log("filtercategory", filterCategory);
+  //   dispatch(setCategoryFilter(filterCategory))
+  // }
   // filters by category
  
 
   let renderProducts = "";
 
   renderProducts = gridview ? (
-  proarray.length > 0 &&  proarray.map((product, index) => (
-    <div key={index} className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                  <div className="product__item product__item-d">
+    filteredProducts.length > 0 ?( filteredProducts.map((product, index) => (
+    <div key={index} className="col-xl-3 col-lg-3 col-md-6 col-sm-6 machine-mb">
+                  <div className="product__item product__item-d proalign">
                     <div className="product__thumb fix fix-height">
                       <div className="product-image w-img">
                       <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
                     {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
-                    <img className='' src={product.image} alt={product.product_name}  />
+                    <img className='pimg' src={product.image} alt={product.product_name}  />
                   </Link>
                       </div>
                      
@@ -115,14 +136,24 @@ console.log("err=>", error);
                 >
                  Get Details
                 </Link>
-                      <button type="button" className=" cart-btn-31 cart-btn d-flex  align-items-center justify-content-center w-100">
+                      <button type="button" className=" cart-btn-31 cart-btn d-flex  align-items-center justify-content-center w-100"
+                       onClick={()=>dispatch(setSearchShow(["true", index]))}
+                      >
                         enquire now
                       </button>
                     </div>
                   </div>
                 </div>
-  )) ) :  (
-    proarray.length > 0 &&  proarray.map((product, index) => (
+    ))) : <>
+        <div className="sorryflex">
+          <img src="../assets/image/sorry.png" alt="404 not found" />
+          <div className="srycon">
+            <h3 className="sryh3">Sorry, no results found!</h3>
+            <p className="sryp">Please check the spelling or try searching for something else</p>
+          </div>
+        </div>
+    </>) :  (
+    filteredProducts.length > 0 ? ( filteredProducts.map((product, index) => (
     <div key={index} className="row align-items-center">
     <div className="col-xl-9">
     <div className="single-features-item single-features-item-df b-radius mb-20">
@@ -130,39 +161,40 @@ console.log("err=>", error);
         <div className="col-md-4">
           <div className="features-thum">
             <div className="features-product-image w-img">
-              <a href="#">
-                <img src={product.image} alt="product" />
-              </a>
+              <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                <img className="pimg" src={product.image} alt={product.product_name} />
+              </Link>
             </div>
            
           </div>
         </div>
         <div className="col-md-8">
           <div className="product__content product__content-d">
-            <h6>
-              <a href="#">{product.product_name}</a>
+            <h6 className="textleft proh1">
+            <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${product._id}`, namee:`${product.product_name}`}}>
+                {product.product_name}</Link>
             </h6>
            
             <div className="features-des">
               <ul>
               <li>
-                  <a href="product-detail.html">
+                  <a href="">
                     <RxDotFilled/> <span>Model-No:</span>{product.modalNum}
                   </a>
                 </li>
                 <li>
-                  <a href="product-detail.html">
+                  <a href="">
                     <RxDotFilled /><span>Category:</span>{product.category}
                   </a>
                 </li>
                 <li>
-                  <a href="product-detail.html">
+                  <a href="">
                     <RxDotFilled /><span>Brand:</span>{product.brand}
                   </a>
                 </li>
                
                 <li>
-                  <a href="product-detail.html">
+                  <a href="">
                     <RxDotFilled/><span>Color:</span>{product.colour}
                   </a>
                 </li>
@@ -187,19 +219,28 @@ console.log("err=>", error);
      <button
        type="button"
        className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
+       onClick={()=>dispatch(setSearchShow(["true", index]))}
      >
        enquire now
      </button>
    </div>
   </div>
  </div>
-  )))
+  ))):  <>
+  <div className="sorryflex">
+    <img src="../assets/image/sorry.png" alt="404 not found" />
+    <div className="srycon">
+      <h3 className="sryh3">Sorry, no results found!</h3>
+      <p className="sryp">Please check the spelling or try searching for something else</p>
+    </div>
+  </div>
+</>)
   // proarray && proarray ?.filter((pro)=> pro.category <= filters.category).map((product, index) => (
   //   <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
   //                 <div className="product__item product__item-d">
   //                   <div className="product__thumb fix fix-height">
   //                     <div className="product-image w-img">
-  //                       <a href="product-detail.html">
+  //                       <a href="">
   //                         <img src={product.image} alt="product" />
   //                       </a>
   //                     </div>
@@ -215,7 +256,7 @@ console.log("err=>", error);
   //                     </div>
   //                   </div>
   //                   <div className="product__content-3">
-  //                     <h6><a href="product-detail.html">{product.product_name}</a></h6>
+  //                     <h6><a href="">{product.product_name}</a></h6>
                       
   //                   </div>
   //                   <div className="product__add-cart-s text-center">
@@ -232,7 +273,7 @@ console.log("err=>", error);
   //                   <div className="product__item product__item-d">
   //                     <div className="product__thumb fix fix-height">
   //                       <div className="product-image w-img">
-  //                         <a href="product-detail.html">
+  //                         <a href="">
   //                           <img src={product.image} alt="product" />
   //                         </a>
   //                       </div>
@@ -248,7 +289,7 @@ console.log("err=>", error);
   //                       </div>
   //                     </div>
   //                     <div className="product__content-3">
-  //                       <h6><a href="product-detail.html">{product.product_name}</a></h6>
+  //                       <h6><a href="">{product.product_name}</a></h6>
                         
   //                     </div>
   //                     <div className="product__add-cart-s text-center">
@@ -265,7 +306,7 @@ console.log("err=>", error);
   //                   <div className="product__item product__item-d">
   //                     <div className="product__thumb fix fix-height">
   //                       <div className="product-image w-img">
-  //                         <a href="product-detail.html">
+  //                         <a href="">
   //                           <img src={product.image} alt="product" />
   //                         </a>
   //                       </div>
@@ -281,7 +322,7 @@ console.log("err=>", error);
   //                       </div>
   //                     </div>
   //                     <div className="product__content-3">
-  //                       <h6><a href="product-detail.html" className="a40">{product.product_name}</a></h6>
+  //                       <h6><a href="" className="a40">{product.product_name}</a></h6>
                         
   //                     </div>
   //                     <div className="product__add-cart-s text-center">
@@ -299,7 +340,7 @@ console.log("err=>", error);
     //                 <div className="product__item product__item-d">
     //                   <div className="product__thumb fix">
     //                     <div className="product-image w-img">
-    //                       <a href="product-detail.html">
+    //                       <a href="">
     //                         <img src={product.image} alt="product" />
     //                       </a>
     //                     </div>
@@ -315,7 +356,7 @@ console.log("err=>", error);
     //                     </div>
     //                   </div>
     //                   <div className="product__content-3">
-    //                     <h6><a href="product-detail.html">{product.product_name}</a></h6>
+    //                     <h6><a href="">{product.product_name}</a></h6>
                         
     //                   </div>
     //                   <div className="product__add-cart-s text-center">
@@ -332,10 +373,13 @@ console.log("err=>", error);
         <>
         <div className="shop-area mb-20 mt-40">
     <div className="container">
-      <div className="row">       
-        <div className="col-xl-12 col-lg-8">         
+      <div className="row"> 
+       
+        
+        <div className="col-xl-12 col-lg-8">  
+        {   renderProducts.length  > 0 &&        
           <div className="product-lists-top">
-            <div className="product__filter-wrap">
+            <div className="product__filter-wrap resnone">
               <div className="row align-items-center">
                 <div className="col-xxl-10 col-xl-6 col-lg-6 col-md-6">
                   <div className="product__filter d-sm-flex align-items-center">
@@ -356,6 +400,8 @@ console.log("err=>", error);
                       </ul>
                     </div>
                     <div className="product__result pl-60" style={{margin:"0 auto"}}>
+                      
+                   
                     <p className="paradec"><span className="spandec">{renderProducts.length}</span> products are found</p>
                     </div>
                   </div>
@@ -363,6 +409,7 @@ console.log("err=>", error);
               </div>
             </div>
           </div>
+}
           <div className="tab-content" id="productGridTabContent">
             <div className="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
               <div className="tp-wrapper">
@@ -384,7 +431,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-1.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-1.jpg" alt /></a>
                               </div>
                               <div className="product__offer">
                                 <span className="discount">-15%</span>
@@ -403,7 +450,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">HMC Machines</a></h6>
+                              <h6><a href="">HMC Machines</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -416,10 +463,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -448,7 +495,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-2.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-2.jpg" alt /></a>
                               </div>
                               <div className="product-action">
                                 <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -464,7 +511,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">Moulding Machines</a></h6>
+                              <h6><a href="">Moulding Machines</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -477,10 +524,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -509,7 +556,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-3.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-3.jpg" alt /></a>
                               </div>
                               <div className="product-action">
                                 <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -525,7 +572,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">Laser Cutting Machine</a></h6>
+                              <h6><a href="">Laser Cutting Machine</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -538,10 +585,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -570,7 +617,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-4.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-4.jpg" alt /></a>
                               </div>
                               <div className="product-action">
                                 <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -586,7 +633,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">Imported Wooden Felt Cushion Chair</a></h6>
+                              <h6><a href="">Imported Wooden Felt Cushion Chair</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -599,10 +646,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -631,7 +678,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-5.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-5.jpg" alt /></a>
                               </div>
                               <div className="product__offer">
                                 <span className="discount">-15%</span>
@@ -650,7 +697,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">Sunhouse Decorative Lights – Imported</a></h6>
+                              <h6><a href="">Sunhouse Decorative Lights – Imported</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -663,10 +710,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -695,7 +742,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-6.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-6.jpg" alt /></a>
                               </div>
                               <div className="product-action">
                                 <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -711,7 +758,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">Korea Stainless Steel Pot Set 5 Piecs</a></h6>
+                              <h6><a href="">Korea Stainless Steel Pot Set 5 Piecs</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -724,10 +771,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -756,7 +803,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-7.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-7.jpg" alt /></a>
                               </div>
                               <div className="product-action">
                                 <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -772,7 +819,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">HP Stainless Steel Hot Water Bottle</a></h6>
+                              <h6><a href="">HP Stainless Steel Hot Water Bottle</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -785,10 +832,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -817,7 +864,7 @@ console.log("err=>", error);
                           <div className="col-md-4">
                             <div className="features-thum">
                               <div className="features-product-image w-img">
-                                <a href="product-detail.html"><img src="assets/img/product/sm-8.jpg" alt /></a>
+                                <a href=""><img src="assets/img/product/sm-8.jpg" alt /></a>
                               </div>
                               <div className="product-action">
                                 <a href="#" className="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -833,7 +880,7 @@ console.log("err=>", error);
                           </div>
                           <div className="col-md-8">
                             <div className="product__content product__content-d">
-                              <h6><a href="product-detail.html">The North Face Womens Resolve 2 Jack</a></h6>
+                              <h6><a href="">The North Face Womens Resolve 2 Jack</a></h6>
                               <div className="rating mb-5">
                                 <ul className="rating-d">
                                   <li><a href="#"><i className="fal fa-star" /></a></li>
@@ -846,10 +893,10 @@ console.log("err=>", error);
                               </div>
                               <div className="features-des">
                                 <ul>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                  <li><a href="product-detail.html"><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Bass and Stereo Sound.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Display with 3088 x 1440 pixels resolution.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                  <li><a href=""><i className="fas fa-circle" /> Androi v10.0 Operating system.</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -874,9 +921,12 @@ console.log("err=>", error);
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
+  {/* <ProductEnquiryForm show={popup} /> */}
+  <SearchEnquiryForm show={searchpopup}  debouceSearchTerm={debounceSearchTerm}/>
         </>
     )
 }

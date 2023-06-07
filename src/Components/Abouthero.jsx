@@ -4,11 +4,11 @@ import { RxDotFilled } from "react-icons/rx";
 const Abouthero = () => {
   return (
     <>
-    <div className="about-area pt-80 pb-80" style={{backgroundColor: '#ffffff'}}>
+    <div className="about-area pt-80 pb-80 respad" style={{backgroundColor: '#ffffff'}}>
   <div className="container">
     <div className="row align-items-center">
       <div className="col-xl-6 col-lg-6">
-        <div className="about-content wow slideInLeft" data-wow-duration="2s">
+        <div className="about-content wow slideInLeft resmb2" data-wow-duration="2s">
           <span>ABOUT Us</span>
           <h4>Welcome to My Machine Store</h4>
           <p className="about-text">Over 5 years My Machine Store helping companies reach their <br /> financial and branding goals.</p>

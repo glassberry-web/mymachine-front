@@ -6,6 +6,7 @@ export const fetchAsyncImages = createAsyncThunk(
     async () => {
       const response = await axios.get(
           "https://mymachinestore.com/api/fetch"
+          // "http://localhost:5000/api/fetch"
       );
       console.log("popuppro==>", response
       );
@@ -59,7 +60,7 @@ const initialState = {
    
     return{
       
-      ...state,  FilterShow:payload[0], selectedFilterImage:payload[1], selectedFilter:payload[2]     
+      ...state,  Show:payload[0], selectedImage:payload[1], selectedFilter:payload[2]     
 
     }
   

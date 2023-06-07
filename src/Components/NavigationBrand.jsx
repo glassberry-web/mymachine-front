@@ -15,15 +15,16 @@ const NavigationBrand = () => {
           })
           .then(data => {
               setData(data)
+              console.log("brandd", data);
           })
   }
 
   useEffect(() => {
       fetchData()
   }, [])
-  const machineData = Object.values(data);
-  let uniqueBrand = [...new Set(machineData.map((brand) => brand.brand))];
-  // console.log("uniqueyy=>", uniqueBrand);
+  // const machineData = Object.values(data);
+  let uniqueBrand = [...new Set(data.map((brand) => brand.brand))];
+  console.log("uniqueyy=>", uniqueBrand);
   // let newuniqueBrand = uniqueBrand.join().replace(/^\s+|\s+$/gm,'');
   // console.log("newunique=>", newuniqueBrand);
   // const unordered = [

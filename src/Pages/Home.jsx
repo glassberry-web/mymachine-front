@@ -14,7 +14,7 @@ import Testimonials from '../Components/Testimonials'
 
 const Home = () => {
   const dispatch = useDispatch();
-  const productText = "Press";
+  const productText = "laser";
   // const showText = "Friends";
   useEffect(() => {
     dispatch(fetchAsyncProducts(productText));

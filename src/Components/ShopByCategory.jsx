@@ -9,35 +9,65 @@ import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
 import { BsFillGridFill, BsListColumns } from "react-icons/bs";
 import { TiThList } from "react-icons/ti";
-import { getpopup, setShow, getSelectedFilter, setFilterShow, getFilterpopup } from '../Redux/products/PopupSlice';
+import { getpopup, setShow, getSelectedFilter, setFilterShow, setCategoryShow,  getCategorypopup } from '../Redux/products/CategoryPopupSlice';
 import ProductEnquiryForm from './ProductEnquiryForm';
+import CategoryEnquiry from "./CategoryEnquiry";
+import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
  
 
 const ShopByCategory = () => {
     const location = useLocation();
   const { category } = location.state;
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(8)
+  const [totalPage, setTotalPage] = useState(0);
   console.log("brand=>",category);
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
-            .get("https://mymachinestore.com/api/fetch")
+            // .get("https://mymachinestore.com/api/fetch")
+            .get(`https://mymachinestore.com/api/productbycategory/${category}`, {
+              params: {
+                page,
+                pageSize,
+              },}
+              )
+            .then((res)=>{
+              console.log("categorymachine=>", res?.data?.result);
+             setData(res.data.result);
+          setTotalPage(res?.data?.totalPages);
+          console.log("categorytp=>", totalPage);
+            })
+            .then(() => {})
     
             .catch((error) => {
               console.log("err=>", error);
             });
-          console.log("machine=>", res.data);
-          setData(res.data);
+          // console.log("machine=>", res.data);
+          // setData(res.data);
         };
-        fetchMachine();
-      }, []);
+        fetchMachine(category, page, pageSize);
+      }, [category, page]);
+
+      const handlePreviousPage = () => {
+        setPage((prevPage) => prevPage - 1);
+      };
     
-      const machineData = Object.values(data);
+      const handleNextPage = () => {
+        setPage((prevPage) => prevPage + 1);
+      };
+
+      const pages = new Array(totalPage).fill(null).map((_v, i) => i);
+      console.log("pages=>", pages);
+    
+      // const machineData = Object.values(data);
 
       const gridview = useSelector(getgridView);
       const dispatch = useDispatch();
-      const popupp = useSelector(getpopup);
-      const popup = useSelector(getFilterpopup);
+      const categorypopup = useSelector(getCategorypopup)
+      // const popupp = useSelector(getpopup);
+      // const popup = useSelector(getFilterpopup);
       
 
       let searchProducts = "";
@@ -78,14 +108,22 @@ const ShopByCategory = () => {
                 >
                  Get Details
                 </Link>
-                      <button type="button"  onClick={()=>dispatch(setFilterShow(["true", index, product.category]))} className="cart-btn-31 product-modal-sidebar-open-btn d-flex  align-items-center justify-content-center w-100">
+                      <button type="button"  onClick={()=>dispatch(setCategoryShow(["true", index]))} className="cart-btn-31 product-modal-sidebar-open-btn d-flex  align-items-center justify-content-center w-100">
                         enquire now
                       </button>
                     </div>
                   </div>
                 </div>
-        ) : ""
-  )) : "no product found"
+        ) : "no product found"
+  )) : <>
+   <div className="sorryflex">
+          <img src="../assets/image/sorry.png" alt="404 not found" />
+          <div className="srycon">
+            <h3 className="sryh3">Sorry, no results found!</h3>
+            <p className="sryp">right now we dont have products in this category, however we will add it soon!</p>
+          </div>
+        </div>
+  </>
    ) :  (
     data.length > 0 &&  data.map((product, index) => (
         category === product.category ? (
@@ -174,7 +212,7 @@ const ShopByCategory = () => {
      <button
        type="button"
        className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
-       onClick={()=>dispatch(setFilterShow(["true", index, product.category]))}
+       onClick={()=>dispatch(setCategoryShow(["true", index, product.category]))}
      >
        enquire now
      </button>
@@ -188,12 +226,14 @@ const ShopByCategory = () => {
       <div className="shop-area mb-20 mt-40">
     <div className="container">
       <div className="row">       
-        <div className="col-xl-12 col-lg-8">         
+        <div className="col-xl-12 col-lg-8">
+          { 
+          searchProducts.length > 0 &&    
           <div className="product-lists-top">
             <div className="product__filter-wrap">
               <div className="row align-items-center">
-                <div className="col-xxl-10 col-xl-6 col-lg-6 col-md-6">
-                  <div className="product__filter d-sm-flex align-items-center">
+                <div className="col-xxl-10 col-xl-6 col-lg-6 col-md-6 col-6">
+                  <div className="product__filter d-sm-flex align-items-center resnone">
                     <div className="product__col">
                       <ul className="nav nav-tabs" id="myTab" role="tablist">
                         <li className="nav-item" role="presentation">
@@ -210,14 +250,15 @@ const ShopByCategory = () => {
                         </li>
                       </ul>
                     </div>
-                    {/* <div className="product__result pl-60" style={{margin:"0 auto"}}>
-                    <p className="paradec"><span className="spandec">{brand.length}</span> products are found</p>
-                    </div> */}
+                    <div className="product__result pl-60" style={{margin:"0 auto"}}>
+                    <p className="paradec"><span className="spandec">{searchProducts.length}</span> products are found</p>
+                    </div>
                   </div>
                 </div>                
               </div>
             </div>
           </div>
+}
           <div className="tab-content" id="productGridTabContent">
             <div className="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
               <div className="tp-wrapper">
@@ -229,7 +270,7 @@ const ShopByCategory = () => {
                 </div>
               </div>
             </div>
-            <div className="tab-pane fade" id="FiveCol" role="tabpanel" aria-labelledby="FiveCol-tab">
+            {/* <div className="tab-pane fade" id="FiveCol" role="tabpanel" aria-labelledby="FiveCol-tab">
               <div className="tp-wrapper-2">
                 <div className="single-item-pd">
                   <div className="row align-items-center">
@@ -708,13 +749,61 @@ const ShopByCategory = () => {
                   </div>
                 </div>
               </div>
+            </div> */}
+            {searchProducts.length > 0 &&
+            <div className="tp-pagination text-center">
+              <div className="row">
+              <div className="col-xl-6">
+            <div className="basic-pagination pt-30 pb-30">
+              {/* <p className="mb-sm-0">Showing 1 to 10 of 12 entries</p> */}
+              <p className="mb-sm-0 pfs">{page + 1}<sup>{page === 0? "st":page === 1 ? "nd" : page === 2 ? "rd" :"th" }</sup> Page of {totalPage}</p>
             </div>
+          </div>{" "}
+                <div className="col-xl-6">
+                  <div className="basic-pagination pt-30 pb-30">
+                    <nav>
+                      <ul>
+                        <li>
+                          <button  onClick={handlePreviousPage} disabled={page === 0}>
+
+                            <FiChevronsLeft />
+                          </button>
+                        </li>
+                        {pages.map((pageIndex) => {
+                          return (
+                            <li className="page-item active" key={pageIndex}>
+                              <button
+                                
+                                className=""
+                                onClick={() => {
+                                setPage(pageIndex);
+                                }}
+                              >
+                                {pageIndex + 1}
+                              </button>
+                            </li>
+                          );
+                        })}
+                        <li>
+                        <button onClick={handleNextPage} disabled={page === totalPage -1}>
+
+                          <FiChevronsRight />
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+             </div>
+}
           </div>
         </div>
       </div>
     </div>
   </div>
-  <ProductEnquiryForm show={popupp} />
+  {/* <ProductEnquiryForm show={popupp} /> */}
+  <CategoryEnquiry page={page} category={category} pageSize={pageSize} show={categorypopup} />
     </>
   )
 }

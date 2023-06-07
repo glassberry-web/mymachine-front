@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
 import { getLatestpopup } from '../Redux/products/PopupSlice';
 import { useSelector, useDispatch } from 'react-redux';
- import { setLatestShow } from '../Redux/products/PopupSlice';
+ import { setLatestShow, setShow } from '../Redux/products/PopupSlice';
  import ProductEnquiryForm from './ProductEnquiryForm';
  import { Link, NavLink } from 'react-router-dom';
 
@@ -21,15 +21,16 @@ const LatestProduct = () => {
    
     const dispatch = useDispatch();
     const fetchData = () => {
-      // fetch("http://15.207.31.23:5000/fetch")
+      // fetch("http://localhost:5000/api/fetch")
       fetch("https://mymachinestore.com/api/fetch")
       
         .then(response => {
-          console.log(response);
+          console.log("lat=>",response);
           return response.json()
         })
         .then(data => {
           setData(data)
+          console.log("latesttt=>",data);
         })
     }
   
@@ -41,7 +42,7 @@ const LatestProduct = () => {
   console.log("dateee=>", res);
   return (
    <>
-    <section className="featured light-bg pt-60 pb-45">
+    <section className="featured light-bg pt-60 pb-45 respbo">
       <div className="container">
       <SectionTitle title={title.filter((data)=>data.id === 4)} />
       <div className="row">
@@ -49,6 +50,9 @@ const LatestProduct = () => {
           <div className="product-slider swiper-container">
             <Swiper
             breakpoints={{
+              235:{
+                slidesPerView: 1,
+              },
                 370: {
                   // width: 576,
                   slidesPerView: 1,
@@ -78,7 +82,7 @@ const LatestProduct = () => {
                 spaceBetween={50}
                 slidesPerView={4}
                 navigation ={{
-                  prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                  prevEl: ".bs2-button-prevl", nextEl: ".bs2-button-nextl"
                   
               }}
                 autoplay={{
@@ -142,276 +146,13 @@ const LatestProduct = () => {
               }
              
               
-              {/* <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/img/product/tp-3.jpg" alt="product" />
-                    </a>
-                  </div>                  
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <FaRegEye/>
-                      <FaRegEye/>
-                    </a>                    
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="product-details.html">
-                      Xbox Wireless Game Controller Pink
-                    </a>
-                  </h6>                
-                  
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Enquire Now
-                  </button>
-                </div>
-              </SwiperSlide> */}
-              {/* <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/img/product/tp-7.jpg" alt="product" />
-                    </a>
-                  </div>
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <i className="fal fa-eye" />
-                      <i className="fal fa-eye" />
-                    </a>
-                    <a href="#" className="icon-box icon-box-1">
-                      <i className="fal fa-heart" />
-                      <i className="fal fa-heart" />
-                    </a>
-                    <a href="#" className="icon-box icon-box-1">
-                      <i className="fal fa-layer-group" />
-                      <i className="fal fa-layer-group" />
-                    </a>
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="product-details.html">
-                      APPO R11s 64GB Dual 20MP Cameras
-                    </a>
-                  </h6>
-                  <div className="rating mb-5 mt-10">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span>(01 review)</span>
-                  </div>
-                  <div className="price">
-                    <span>$150.00-$270.00</span>
-                  </div>
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/img/product/tp-10.jpg" alt="product" />
-                    </a>
-                  </div>
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <i className="fal fa-eye" />
-                      <i className="fal fa-eye" />
-                    </a>
-                    <a href="#" className="icon-box icon-box-1">
-                      <i className="fal fa-heart" />
-                      <i className="fal fa-heart" />
-                    </a>
-                    <a href="#" className="icon-box icon-box-1">
-                      <i className="fal fa-layer-group" />
-                      <i className="fal fa-layer-group" />
-                    </a>
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="product-details.html">
-                      G951s Pink Stereo Gaming Headset
-                    </a>
-                  </h6>
-                  <div className="rating mb-5 mt-10">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span>(01 review)</span>
-                  </div>
-                  <div className="price">
-                    <span>$120.00-$210.00</span>
-                  </div>
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="product__item product__item-2 b-radius-2 mb-20 swiper-slide">
-                <div className="product__thumb fix">
-                  <div className="product-image w-img">
-                    <a href="product-details.html">
-                      <img src="assets/img/product/tp-9.jpg" alt="product" />
-                    </a>
-                  </div>
-                  <div className="product-action product-action-2">
-                    <a
-                      href="#"
-                      className="icon-box icon-box-1"
-                      data-bs-toggle="modal"
-                      data-bs-target="#productModalId"
-                    >
-                      <i className="fal fa-eye" />
-                      <i className="fal fa-eye" />
-                    </a>
-                    <a href="#" className="icon-box icon-box-1">
-                      <i className="fal fa-heart" />
-                      <i className="fal fa-heart" />
-                    </a>
-                    <a href="#" className="icon-box icon-box-1">
-                      <i className="fal fa-layer-group" />
-                      <i className="fal fa-layer-group" />
-                    </a>
-                  </div>
-                </div>
-                <div className="product__content product__content-2">
-                  <h6>
-                    <a href="product-details.html">
-                      Epple iPhone 11 Pro Max 64GB Gold
-                    </a>
-                  </h6>
-                  <div className="rating mb-5 mt-10">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fal fa-star" />
-                        </a>
-                      </li>
-                    </ul>
-                    <span>(01 review)</span>
-                  </div>
-                  <div className="price">
-                    <span>$120.00-$140.00</span>
-                  </div>
-                </div>
-                <div className="product__add-cart text-center">
-                  <button
-                    type="button"
-                    className="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </SwiperSlide> */}
+             
             </Swiper>
-            <div className="bs-button bs2-button-prev">
+            <div className="bs-button bs2-button-prevl">
                      
                      <FaAngleLeft style={{fontSize:'20px'}} />
                    </div>
-                   <div className="bs-button bs2-button-next">
+                   <div className="bs-button bs2-button-nextl">
                     
                      <FaAngleRight style={{fontSize:'20px'}}  />
       
@@ -423,6 +164,7 @@ const LatestProduct = () => {
     </section>
 
     <LatestEnquiryForm show={popup}/>
+    {/* <ProductEnquiryForm show={popup} /> */}
    </>
   )
 }

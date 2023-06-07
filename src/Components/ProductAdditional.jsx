@@ -15,14 +15,15 @@ const ProductAdditional = () => {
   const { id } = location.state;
   console.log("additipon=>", id);
     const fetchData = () => {
-        fetch("https://mymachinestore.com/api/fetch")
-        
+        fetch("https://mymachinestore.com/api/productcontent")
+        // fetch("http://localhost:5000/api/productcontent")
           .then(response => {
             console.log(response);
-            return response.json()
+            return response.json();
           })
           .then(data => {
             setData(data)
+            console.log("prodetail=>", data)
           })
       }
     
@@ -40,7 +41,7 @@ const ProductAdditional = () => {
       <div className="row">
         <div className="col-xl-12">
           <div className="product__details-des-tab navmb1rem">
-            <ul className="nav nav-tabs" id="productDesTab" role="tablist">
+            <ul className="nav nav-tabs resflexnowrap" id="productDesTab" role="tablist">
               <li className="nav-item" role="presentation">
                 <button  className={tabview ? "nav-link active" : "nav-link"}  onClick={() => dispatch(setTab_view(true))} id="des-tab" data-bs-toggle="tab" data-bs-target="#des" type="button" role="tab" aria-controls="des" aria-selected="true">Description </button>
               </li>
@@ -78,7 +79,7 @@ const ProductAdditional = () => {
                         id === detail._id ? (
                             <ul>
                             <li>
-                              <h6>Model Number</h6>
+                              <h6>Model Name</h6>
                               <span>{detail.modalNum}</span>
                             </li>
                             <li>

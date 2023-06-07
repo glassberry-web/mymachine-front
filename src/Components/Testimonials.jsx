@@ -8,7 +8,7 @@ import { FaQuoteLeft } from 'react-icons/fa';
 const Testimonials = () => {
   const [title, SetTitle] = useState(sectionTitleData); 
   return (
-    <section className="featured light-bg pt-60 pb-45">
+    <section className="featured light-bg pt-60 pb-45 respt30 respbo">
     <div className="container">
     <SectionTitle title={title.filter((data) => data.id === 6)} />
     <div className="row">
@@ -60,7 +60,7 @@ const Testimonials = () => {
         className="swiper-wrapper">{
           TestimonialsData.map((detail,i) => (
             
-            <SwiperSlide key={i} className="product__item1 pitem1 product__item-2 b-radius-2 mb-20 swiper-slide">
+            <SwiperSlide key={i} className="product__item1 product__item-2 b-radius-2 mb-20 swiper-slide">
              <div class="news-quote-area text-center">
                            <FaQuoteLeft  style={{display:"flex", fontSize:"2rem", margin:"1rem auto"}}/>
                            <a class="news-quote-title mt-25">{detail.review}</a>

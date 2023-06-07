@@ -46,7 +46,7 @@ const Topcatagories = () => {
   return (
     <>
       <section
-        className="topsell__area-2 pt-60 pb-10"
+        className="topsell__area-2 pt-60 pb-10 respt30"
         style={{ backgroundColor: "#F4F5F7" }}
       >
         <div className="container">
@@ -149,7 +149,7 @@ const Topcatagories = () => {
                           spaceBetween={50}
                           slidesPerView={4}
                           navigation={{
-                            prevEl: ".bs2-button-prev1", nextEl: ".bs2-button-next1"
+                            prevEl: ".bs2-button-prevc", nextEl: ".bs2-button-nextc"
 
                           }}
                           autoplay={{
@@ -158,7 +158,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item prr swiper-slide pbm1">
+                              <SwiperSlide key={detail._id} className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     {/* <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`}}>
@@ -220,11 +220,11 @@ const Topcatagories = () => {
                   }
 
                     {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev bs2-button-prev1">
+                    <div className="bs-button bs2-button-prevc">
 
                       <FaAngleLeft style={{ fontSize: '20px' }} />
                     </div>
-                    <div className="bs-button bs2-button-next bs2-button-next1">
+                    <div className="bs-button bs2-button-nextc">
 
                       <FaAngleRight style={{ fontSize: '20px' }} />
                     </div>
@@ -276,7 +276,7 @@ const Topcatagories = () => {
                           spaceBetween={50}
                           slidesPerView={4}
                           navigation={{
-                            prevEl: ".bs2-button-prev1", nextEl: ".bs2-button-next1"
+                            prevEl: ".bs2-button-prevc", nextEl: ".bs2-button-nextc"
 
                           }}
                           autoplay={{
@@ -285,7 +285,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item prr swiper-slide pbm1">
+                              <SwiperSlide key={detail._id} className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                     <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
@@ -341,11 +341,11 @@ const Topcatagories = () => {
                   }
 
                     {/* If we need navigation buttons */}
-                    <div className="bs-button bs2-button-prev bs2-button-prev1">
+                    <div className="bs-button bs2-button-prevc">
 
                       <FaAngleLeft style={{ fontSize: '20px' }} />
                     </div>
-                    <div className="bs-button bs2-button-next bs2-button-next1">
+                    <div className="bs-button bs2-button-nextc">
 
                       <FaAngleRight style={{ fontSize: '20px' }} />
                     </div>
@@ -396,7 +396,7 @@ const Topcatagories = () => {
                           spaceBetween={50}
                           slidesPerView={4}
                           navigation={{
-                            prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                            prevEl: ".bs2-button-prevc", nextEl: ".bs2-button-nextc"
 
                           }}
                           autoplay={{
@@ -405,7 +405,7 @@ const Topcatagories = () => {
                           }} className="swiper-wrapper">{
                             data.map((detail, i) => (
                               detail.category === activeTab &&
-                              <SwiperSlide className="product__item prr swiper-slide pbm1">
+                              <SwiperSlide key={detail._id} className="product__item prr swiper-slide pbm1">
                                 <div className="product__thumb fix">
                                   <div className="product-image w-img">
                                   <Link  to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
@@ -470,11 +470,11 @@ const Topcatagories = () => {
                     )
 
                   }
-                   <div className="bs-button bs2-button-prev bs2-button-prev1">
+                   <div className="bs-button bs2-button-prevc">
 
 <FaAngleLeft style={{ fontSize: '20px' }} />
 </div>
-<div className="bs-button bs2-button-next bs2-button-next1">
+<div className="bs-button bs2-button-nextc">
 
 <FaAngleRight style={{ fontSize: '20px' }} />
 </div>
@@ -525,7 +525,7 @@ const Topcatagories = () => {
                         spaceBetween={50}
                         slidesPerView={4}
                         navigation ={{
-                          prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                          prevEl: ".bs2-button-prevc", nextEl: ".bs2-button-nextc"
                           
                       }}
                         autoplay={{
@@ -534,7 +534,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item prr swiper-slide pbm1">
+                            <SwiperSlide key={detail._id} className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
@@ -544,17 +544,7 @@ const Topcatagories = () => {
                               {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
                                               </div> */}
-                               <div className="product-action">
-                              <a
-                                  href="#"
-                                  className="icon-box icon-box-1"
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#productModalId"
-                                >
-                                   <FaRegEye />
-                                  <FaRegEye />
-                                </a>
-                              </div>
+                             
                             </div>
                             <div className="product__content">
                             <h6>
@@ -598,11 +588,11 @@ const Topcatagories = () => {
                     </div>
                     )
                   }  
-                   <div className="bs-button bs2-button-prev bs2-button-prev1">
+                   <div className="bs-button bs2-button-prevc">
 
 <FaAngleLeft style={{ fontSize: '20px' }} />
 </div>
-<div className="bs-button bs2-button-next bs2-button-next1">
+<div className="bs-button bs2-button-nextc">
 
 <FaAngleRight style={{ fontSize: '20px' }} />
 </div> 
@@ -652,7 +642,7 @@ const Topcatagories = () => {
                         spaceBetween={50}
                         slidesPerView={4}
                         navigation ={{
-                          prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                          prevEl: ".bs2-button-prevc", nextEl: ".bs2-button-nextc"
                           
                       }}
                         autoplay={{
@@ -660,8 +650,8 @@ const Topcatagories = () => {
                           disableOnInteraction: true,
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
-                            detail.category === activeTab &&
-                            <SwiperSlide className="product__item prr swiper-slide pbm1">
+                            detail.category === activeTab ?(
+                            <SwiperSlide key={detail._id} className="product__item prr swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
@@ -689,11 +679,11 @@ const Topcatagories = () => {
                              
                             </div>
                             <div className="product__add-cart text-center postioncategory btnflex">
-                              <a
+                              {/* <a
                                 href
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalone"
-                              >
+                              > */}
                                  <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
                   className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
@@ -704,20 +694,29 @@ const Topcatagories = () => {
                 </Link>
                                 <button
                                   type="button"
-                                  className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                                   onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
                                 >
                                   enquire now
                                 </button>
-                              </a>
+                              {/* </a> */}
                             </div>
                           </SwiperSlide>
-                          ))
-                        }                       
+                          ) :""))
+                        }  
+                                             
                       </Swiper>
                     </div>
                     )
                   } 
+                     <div className="bs-button bs2-button-prevc">
+
+<FaAngleLeft style={{ fontSize: '20px' }} />
+</div>
+<div className="bs-button bs2-button-nextc">
+
+<FaAngleRight style={{ fontSize: '20px' }} />
+</div> 
                </div>                 
                  
                   {/* </div> */}
@@ -750,7 +749,7 @@ const Topcatagories = () => {
                         },
                         1024: {
                           // width: 768,
-                          slidesPerView: 5,
+                          slidesPerView: 4,
                         },
                       }}
                         modules={[
@@ -763,9 +762,9 @@ const Topcatagories = () => {
                         ]}
                         
                         spaceBetween={50}
-                        slidesPerView={5}
+                        slidesPerView={4}
                         navigation ={{
-                          prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+                          prevEl: ".bs2-button-prevc", nextEl: ".bs2-button-nextc"
                           
                       }}
                         autoplay={{
@@ -774,7 +773,7 @@ const Topcatagories = () => {
                         }} className="swiper-wrapper">{
                           data.map((detail, i) =>(
                             detail.category === activeTab &&
-                            <SwiperSlide className="product__item swiper-slide pbm1">
+                            <SwiperSlide key={detail._id} className="product__item swiper-slide pbm1">
                             <div className="product__thumb fix">
                               <div className="product-image w-img">
                                 <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}>
@@ -784,17 +783,7 @@ const Topcatagories = () => {
                               {/*   <div class="product__offer">
                                               <span class="discount">-15%</span>
                                               </div> */}
-                               <div className="product-action">
-                              <a
-                                  href="#"
-                                  className="icon-box icon-box-1"
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#productModalId"
-                                >
-                                   <FaRegEye />
-                                  <FaRegEye />
-                                </a>
-                              </div>
+                              
                             </div>
                             <div className="product__content">
                             <h6>
@@ -811,14 +800,14 @@ const Topcatagories = () => {
                              
                             </div>
                             <div className="product__add-cart text-center postioncategory btnflex">
-                              <a
+                              {/* <a
                                 href
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalone"
-                              >
+                              > */}
                                     <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
                   
-                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                            className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                   
                   
                 >
@@ -826,12 +815,12 @@ const Topcatagories = () => {
                 </Link>
                                 <button
                                   type="button"
-                                  className="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100 "
+                                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
                                   onClick={()=>dispatch(setCategoryShow(["true", i, detail.category]))}
                                 >
                                   enquire now
                                 </button>
-                              </a>
+                              {/* </a> */}
                             </div>
                           </SwiperSlide>
                           ))
@@ -840,6 +829,14 @@ const Topcatagories = () => {
                     </div>
                     )
                   } 
+                     <div className="bs-button bs2-button-prevc">
+
+<FaAngleLeft style={{ fontSize: '20px' }} />
+</div>
+<div className="bs-button bs2-button-nextc">
+
+<FaAngleRight style={{ fontSize: '20px' }} />
+</div> 
                   </div>                 
                  
                   {/* </div> */}

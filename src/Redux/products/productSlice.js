@@ -1,11 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import debounce from "lodash.debounce";
 
 
 export const fetchAsyncProducts = createAsyncThunk(
   "products/fetchAsyncProducts",
   async (debouceSearchTerm) => {
+    console.log("aatessearch=>", debouceSearchTerm);
     const response = await axios.get(
+        // `https://mymachinestore.com/api/search/${debouceSearchTerm}`
         `https://mymachinestore.com/api/search/${debouceSearchTerm}`
     );
     console.log("slice==>", response
@@ -25,25 +28,34 @@ export const fetchAsyncProducts = createAsyncThunk(
 // );
 
 const initialState = {
-  products: {},
+  products: [], 
+  searchTerm:"",
 //   selectMovieOrShow: {},
 };
 
 const productSlice = createSlice({
   name: "products",
   initialState,
-  // reducers: {
-  //   removeSelectedMovieOrShow: (state) => {
-  //     state.selectMovieOrShow = {};
-  //   },
-  // },
+  reducers: {
+    
+    setSearchTerm:(state, action) => {
+      console.log("payloaddd", action
+      .payload);
+      state.searchTerm = action.payload.toLowerCase();
+    },
+   
+  },
   extraReducers: {
     [fetchAsyncProducts.pending]: () => {
       console.log("Pending");
     },
-    [fetchAsyncProducts.fulfilled]: (state, { payload }) => {
+    [fetchAsyncProducts.fulfilled]: (state, {payload}) => {
       console.log("Fetched Successfully!");
+      console.log("payloaddd222", 
+      payload);
       return { ...state, products: payload };
+     
+      // state.products = action.payload;
     },
     [fetchAsyncProducts.rejected]: () => {
       console.log("Rejected!");
@@ -57,7 +69,15 @@ const productSlice = createSlice({
 });
 
 // export const { removeSelectedMovieOrShow } = productSlice.actions;
+export const { setSearchTerm }= productSlice.actions;
+export const getsearch = (state) => state.products.searchTerm;
 export const getAllProducts = (state) => state.products.products;
 // export const getAllFilters = (state) => state.filter.filter;
 // export const getSelectedMovieOrShow = (state) => state.movies.selectMovieOrShow;
 export default productSlice.reducer;
+
+// export const debouncedSearch = debounce((dispatch, searchTerm) => {
+//   console.log("dissearch=>", searchTerm);
+//   dispatch(fetchAsyncProducts(searchTerm));
+//   console.log("aasearch=>", searchTerm);
+// }, 500);

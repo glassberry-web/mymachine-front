@@ -13,7 +13,7 @@ const data = [
     {
       id: 4,
       name: "Applications",
-      links: "/application",
+      links: "/",
       namesub: [
         {
           id: 1,
@@ -254,22 +254,29 @@ const SliderNavigationData = [
 const TestimonialsData = [
   {
     id:1,
-    review:"Most databases, text processing functions and data transfer protocols default to the English alphabet. Testing software applications with only English looking text, like Lorem Ipsum, may not reveal potential mismatches between different parts of the application or ensure that the font can display all necessary characters.",
-    name:"Arvind Khosla",
-    deg:"Customer",
+    review:" I am the CEO of Laser technologies pvt ltd, and I am thrilled with my experience on My Machine Store. As a youngest platform for industrial machine procurement and lead generation, they offer a wide range of high-quality machines. The seamless ordering process, comprehensive product descriptions, and exceptional customeservice made my buying experience delightful. I highly recommend My Machine Store for their top-notch products and exceptional service.",
+    name:"Rakesh Agarwal",
+    deg:"",
   },
   {
     id:2,
-    review:"Most databases, text processing functions and data transfer protocols default to the English alphabet. Testing software applications with only English looking text, like Lorem Ipsum, may not reveal potential mismatches between different parts of the application or ensure that the font can display all necessary characters.",
-    name:"Sushant Verma",
-    deg:"Customer",
+    review:"I am pleased to share my experience with My Machine Store. They are a trusted platform for industrial machines and lead generation, and they exceeded my expectations in every way. They offer a wide range of high-quality machines, a seamless ordering process, and outstanding customer service. My Machine Store has been instrumental in driving our business growth, and I highly recommend them to any business seeking top-notch machines and a streamlined buying experience.",
+    name:"Rana Pratap Singh",
+    deg:"",
   },
   {
     id:3,
-    review:"Most databases, text processing functions and data transfer protocols default to the English alphabet. Testing software applications with only English looking text, like Lorem Ipsum, may not reveal potential mismatches between different parts of the application or ensure that the font can display all necessary characters.",
-    name:"Rani Bisnoi",
-    deg:"Customer",
+    review:"I am very happy with my experience with My Machine Store. They have a great selection of machines, a convenient ordering process, and excellent customer service. I would highly recommend them to anyone looking for industrial machines.",
+    name:"Gahininath Gujar",
+    deg:"",
   },
+  {
+    id:4,
+    review:"Exceptional machines, outstanding service! My Machine Store has transformed our lead generation for industrial machines. With a wide selection, transparent information, and seamless buying, they've fueled our business growth. Highly recommended!",
+    name:"Punkti Agarwal",
+    deg:""
+
+  }
 ]
 
  const ProductCategory=[
@@ -310,7 +317,7 @@ const TestimonialsData = [
   {
     idx: 2,
     Category: "Welding Solution", 
-    img:"assets/image/wed.gif",
+    img:"assets/image/wedd.gif",
     subCategory: [
       {
           id: 1,
@@ -350,7 +357,7 @@ const TestimonialsData = [
   {
     idx: 4,
     Category: "Safety and Security Devices",
-    img:"assets/image/sss.gif",
+    img:"assets/image/ssss.gif",
     subCategory: [
       {
           id: 1,
@@ -367,7 +374,7 @@ const TestimonialsData = [
   {
     idx: 5,
     Category: "Power Solutions", 
-    img:"assets/image/pow.gif",
+    img:"assets/image/poww.gif",
     
     
     subCategory: [
@@ -399,7 +406,7 @@ const TestimonialsData = [
    
     
     Category: "Surface Treatment",
-    img:"assets/image/sar.gif",
+    img:"assets/image/sarr.gif",
     subCategory: [
       {
           id: 1,

@@ -10,6 +10,7 @@ import ProductEnquiryForm from './ProductEnquiryForm';
  import { useSelector, useDispatch } from 'react-redux';
   import { setShow } from '../Redux/products/PopupSlice';
   import {GiLaserPrecision} from "react-icons/gi"
+import axios from 'axios';
 
 const TopMost = () => {
     const [title, SetTitle] = useState(sectionTitleData); 
@@ -21,34 +22,34 @@ const TopMost = () => {
   const dispatch = useDispatch();
   console.log("popop=>", popup);
 
-    const fetchData = () => {
-      // fetch("http://my-machine-store-restapi.onrender.com/fetch")
-        //  fetch("http://15.207.31.23:5000/fetch")
-        fetch("https://mymachinestore.com/api/fetch")
-        .then(response => {
-          console.log(response);
-          return response.json()
-        })
-        .then(data => {
-          setData(data)
-        })
-    }
+  const fetchData = () => {
+    // fetch("http://localhost:5000/api/fetch")
+    fetch("https://mymachinestore.com/api/fetch")
+
+      .then(response => {
+        console.log(response);
+        return response.json()
+      })
+      .then(data => {
+        setData(data)
+      })
+  }
   
     useEffect(() => {
       fetchData()
     }, [])
-    const imageUrl = `data:image/png;base64,${data.image}`;
+    // const imageUrl = `data:image/png;base64,${data.image}`;
 
-    const [swiper, setSwiper] = useState(0);
-    const slideTo = (index) => {
-      if(swiper) 
-      swiper.slideTo(index)};
+    // const [swiper, setSwiper] = useState(0);
+    // const slideTo = (index) => {
+    //   if(swiper) 
+    //   swiper.slideTo(index)};
 
-    const swiperOptions = {
-      effect:"coverflow",
-      grabCursor:true,
-      centeredSlides:true,
-      slidesPerView:5,
+    // const swiperOptions = {
+    //   effect:"coverflow",
+    //   grabCursor:true,
+    //   centeredSlides:true,
+    //   slidesPerView:5,
       // coverflowEffect: {
       //   rotate: 50,
       //   stretch: 0,
@@ -56,11 +57,11 @@ const TopMost = () => {
       //   modifier: 1,
       //   slideShadows: true,
       // },
-    };
+    // };
   return (
     <>
    
-    <section className="featured light-bg pt-90 pb-45">
+    <section className="featured light-bg pt-90 pb-45 respt30">
         <div className="container">
           <SectionTitle title={title.filter((data) => data.id === 1)} />
       <div className="row">
@@ -69,7 +70,7 @@ const TopMost = () => {
        data.length > 0 && (
         <div className="product-slider swiper-container">
         <Swiper
-         onSwiper={setSwiper}
+        //  onSwiper={setSwiper}
         breakpoints={{
             370: {
               // width: 576,
@@ -101,7 +102,7 @@ const TopMost = () => {
             spaceBetween={50}
             slidesPerView={4}
             navigation ={{
-              prevEl: ".bs2-button-prev", nextEl: ".bs2-button-next"
+              prevEl: ".bs2-button-prevf", nextEl: ".bs2-button-nextf"
               
           }}
             autoplay={{
@@ -142,6 +143,26 @@ const TopMost = () => {
                   {detail.category}
                   </NavLink>
                 </h4>                */}
+                {/* <div className="product__add-cart text-center  postioncategory btnflex">
+              <Link to={`/productDetails/${detail.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`, namee:`${detail.product_name}`}}
+                  
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                   
+                  
+                >
+                 Get Details
+                </Link>
+                <button 
+                  type="submit"
+                  className="cart-btn-31 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100"
+                  onClick={()=>dispatch(setShow(["true", i]))}
+                  
+                >
+                 Enquire Now
+                </button>
+               
+                
+              </div> */}
                 
               </div>
               <div className="product__add-cart text-center  postioncategory btnflex">
@@ -183,11 +204,11 @@ const TopMost = () => {
         }       
           
         </Swiper>
-                <div className="bs-button bs2-button-prev">
+                <div className="bs-button bs2-button-prevf">
                      
                      <FaAngleLeft style={{fontSize:'20px'}} />
                    </div>
-                   <div className="bs-button bs2-button-next">
+                   <div className="bs-button bs2-button-nextf">
                     
                      <FaAngleRight style={{fontSize:'20px'}}  />
       

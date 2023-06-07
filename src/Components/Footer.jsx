@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
@@ -22,12 +22,12 @@ const Footer = () => {
                   </div>
                   <div className="cta-social">
                     <div className="social-icon">
-                      <a href className="facebook"><FaFacebookF/></a>
-                      <a href className="twitter"><FaTwitter/></a>
-                      <a href className="youtube"><FaYoutube/></a>
-                      <a href className="linkedin"><FaLinkedinIn/></a>
+                      <a href ="https://www.facebook.com/mymachinestore?mibextid=ZbWKwL" target='_blank' className="facebook"><FaFacebookF/></a>
+                      <a href="https://instagram.com/mymachinestore?igshid=MzNlNGNkZWQ4Mg==" target='_blank' className="twitter"><FaInstagram/></a>
+                      <a href="https://www.youtube.com/@mymachinestore1875" target='_blank' className="youtube"><FaYoutube/></a>
+                      <a href="https://www.linkedin.com/company/mymachinestore/" target='_blank' className="linkedin"><FaLinkedinIn/></a>
                     </div>
-                  </div>
+                  </div> 
                 </div>
               </div>
             </div>

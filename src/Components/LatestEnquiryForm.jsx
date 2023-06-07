@@ -11,7 +11,8 @@ import { HiOutlineSearch, HiChevronDown } from "react-icons/hi";
 import { fetchAsyncImages, getpopup } from '../Redux/products/PopupSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLatestShow } from '../Redux/products/PopupSlice';
-import { getAllpopup, getLatestSelectedImage } from "../Redux/products/PopupSlice";
+import { getAllpopup, getSelectedImage, getLatestSelectedImage } from "../Redux/products/PopupSlice";
+import Swal from "sweetalert2";
 
 import {
   Button,
@@ -63,6 +64,7 @@ const LatestEnquiryForm = ({ show, onHide }) => {
   
   console.log("imagepopup", popupimage);
   const LatestselectedImage = useSelector(getLatestSelectedImage);
+  const selectedImage = useSelector(getSelectedImage);
   console.log("selectedimage", LatestselectedImage);
   const navigate = useNavigate();
   // console.log("ref=>", ref.current.value);
@@ -91,9 +93,20 @@ const LatestEnquiryForm = ({ show, onHide }) => {
           console.log("added succesfully");
           // navigate("/about");
           dispatch(setLatestShow(false));
-          toast.success("Submitted Successfully !", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+          // toast.success("Submitted Successfully !", {
+          //   position: toast.POSITION.TOP_RIGHT,
+          // });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `Thank you for reaching out to us. We appreciate your enquiry for <br/><strong>${product_name}</strong>.<br/> We will make sure to respond to you as soon as possible.`,
+            showConfirmButton: false,
+            timer: 7500,
+            customClass: {
+              title: 'swal2-title-custom' // Custom CSS class for the title
+            },
+           
+          })
 
           
           submit ?
@@ -103,6 +116,7 @@ const LatestEnquiryForm = ({ show, onHide }) => {
         console.log("error===>", error);
       }
     }
+    setInputFeild("");
   };
 
 //   const fetchData = () => {
@@ -137,7 +151,7 @@ const LatestEnquiryForm = ({ show, onHide }) => {
                   <img
                     src={detail.image}
                     alt="d1"
-                    className="modal-img"
+                    className="modal-img pimg"
                   />
                 </Col>
                 <Col md={6} className="rescen">

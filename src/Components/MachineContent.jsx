@@ -4,11 +4,12 @@ import { BsFillGridFill, BsListColumns } from "react-icons/bs";
 import { TiThList } from "react-icons/ti";
 import { FaAngleLeft, FaAngleRight, FaRegEye } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
-import { getpopup, setShow, getSelectedFilter, setFilterShow, getFilterpopup } from '../Redux/products/PopupSlice';
-import ProductEnquiryForm from './ProductEnquiryForm';
+
 import { useSelector, useDispatch } from 'react-redux';
 import {FiChevronsLeft, FiChevronsRight} from "react-icons/fi"
 import { Link } from "react-router-dom"
+import { Offcanvas } from "react-bootstrap";
+import { getMachinepopup,getFilterpopup, setMachineShow, setFilterShow} from "../Redux/products/MachinePopupSlice";
 
 
 // import { getAllProducts } from "../Redux/products/productSlice";
@@ -16,13 +17,18 @@ import { getgridView } from "../Redux/products/FilteredProductslice";
 import { setGrid_view } from "../Redux/products/FilteredProductslice";
 import CategoryEnquiryForm from "./CategoryEnquiryForm";
 import Pagination from "./Pagination";
+import Offcanvass from "./Offcanvas";
+import MachineEnquiryForm from "./MachineEnquiryForm";
 
 const MachineContent = () => {
   const [pageNo, setPageNo] = useState(0);
+  const [display, setDisplay] = useState(false);
+  const [displayy, setDisplayy] = useState(false);
   const [limit] = useState(9);
   const [totalPage, setTotalPage] = useState(0);
   const gridview = useSelector(getgridView);
-  const popupp = useSelector(getpopup);
+  const machinepopup = useSelector(getMachinepopup);
+  // const popupp = useSelector(getpopup);
   const popup = useSelector(getFilterpopup);
   // let proarray = Object.values(products)
   // console.log("pro=>", proarray);
@@ -69,30 +75,30 @@ const MachineContent = () => {
   // );
   const [data, setData] = useState([]);
   const [filterTags, setFilterTags] = useState([]);
-
+  const hideDisplay = () => setDisplay(false);
+  const hideDisplayy = () => setDisplayy(false);
   useEffect(() => {
     const fetchMachine = async () => {
       const res = await axios
+        // .get(`https://mymachinestore.com/api/products?page=${pageNo}`)
+        //  .get("https://mymachinestore.com/api/fetch")
         .get(`https://mymachinestore.com/api/products?page=${pageNo}`)
-        // .get("https://mymachinestore.com/api/fetch")
+        .then((res)=>{
+          console.log("machine=>", res?.data);
+      setData(res.data.result);
+      setTotalPage(res?.data?.totalPages);
+        })
+        .then(() => {})
 
         .catch((error) => {
           console.log("err=>", error);
         });
-      console.log("machine=>", res.data);
-      setData(res.data.result);
-      setTotalPage(res?.data?.totalPages);
+      
     };
     fetchMachine();
   }, [pageNo]);
 
-  const handlePreviousPage = () => {
-    setPageNo((prevPage) => prevPage - 1);
-  };
-
-  const handleNextPage = () => {
-    setPageNo((prevPage) => prevPage + 1);
-  };
+ 
 
   // const data = Object.values(data);
 
@@ -162,6 +168,15 @@ const MachineContent = () => {
   //       Checked.includes(machine.brand)
   //   ) 
   //   console.log("filterProductsByCategoryandBrand=>",  filterProductsByCategoryandBrand);
+     
+  const handlePreviousPage = () => {
+    setPageNo((prevPage) => prevPage - 1);
+  };
+
+  const handleNextPage = () => {
+    setPageNo((prevPage) => prevPage + 1);
+  };
+  
   let renderProducts = "";
 
   renderProducts = gridview ? (
@@ -178,7 +193,7 @@ const MachineContent = () => {
                 <div className="product-image w-img proimg-height">
                   <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{ id: `${product._id}`, namee: `${product.product_name}` }}>
                     {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
-                    <img className='' src={product.image} alt={product.product_name} />
+                    <img className='pimg' src={product.image} alt={product.product_name} />
                   </Link>
                 </div>
 
@@ -197,7 +212,7 @@ const MachineContent = () => {
                 </Link>
                 <button
                   type="button"
-                  onClick={() => dispatch(setFilterShow(["true", index, product.category]))}
+                  onClick={() => dispatch(setFilterShow(["true", index, Checked[0]]))}
                   className="cart-btn-31 d-flex w50 align-items-center justify-content-center w-100"
                 >
                   enquire now
@@ -296,7 +311,7 @@ const MachineContent = () => {
               <div className="product-image w-img proimg-height">
                 <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{ id: `${product._id}`, namee: `${product.product_name}` }}>
                   {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
-                  <img className='' src={product.image} alt={product.product_name} />
+                  <img className='pimg' src={product.image} alt={product.product_name} />
                 </Link>
               </div>
               {/* <div className="product-action">
@@ -329,7 +344,7 @@ const MachineContent = () => {
               </Link>
               <button
                 type="button"
-                onClick={() => dispatch(setShow(["true", index]))}
+                onClick={() => dispatch(setMachineShow(["true", index]))}
                 className="cart-btn-31 w50 d-flex align-items-center justify-content-center w-100"
               >
                 enquire now
@@ -359,7 +374,7 @@ const MachineContent = () => {
                     </a> */}
                         <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{ id: `${product._id}`, namee: `${product.product_name}` }}>
                           {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
-                          <img className='' src={product.image} alt={product.product_name} />
+                          <img className='pimg' src={product.image} alt={product.product_name} />
                         </Link>
                       </div>
 
@@ -440,7 +455,7 @@ const MachineContent = () => {
                   </a> */}
                     <Link to={`/productDetails/${product.product_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{ id: `${product._id}`, namee: `${product.product_name}` }}>
                       {/* <img className='pimg' src={`http://15.207.31.23:5001/${product.image}`} alt="product"  /> */}
-                      <img className='' src={product.image} alt={product.product_name} />
+                      <img className='pimg' src={product.image} alt={product.product_name} />
                     </Link>
                   </div>
 
@@ -498,7 +513,7 @@ const MachineContent = () => {
             </Link>
             <button
               type="button"
-              onClick={() => dispatch(setShow(["true", index]))}
+              onClick={() => dispatch(setMachineShow(["true", index]))}
               className="cart-btn d-flex mb-10 align-items-center justify-content-center w-100"
             >
               enquire now
@@ -579,10 +594,10 @@ const MachineContent = () => {
 
   return (
     <>
-      <div className="shop-area mb-20 mt-40">
-        <div className="container">
+      <div className="shop-area mb-20 mt-40 resmt0">
+        <div className="container respdrl">
           <div className="row">
-            <div className="col-xl-3 col-lg-4">
+            <div className="col-xl-3 col-lg-4 resnone">
               <div className="product-widget mb-30">
                 <h5 className="pt-title">Machine categories</h5>
                 <div className="widget-category-list mt-20">
@@ -712,12 +727,14 @@ const MachineContent = () => {
                   />
                 </div>
               </div>
+              <div className="row">
+             
               <div className="product-lists-top">
                 <div className="product__filter-wrap">
                   <div className="row align-items-center">
                     <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                      <div className="product__filter d-sm-flex align-items-center justify-content-between">
-                        <div className="product__col">
+                      <div className="product__filter d-sm-flex align-items-center justify-content-between resflex">
+                        <div className="product__col resnone">
                           <ul
                             className="nav nav-tabs"
                             id="myTab"
@@ -760,45 +777,36 @@ const MachineContent = () => {
                           {/* <p>Showing 1-20 of 29 relults</p> */}
                           <p className="paradec"><span className="spandec">{renderProducts.length}</span> products are found</p>
                         </div>
-                      </div>
-                    </div>
-                    <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                      <div className="product__filter-right d-flex align-items-center justify-content-md-end">
-                        <div className="product__sorting product__show-no">
-                          <select>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>30</option>
-                            <option>40</option>
-                          </select>
+                        <div className="disnone">
+                          <a onClick={() => setDisplay("true")} className="btn btn-outlinewar">category</a>
                         </div>
-                        <div className="product__sorting product__show-position ml-20">
-                          <select>
-                            <option>Latest</option>
-                            <option>New</option>
-                            <option>Up coming</option>
-                          </select>
+                        <div className="disnone">
+                          <a onClick={() => setDisplayy("true")} className="btn btn-outlinewar">brand</a>
                         </div>
                       </div>
                     </div>
+                   
                   </div>
                 </div>
               </div>
+            
+              
               <div className="tab-content" id="productGridTabContent">
                 <div
-                  className="tab-pane fade  show active"
+                  className="tab-pane fade show active"
                   id="FourCol"
                   role="tabpanel"
                   aria-labelledby="FourCol-tab"
                 >
                   <div className="tp-wrapper">
-                    <div className="row g-0">
+                    <div className="row g-0 respdpr">
                       {renderProducts}
 
                     </div>
                   </div>
                 </div>
 
+              </div>
               </div>
               <div className="tp-pagination text-center">
               <div className="row">
@@ -844,7 +852,7 @@ const MachineContent = () => {
                 </div>
               </div>
             </div>
-          </div>
+             </div>
             </div>
 
         
@@ -852,9 +860,83 @@ const MachineContent = () => {
         </div>
       </div>
     </div >
-      
-      <ProductEnquiryForm show={popupp} />
-      <CategoryEnquiryForm show={popup} />
+    <div className="modal-dialog modal-dialog-scrollable backwhiye disnone">
+        <div className="modal-content">
+          <Offcanvas show={display} hideShow = {hideDisplay} scrollable={true} placement="end">
+            <Offcanvas.Header className="offcanvas-header modalflex border-bottom" closeButton onClick={hideDisplay} >
+              <Offcanvas.Title className="offcanvas-title text-center"><h5 className="modh5">Select Categories</h5></Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body className="modal-body">
+            <div className="product-widget mb-30">
+                <h5 className="pt-title">Machine categories</h5>
+                <div className="widget-category-list mt-20">
+                  {uniqueCat.map((category) => (
+                    <div className="single-widget-category">
+                      <input
+                        type="checkbox"
+                        id="cat-item-8"
+                        checked={
+                          Checked.indexOf(category) === -1 ? false : true
+                        }
+                        onChange={() => handleToggle(category)}
+                        name="cat-item"
+                      />
+                      <label htmlFor="cat-item-3">{category}</label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Offcanvas.Body>
+            <div className="offcanvas-foorter border-top p-3 text-center">
+         
+          <button type="submit" className="st-btn-3" onClick={hideDisplay}>
+            Apply changes
+          </button>
+        </div>
+          </Offcanvas>
+        </div>
+    </div>
+
+    <div className="modal-dialog modal-dialog-scrollable backwhiye disnone">
+        <div className="modal-content">
+          <Offcanvas show={displayy} hideShow = {hideDisplayy} scrollable={true} placement="end">
+            <Offcanvas.Header className="offcanvas-header modalflex border-bottom" closeButton onClick={hideDisplayy} >
+              <Offcanvas.Title className="offcanvas-title text-center"><h5 className="modh5">Select Brands</h5></Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body className="modal-body">
+            <div className="product-widget mb-30">
+                <h5 className="pt-title">Machine Brands</h5>
+                <div className="widget-category-list mt-20">
+                  {uniqueBrand.map((brand) => (
+                    <div className="single-widget-category">
+                      <input
+                        type="checkbox"
+                        id="cat-item-8"
+                        checked={
+                          Checked.indexOf(brand) === -1 ? false : true
+                        }
+                        onChange={() => handleToggle(brand)}
+                        name="cat-item"
+                      />
+                      <label htmlFor="cat-item-3">{brand}</label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Offcanvas.Body>
+            <div className="offcanvas-foorter border-top p-3 text-center">
+         
+          <button type="submit" className="st-btn-3" onClick={hideDisplayy}>
+            Apply changes
+          </button>
+        </div>
+          </Offcanvas>
+        </div>
+    </div>
+      {/* <Offcanvass show={display} hideShow={hideDisplay}/> */}
+      {/* <ProductEnquiryForm show={popupp} /> */}
+      {/* <CategoryEnquiryForm show={popup} />  */}
+      <MachineEnquiryForm pageNo={pageNo} show={machinepopup}  />
     </>
   );
 };

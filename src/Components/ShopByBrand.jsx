@@ -10,34 +10,64 @@ import { RxDotFilled } from "react-icons/rx";
 import { BsFillGridFill, BsListColumns } from "react-icons/bs";
 import { TiThList } from "react-icons/ti";
 import { getpopup, setShow, getSelectedFilter, setFilterShow, getFilterpopup } from '../Redux/products/PopupSlice';
-import ProductEnquiryForm from './ProductEnquiryForm';
- 
+import BrandEnquiryForm from "./BrandEnquiryForm";
+import { getBrandpopup, setBrandShow} from "../Redux/products/BrandPopupSlice";
+import {FiChevronsLeft, FiChevronsRight} from "react-icons/fi"
 
 const ShopByBrand = () => {
     const location = useLocation();
   const { brand } = location.state;
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(8)
+  const [totalPage, setTotalPage] = useState(0);
   console.log("brand=>", brand);
     useEffect(() => {
-        const fetchMachine = async () => {
+        const fetchMachine = async (brand,page,pageSize) => {
           const res = await axios
-            .get("https://mymachinestore.com/api/fetch")
-    
+            // .get("https://mymachinestore.com/api/fetch")
+             .get(`https://mymachinestore.com/api/productbybrand/${brand}`, {
+              params: {
+                page,
+                pageSize,
+              },})
+            .then((res)=>{
+              console.log("brandmachine=>", res?.data?.result);
+             setData(res.data.result);
+          setTotalPage(res?.data?.totalPages);
+          console.log("brandtp=>", totalPage);
+            })
+            .then(() => {})
             .catch((error) => {
               console.log("err=>", error);
             });
-          console.log("machine=>", res.data);
-          setData(res.data);
+          // console.log("machine=>", res.data);
+          // setData(res.data);
+          // setTotalPage(res?.data?.totalPages);
         };
-        fetchMachine();
-      }, []);
+        fetchMachine(brand, page, pageSize);
+      }, [brand, page]);
+      // const brandss = 
+
+      const handlePreviousPage = () => {
+        setPage((prevPage) => prevPage - 1);
+      };
     
-      const machineData = Object.values(data);
+      const handleNextPage = () => {
+        setPage((prevPage) => prevPage + 1);
+      };
+
+      const pages = new Array(totalPage).fill(null).map((_v, i) => i);
+      console.log("pages=>", pages);
+    
+    
+      // const machineData = Object.values(data);
 
       const gridview = useSelector(getgridView);
       const dispatch = useDispatch();
-      const popupp = useSelector(getpopup);
-      const popup = useSelector(getFilterpopup);
+      const brandpopup = useSelector(getBrandpopup)
+      // const popupp = useSelector(getpopup);
+      // const popup = useSelector(getFilterpopup);
       
 
       let searchProducts = "";
@@ -78,7 +108,7 @@ const ShopByBrand = () => {
                 >
                  Get Details
                 </Link>
-                      <button type="button"  onClick={()=>dispatch(setFilterShow(["true", index, product.brand]))} className="cart-btn-31 d-flex align-items-center justify-content-center w-100">
+                      <button type="button"  onClick={()=>dispatch(setBrandShow(["true", index]))} className="cart-btn-31 d-flex align-items-center justify-content-center w-100">
                         enquire now
                       </button>
                     </div>
@@ -166,6 +196,7 @@ const ShopByBrand = () => {
                 </Link>
      <button
        type="button"
+       onClick={()=>dispatch(setBrandShow(["true", index]))} 
        className="cart-btn d-flex  align-items-center justify-content-center w-100"
      >
        enquire now
@@ -182,7 +213,7 @@ const ShopByBrand = () => {
       <div className="row">       
         <div className="col-xl-12 col-lg-8">         
           <div className="product-lists-top">
-            <div className="product__filter-wrap">
+            <div className="product__filter-wrap resnone">
               <div className="row align-items-center">
                 <div className="col-xxl-10 col-xl-6 col-lg-6 col-md-6">
                   <div className="product__filter d-sm-flex align-items-center">
@@ -702,11 +733,57 @@ const ShopByBrand = () => {
               </div>
             </div>
           </div>
+          <div className="tp-pagination text-center">
+              <div className="row">
+              <div className="col-xl-6">
+            <div className="basic-pagination pt-30 pb-30">
+              {/* <p className="mb-sm-0">Showing 1 to 10 of 12 entries</p> */}
+              <p className="mb-sm-0 pfs">{page + 1}<sup>{page === 0? "st":page === 1 ? "nd" : page === 2 ? "rd" :"th" }</sup> Page of {totalPage}</p>
+            </div>
+          </div>{" "}
+                <div className="col-xl-6">
+                  <div className="basic-pagination pt-30 pb-30">
+                    <nav>
+                      <ul>
+                        <li>
+                          <button  onClick={handlePreviousPage} disabled={page === 0}>
+
+                            <FiChevronsLeft />
+                          </button>
+                        </li>
+                        {pages.map((pageIndex) => {
+                          return (
+                            <li className="page-item active" key={pageIndex}>
+                              <button
+                                
+                                className=""
+                                onClick={() => {
+                                setPage(pageIndex);
+                                }}
+                              >
+                                {pageIndex + 1}
+                              </button>
+                            </li>
+                          );
+                        })}
+                        <li>
+                        <button onClick={handleNextPage} disabled={page === totalPage -1}>
+
+                          <FiChevronsRight />
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+             </div>
         </div>
       </div>
     </div>
   </div>
-  <ProductEnquiryForm show={popupp} />
+  {/* <ProductEnquiryForm show={popupp} /> */}
+  <BrandEnquiryForm page={page} brand={brand} pageSize={pageSize} show={brandpopup} />
     </>
   )
 }

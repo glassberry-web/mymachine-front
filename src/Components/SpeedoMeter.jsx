@@ -28,7 +28,7 @@ const styles = {
 
 const SpeedoMeter = ({ id, value, title }) => {
   return (
-    <div style={{width:"200px", marginLeft:"3rem"}}>
+    <div className="speed" style={{width:"200px", marginLeft:"3rem"}}>
      {/* <CircularProgressbar
             value={value}
             minValue={1}
@@ -51,7 +51,7 @@ const SpeedoMeter = ({ id, value, title }) => {
             {/* // })} */}
          
           {/* // /> */}
-          <ChangingProgressProvider values={[0, 1, value]}       
+          <ChangingProgressProvider values={[0, value, value + 1]}       
       >
         {value => {      
           return (
@@ -78,7 +78,7 @@ const SpeedoMeter = ({ id, value, title }) => {
           );
         }}
       </ChangingProgressProvider>
-      <div style={styles.title}>{title}</div>
+      <div className="speedtitle" style={styles.title}>{title}</div>
     </div>
   );
 };

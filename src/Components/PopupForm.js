@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { HiOutlineSearch, HiChevronDown } from "react-icons/hi";
+import Swal from "sweetalert2";
 import {
   Button,
   Row,
@@ -59,19 +60,31 @@ const PopupForm = ({show, setShow, onHide}) => {
         let res = await Axios.post(Trade_Enquiry, inputFeild, config);
         if (res.status === 200) {
           console.log("added succesfully");
-          toast.success("Submitted Successfully !", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+          // toast.success("Submitted Successfully !", {
+          //   position: toast.POSITION.TOP_RIGHT,
+          // });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `Thank you for graciously providing us with your information. We appreciate your time and look forward to reaching out to you promptly with our response.`,
+            showConfirmButton: false,
+            timer: 7500,
+            customClass: {
+              title: 'swal2-title-custom' // Custom CSS class for the title
+            },
+           
+          })
           setShow(false)
           setInputFeild('')
           navigate("/");
-          // submit? 
-          // setSubmit(false ) : setSubmit(true )
+          submit? 
+          setSubmit(false ) : setSubmit(true )
         }
       } catch (error) {
         console.log("error===>", error);
       }
     }
+    setInputFeild("");
   };
 
   // const handleSubmit =  async(e)=>{
@@ -129,7 +142,7 @@ const PopupForm = ({show, setShow, onHide}) => {
                      name="name"
                      className="madalform1 boxinp"
                      type="text"
-                     placeholder="Name"
+                     placeholder="Company_Name"
                      onChange={inputHandler}
                      value={inputFeild.name}
                      required

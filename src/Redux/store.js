@@ -5,6 +5,10 @@ import filterviewReducer from "./products/FilteredProductslice"
 import filterReducer from "./products/filterSlice"
 import popupReducer from "./products/PopupSlice"
 import tabviewReducer  from "./products/TabSlice"
+import popupmReducer from "./products/MachinePopupSlice";
+import popupbReducer from "./products/BrandPopupSlice.js"
+import popupcReducer from "./products/CategoryPopupSlice"
+import searchReducer from "./products/SearchPopupSlice";
 
 
 export const store = configureStore({
@@ -13,6 +17,10 @@ export const store = configureStore({
     filters: filterReducer, 
     filterview: filterviewReducer,
     popup:popupReducer,
-    tabview :tabviewReducer
+    popupm:popupmReducer,
+    popupb:popupbReducer,
+    popupc:popupcReducer,
+    tabview :tabviewReducer,
+    search:searchReducer,
   },
 });

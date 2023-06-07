@@ -3,7 +3,7 @@ import React from 'react'
 const Aboutteam = () => {
   return (
     <>
-      <div className="team-area light-bg-s pt-70 pb-40">
+      <div className="team-area light-bg-s pt-70 pb-40 respt30">
   <div className="container">
     <div className="row mb-35">
       <div className="col-xl-12">

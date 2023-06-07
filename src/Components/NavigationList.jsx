@@ -1,14 +1,33 @@
-import React, { useState } from "react";
+
 import { Link, NavLink } from "react-router-dom";
 import { HiChevronDown } from "react-icons/hi";
 import {data} from "./data"
+import React, { useEffect, useState } from 'react'
 
 
 const NavigationList = () => {    
       const [activeIndex, setActiveIndex] = useState(null);
+      const [subdata, setSubData] = useState([])
       const handleDropdown = index => {
           setActiveIndex(index); 
       };
+
+      const fetchData = () => {
+        // fetch("http://localhost:5000/api/getapplication")
+        fetch("https://mymachinestore.com/api/getapplication")
+    
+          .then(response => {
+            console.log(response);
+            return response.json()
+          })
+          .then(subdata => {
+            setSubData(subdata)
+          })
+      }
+      
+        useEffect(() => {
+          fetchData()
+        }, [])
 
   return (
     <>
@@ -30,9 +49,9 @@ const NavigationList = () => {
                     <Link to={data.links} className={`${activeIndex === idx ? 'active' : ''}`}>{data.name} {data.name ==="Applications" ? <HiChevronDown style={{fontSize:'22px', position:'absolute', top:'16px'}}/>: ""}</Link>
                     {data.namesub && (
                       <ul className="submenu">
-                        {data?.namesub?.map((submenu) => (
-                          <li key={submenu.id} >
-                            <NavLink to={submenu.links}>{submenu.sub}</NavLink>
+                        {subdata?.map((submenu) => (
+                          <li key={submenu._id} >
+                            <NavLink to={`/application/${submenu.application_name.replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${submenu._id}`, namee:`${submenu.application_name}`}}>{submenu.application_name}</NavLink>
                           </li>
                         ))}
                       </ul>

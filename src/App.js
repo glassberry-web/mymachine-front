@@ -18,6 +18,10 @@ import ProductEnquiryForm from "./Components/ProductEnquiryForm";
 import Whatapp from "./Components/Whatapp";
 import ShopByBrand from "./Components/ShopByBrand";
 import ShopByCategory from "./Components/ShopByCategory";
+import ScrollToTop from "./ScrollToTop";
+import Blog_detail from "./Pages/Blog_detail";
+import Application_detail from "./Components/Application_detail";
+import Applications from "./Pages/Applications";
 
 function App() {
   const products = useSelector(getAllProducts);
@@ -49,19 +53,21 @@ function App() {
   return (
     <div className="App">
       <Header />
-
+      <ScrollToTop />
       <Routes>
         {routes.map((data, idx) => (
           <Route key={idx} path={data.path} element={data.component} exact />
         ))}
 
         {/* <Route path="*" element={<Page404 />} /> */}
-        <Route path="/companies/:id" element={<CompanyDeatails />} />
+        <Route path="/companiesdetail/:companyname" element={<CompanyDeatails />} />
         <Route path="/productDetails/:productname" element={<ProductDetails />} />
         {/* <Route path="/:id" element={<ProductEnquiryForm />} /> */}
         <Route path="/machines/:debouceSearchTerm"  element={<SearchResult />} />
         <Route path="/:brand"  element={<ShopByBrand />} />
         <Route path="/products/:category"  element={<ShopByCategory />} />
+        <Route path="/blog/:blogname" element={<Blog_detail />} />
+        <Route path="/application/:applicationname" element={<Applications/>} />
         {/* <Route path="/machines/:filters"  element={<SearchResult />} /> */}
  
       </Routes> 

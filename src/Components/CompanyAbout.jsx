@@ -28,16 +28,16 @@ const CompanyAbout = () => {
     }, [])
     return (
         <>
-            <div className="container pt-60">
+            <div className="container pt-60 respt30 mb-45">
                 { data.length > 0 && (
                     data.map((item=>(
                         id === item._id ? (
                         <div className="row align-items-center">                   
                         
-                     <div className="col-xl-6 col-lg-6 backalign">
+                     <div className="col-xl-6 col-lg-6 backalign resnone">
                          <div className="about-image w-img  wow slideInRight" data-wow-duration="2s">
                              <div className='row d-flex'>
-                                 <div className='col-lg-6'>
+                                 <div className='col-lg-6 col-6'>
                                      {/* <div class="ab-counter">
                                          <div class="counter-icon mr-10">
  
@@ -51,25 +51,58 @@ const CompanyAbout = () => {
                                          </div> */}
                                      <SpeedoMeter title={"Machine " + "" + "Installed"} value ={item.machine}/>
                                  </div>
-                                 <div className='col-lg-6'>
+                                 <div className='col-lg-6 col-6'>
                                      <SpeedoMeter title={"Service " + "" + "Engineers"}  value ={item.engineer} />
                                  </div>
                              </div>
                              <div className='row d-flex'>
-                                 <div className='col-lg-6'>
+                                 <div className='col-lg-6 col-6'>
                                      <SpeedoMeter title={"Total " + "" + "Employees"}  value ={item.employees} />
                                  </div>
-                                 <div className='col-lg-6'>
+                                 <div className='col-lg-6 col-6'>
                                      <SpeedoMeter title={"Customer " + "" + "Served"} value ={item.customer} />
                                  </div>
                              </div>
                              {/* <SpeedoMeter /> */}
                          </div>
                      </div>
-                     <div class="col-xl-6 col-lg-6"><div class="about-content wow slideInLeft" data-wow-duration="2s"><span>{item.company_name}</span><h4>Welcome to My Machine Store</h4>
+                     <div class="col-xl-6 col-lg-6"><div class="about-content rescen wow slideInLeft" data-wow-duration="2s"><span>{item.company_name}</span>
+                     {/* <h4>Welcome to My Machine Store</h4> */}
                      <p class="about-text">{item.discription}</p>
                      </div>
-                     </div>  
+                     </div> 
+                     <div className="col-xl-6 col-lg-6 backalign disnone">
+                         <div className="about-image w-img  wow slideInRight" data-wow-duration="2s">
+                             <div className='row d-flex'>
+                                 <div className='col-lg-6 col-6'>
+                                     {/* <div class="ab-counter">
+                                         <div class="counter-icon mr-10">
+ 
+                                     </div>
+                                     <div class="counter_info">
+                                         {
+                                          <CountUp   start={0} end={100} duration={4.75} suffix='+'class="counter"/>  
+                                         }
+                                       
+                                         </div>
+                                         </div> */}
+                                     <SpeedoMeter title={"Machine " + "" + "Installed"} value ={item.machine}/>
+                                 </div>
+                                 <div className='col-lg-6 col-6'>
+                                     <SpeedoMeter title={"Service " + "" + "Engineers"}  value ={item.engineer} />
+                                 </div>
+                             </div>
+                             <div className='row d-flex'>
+                                 <div className='col-lg-6 col-6'>
+                                     <SpeedoMeter title={"Total " + "" + "Employees"}  value ={item.employees} />
+                                 </div>
+                                 <div className='col-lg-6 col-6'>
+                                     <SpeedoMeter title={"Customer " + "" + "Served"} value ={item.customer} />
+                                 </div>
+                             </div>
+                             {/* <SpeedoMeter /> */}
+                         </div>
+                     </div> 
                      </div>) : ""
                     )))
                     

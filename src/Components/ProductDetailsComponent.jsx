@@ -37,6 +37,7 @@ const ProductDetailsComponent = (props) => {
 
   const fetchData = () => {
     fetch("https://mymachinestore.com/api/fetch")
+    // fetch("http://localhost:5000/api/fetch")
       .then((response) => {
         console.log(response);
         return response.json();
@@ -91,7 +92,7 @@ const ProductDetailsComponent = (props) => {
           {data.length > 0 &&
             data.map((detail) =>
               id === detail._id ? (
-                <div className="row">
+                <div key={ detail._id} className="row">
                   <div className="col-xl-4">
                     <div className="product__details-nav d-sm-flex align-items-start justify-content-center pdalign">
                       <div className="product__details-thumb">
@@ -108,7 +109,7 @@ const ProductDetailsComponent = (props) => {
                                   smallImage: {
                                     alt: `${detail.product_name}`,
                                     isFluidWidth: true,
-                                    imageClassName: "proimg",
+                                    imageClassName: "proimg pimg",
                                     src: `${detail.image}`,
                                   },
                                   largeImage: {
@@ -129,7 +130,7 @@ const ProductDetailsComponent = (props) => {
                    <div className="col-xl-5">
                     <div className="product__details-content">
                       <h1 className="proh1">{detail.product_name}</h1>
-                      <div className="pd-rating mb-10">
+                      <div className="pd-rating mb-10 resmb2">
                         {detail.shortDiscription}
                       </div>
 

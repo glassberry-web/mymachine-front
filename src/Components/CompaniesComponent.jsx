@@ -26,7 +26,7 @@ const CompaniesComponent = () => {
     return (
         <>    
 
-            <div className="blog-area mt-75 mb-55">
+            <div className="blog-area mt-75 mb-55 resmt30">
                 <div className="container">
                     <div className="row">
                         {data.length > 0 && (
@@ -35,14 +35,14 @@ const CompaniesComponent = () => {
                                     {
                                         data.map((detail) => (
                                         detail.status==="Active" && detail.logo &&  detail.company_name  ? (                                            
-                                                <div className="col-xl-3">
-                                                    <div className="single-smblog mb-30 boxbr">
+                                                <div className="col-xl-3 col-6">
+                                                    <div className="single-smblog mb-30 boxbr resheight">
                                                         <div className="smblog-thum">
                                                             <div className="blog-image w-img logoimage">
                                                                 {/* <Link to={`http://15.207.31.23:3000/companies/${detail._id}`}>
                                                                     <img src={`http://15.207.31.23:5001/${detail.logo}`} alt />
                                                                 </Link> */}
-                                                                 <Link to="/companiesDetails" state={{id:`${detail._id}`}} >
+                                                                 <Link to={`/companiesdetail/${detail.company_name.replace(/,?\s+/g, '-').toLowerCase()}`}  state={{id:`${detail._id}`, namee:`${detail.company_name}`}}>
                                                                     <img className='brandlogo1' src={detail.logo} alt={detail.company_name} />
                                                                 </Link> 
                                                                 

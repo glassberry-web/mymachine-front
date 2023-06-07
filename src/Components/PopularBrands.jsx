@@ -55,7 +55,7 @@ const PopularBrands = () => {
   return (
     <>
       <section
-        className="featured light-bg pt-45 pb-45"
+        className="featured light-bg pt-45 pb-45 respbo respt0"
         style={{ backgroundColor: "#ffffff" }}
       > 
         <div className="container">
@@ -107,7 +107,7 @@ const PopularBrands = () => {
                     data.map((detail)=>(
                       detail.logo &&  detail.company_name  ?(
                         <SwiperSlide className="brand-item w-img  swiper-slide">
-                           <Link to="/companiesDetails" state={{id:`${detail._id}`}} >
+                           <Link to={`/companiesdetail/${detail.company_name .replace(/,?\s+/g, '-').toLowerCase()}`} state={{id:`${detail._id}`,namee:`${detail.company_name}`}} >
                               <img src={detail.logo}  alt="brand"
                             className="shadow  brandlogo" />
                             </Link> 

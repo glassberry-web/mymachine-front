@@ -12,7 +12,7 @@ import { fetchAsyncImages, getpopup } from '../Redux/products/PopupSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLatestShow, setFilterShow } from '../Redux/products/PopupSlice';
 import { getAllpopup, getLatestSelectedImage, getSelectedImage, getFilterSelectedImage } from "../Redux/products/PopupSlice";
-
+import Swal from "sweetalert2";
 import {
   Button,
   Row,
@@ -91,9 +91,20 @@ const CategoryEnquiryForm = ({ show, onHide }) => {
           console.log("added succesfully");
           // navigate("/about");
           dispatch(setFilterShow(false));
-          toast.success("Submitted Successfully !", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+          // toast.success("Submitted Successfully !", {
+          //   position: toast.POSITION.TOP_RIGHT,
+          // });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `Thank you for reaching out to us. We appreciate your enquiry for <br/><strong>${product_name}</strong>.<br/> We will make sure to respond to you as soon as possible.`,
+            showConfirmButton: false,
+            timer: 7500,
+            customClass: {
+              title: 'swal2-title-custom' // Custom CSS class for the title
+            },
+           
+          })
 
           
           submit ?
@@ -103,6 +114,7 @@ const CategoryEnquiryForm = ({ show, onHide }) => {
         console.log("error===>", error);
       }
     }
+    setInputFeild("");
   };
 
   // const fetchData = () => {

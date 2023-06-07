@@ -12,6 +12,7 @@ import { fetchAsyncImages, getpopup } from '../Redux/products/PopupSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { setShow } from '../Redux/products/PopupSlice';
 import { getAllpopup, getSelectedImage } from "../Redux/products/PopupSlice";
+import Swal from "sweetalert2";
 
 import {
   Button,
@@ -65,15 +66,9 @@ const ProductEnquiryForm = ({ show, onHide }) => {
   const selectedImage = useSelector(getSelectedImage);
   console.log("selectedimage", selectedImage);
   const navigate = useNavigate();
-  // console.log("ref=>", ref.current.value);
   
   const register = async (e) => {
-    e.preventDefault();
-    // const formData = new FormData();
-    // const productname = ref.current.value;
-    // formData.append('productname', productname);
-    // console.log("frm", formData);
-    // const productname = ref.current.value;
+    e.preventDefault();   
     console.log("inputfeild=>", inputFeild);
     // console.log("ref=>",productname );
     const config = {
@@ -91,9 +86,20 @@ const ProductEnquiryForm = ({ show, onHide }) => {
           console.log("added succesfully");
           // navigate("/about");
           dispatch(setShow(false));
-          toast.success("Submitted Successfully !", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+          // toast.success("Submitted Successfully !", {
+          //   position: toast.POSITION.TOP_RIGHT,
+          // });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `Thank you for reaching out to us. We appreciate your enquiry for <br/><strong>${product_name}</strong>.<br/> We will make sure to respond to you as soon as possible.`,
+            showConfirmButton: false,
+            timer: 7500,
+            customClass: {
+              title: 'swal2-title-custom' // Custom CSS class for the title
+            },
+           
+          })
 
           
           submit ?
@@ -103,146 +109,12 @@ const ProductEnquiryForm = ({ show, onHide }) => {
         console.log("error===>", error);
       }
     }
+    setInputFeild("");
   };
-
-  // const fetchData = () => {
-  //   fetch("http://15.207.31.23:5000/fetch")
-
-  //     .then(response => {
-  //       console.log(response);
-  //       return response.json()
-  //     })
-  //     .then(data => {
-  //       setData(data)
-  //     })
-  // }
-
   useEffect(() => {
     dispatch(fetchAsyncImages())
   }, [])
-  var image;
-  // console.log(Object.entries(image));
-
  
-  
-  // let renderpopup =()=>{
-  //  if(submit){
-  //     return(
-  //      <div>hi this avinash</div>
-  //     )
-  //  }else{
-  //   if (selectedImage !== null) {
-  //     image= popupimage[selectedImage];
-  //    return (
-  //     <Modal size="lg" show={show}>
-  //             <ModalHeader closeButton onClick={() => dispatch(setShow(false))}>
-  //               <ModalTitle className="modal_titleml">{image.product_name}</ModalTitle>
-  //             </ModalHeader>
-  //             <ModalBody>
-  //               <Row>
-  //                 <Col md={6} className="modmar">
-  //                   <img
-  //                     src={`http://15.207.31.23:5001/${image.image}`}
-  //                     alt="d1"
-  //                     className="modal-img"
-  //                   />
-  //                 </Col>
-  //                 <Col md={6} className="rescen">
-  //                   <Form className="text-center formpt" onSubmit={register}>
-  //                     <FormGroup>
-  //                       <FormControl
-  //                         id="name"
-  //                         name="name"
-  //                         className="madalform1 boxinp"
-  //                         type="text"
-  //                         placeholder="Name"
-  //                         onChange={inputHandler}
-  //                         value={inputFeild.name}
-  //                         // defaultValue={image.product_name}
-  //                         required
-  //                       // {...register("name", {
-  //                       //   required: true,
-  //                       // })}
-  //                       />
-  
-  //                       {/* {errors.name?.type === "required" && (
-  //              <p role="alert" id="error">
-  //                Enter your location
-  //              </p>
-  //            )} */}
-  //                     </FormGroup>
-  //                     <FormGroup className="my-3">
-  //                       <FormControl
-  //                         id="location"
-  //                         name="location"
-  //                         className="madalform1 boxinp"
-  //                         type="location"
-  //                         placeholder="location"
-  //                         onChange={inputHandler}
-  //                         value={inputFeild.location}
-  //                         required
-  //                       // {...register("location", {
-  //                       //   required: true,
-  //                       // })}
-  //                       />
-  //                       {/* {errors.location?.type === "required" && (
-  //              <p role="alert" id="error">
-  //                Enter your location
-  //              </p>
-  //            )} */}
-  //                     </FormGroup>
-  //                     <FormGroup className="my-3">
-  //                       <FormControl
-  //                         id="email"
-  //                         name="email"
-  //                         className="madalform1 boxinp"
-  //                         type="text"
-  //                         placeholder="Email Id"
-  //                         onChange={inputHandler}
-  //                         value={inputFeild.email}
-  //                         required
-  //                       // {...register("email", {
-  //                       //   required: true,
-  //                       //   pattern: {
-  //                       //     value:
-  //                       //       /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/,
-  //                       //   },
-  //                       // })}
-  //                       />
-  //                       {/* {errors.email?.type === "required" && (
-  //              <p role="alert" id="error">
-  //                Enter your valid Email
-  //              </p>
-  //            )} */}
-  //                     </FormGroup>
-  //                     <FormGroup className="my-3">
-  //                       <FormControl
-  //                         id="phoneNo"
-  //                         name="phoneNo"
-  //                         value={inputFeild.phoneNo}
-  //                         className="madalform1 boxinp"
-  //                         type="text"
-  //                         placeholder="Phone No"
-  //                         onChange={inputHandler}
-  //                         required
-  //                       />
-  //                     </FormGroup>
-  //                     <Button onClick={register} className="tp-in-btn">
-  //                       Submit
-  //                     </Button>
-  //                   </Form>
-  //                 </Col>
-  //               </Row>
-  //             </ModalBody>
-  //     </Modal>
-  //    )
-  //   }else{
-      
-  //   }
-
-  //  }
-    
-  // } 
   let renderpopup = popupimage?.map((detail, index) =>(
            selectedImage === index ? (
             <Modal size="lg" show={show}>
@@ -260,7 +132,7 @@ const ProductEnquiryForm = ({ show, onHide }) => {
                   <img
                     src={detail.image}
                     alt="d1"
-                    className="modal-img"
+                    className="modal-img pimg"
                   />
                 </Col>
                 <Col md={6} className="rescen">

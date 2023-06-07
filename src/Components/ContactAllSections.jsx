@@ -7,7 +7,7 @@ import Imagesec from "./Imagesec";
 const ContactAllSections = () => {
   return (
     <>
-      <div className="account-area mt-90 mb-50">
+      <div className="account-area mt-45 mb-50">
         <div className="container">
           <div className="row">
             <Imagesec />

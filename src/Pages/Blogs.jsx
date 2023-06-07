@@ -5,7 +5,7 @@ import PageBanner from '../Components/PageBanner'
 const Blogs = () => {
   return (
     <>
-     <PageBanner background="url(assets/img/new/p_bg2.jpg)" title="Blog" info = "Home"  />
+     <PageBanner background="black" title="Blog" info = "Home"  />
      <BlogHero />
     </>
   )
