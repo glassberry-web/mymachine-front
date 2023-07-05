@@ -15,7 +15,7 @@ const ProductAdditional = () => {
   const { id } = location.state;
   console.log("additipon=>", id);
     const fetchData = () => {
-        fetch("https://mymachinestore.com/api/productcontent")
+        fetch("http://localhost:5000/productcontent")
         // fetch("http://localhost:5000/api/productcontent")
           .then(response => {
             console.log(response);

@@ -25,8 +25,8 @@ const ShopByBrand = () => {
     useEffect(() => {
         const fetchMachine = async (brand,page,pageSize) => {
           const res = await axios
-            // .get("https://mymachinestore.com/api/fetch")
-             .get(`https://mymachinestore.com/api/productbybrand/${brand}`, {
+            // .get("http://localhost:5000/fetch")
+             .get(`http://localhost:5000/productbybrand/${brand}`, {
               params: {
                 page,
                 pageSize,

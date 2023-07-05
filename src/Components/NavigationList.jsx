@@ -14,7 +14,7 @@ const NavigationList = () => {
 
       const fetchData = () => {
         // fetch("http://localhost:5000/api/getapplication")
-        fetch("https://mymachinestore.com/api/getapplication")
+        fetch("http://localhost:5000/getapplication")
     
           .then(response => {
             console.log(response);

@@ -11,7 +11,7 @@ const Slider = () => {
   const fetchData = () => {
     
     // fetch("http://localhost:5000/api/getslider")
-    fetch("https://mymachinestore.com/api/getslider")
+    fetch("http://localhost:5000/getslider")
     
       .then(response => {
         console.log("lat=>",response);

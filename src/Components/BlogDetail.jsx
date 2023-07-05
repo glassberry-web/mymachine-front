@@ -14,7 +14,7 @@ const BlogDetail = () => {
     console.log("additipon=>", id);
     const fetchData = () => {
         // fetch("http://localhost:5000/api/clientBlogList")
-         fetch("https://mymachinestore.com/api/clientBlogList")
+         fetch("http://localhost:5000/clientBlogList")
       
           .then(response => {
             console.log(response);

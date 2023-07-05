@@ -12,7 +12,7 @@ const LatestBlog = () => {
   
     const fetchData = () => {
         // fetch("http://localhost:5000/api/latestblog")
-        fetch("https://mymachinestore.com/api/latestblog")
+        fetch("http://localhost:5000/latestblog")
       
           .then(response => {
             console.log(response);

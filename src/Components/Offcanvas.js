@@ -12,8 +12,8 @@ const [totalPage, setTotalPage] = useState(0);
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
-            .get(`https://mymachinestore.com/api/products?page=${pageNo}`)
-            //  .get("https://mymachinestore.com/api/fetch")
+            .get(`http://localhost:5000/products?page=${pageNo}`)
+            //  .get("http://localhost:5000/fetch")
             // .get(`http://localhost:5000/api/products?page=${pageNo}`)
             .then((res)=>{
               console.log("machine=>", res?.data);

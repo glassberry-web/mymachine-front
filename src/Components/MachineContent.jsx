@@ -80,9 +80,9 @@ const MachineContent = () => {
   useEffect(() => {
     const fetchMachine = async () => {
       const res = await axios
-        // .get(`https://mymachinestore.com/api/products?page=${pageNo}`)
-        //  .get("https://mymachinestore.com/api/fetch")
-        .get(`https://mymachinestore.com/api/products?page=${pageNo}`)
+        // .get(`http://localhost:5000/products?page=${pageNo}`)
+        //  .get("http://localhost:5000/fetch")
+        .get(`http://localhost:5000/products?page=${pageNo}`)
         .then((res)=>{
           console.log("machine=>", res?.data);
       setData(res.data.result);

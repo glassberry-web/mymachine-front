@@ -11,7 +11,7 @@ const PopularBrands = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch("https://mymachinestore.com/api/machinelisting")
+        fetch("http://localhost:5000/machinelisting")
         // fetch("http://localhost:5000/api/machinelisting")
 
             .then(response => {

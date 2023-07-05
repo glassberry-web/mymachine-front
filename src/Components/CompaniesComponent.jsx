@@ -7,7 +7,7 @@ const CompaniesComponent = () => {
 
     const fetchData = () => {
         // fetch("http://15.207.31.23:5000/machinelisting")
-        fetch("https://mymachinestore.com/api/machinelisting")
+        fetch("http://localhost:5000/machinelisting")
         // fetch("http://localhost:5000/api/machinelisting")
 
             .then(response => {
