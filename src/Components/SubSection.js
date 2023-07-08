@@ -8,7 +8,7 @@ const SubSection = () => {
   const [user , setUser] = useState()
   async function fetchData() {
     try {
-      const response = await axios.get("http://194.31.53.145/api/fetch")
+      const response = await axios.get("http://194.31.53.145:5000/fetch")
       setUser(response.data)
       console.log(setUser);
     } catch (error) {

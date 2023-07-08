@@ -23,8 +23,8 @@ const TopMost = () => {
   console.log("popop=>", popup);
 
   const fetchData = () => {
-    // fetch("http://194.31.53.145/api/api/fetch")
-    fetch("http://194.31.53.145/api/fetch")
+    // fetch("http://194.31.53.145:5000/api/fetch")
+    fetch("http://194.31.53.145:5000/fetch")
 
       .then(response => {
         console.log(response);

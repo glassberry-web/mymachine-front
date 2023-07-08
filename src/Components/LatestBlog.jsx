@@ -11,8 +11,8 @@ const LatestBlog = () => {
     const currentBlogId = location.state?.id;
   
     const fetchData = () => {
-        // fetch("http://194.31.53.145/api/api/latestblog")
-        fetch("http://194.31.53.145/api/latestblog")
+        // fetch("http://194.31.53.145:5000/api/latestblog")
+        fetch("http://194.31.53.145:5000/latestblog")
       
           .then(response => {
             console.log(response);

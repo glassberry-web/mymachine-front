@@ -8,8 +8,8 @@ export const fetchAsyncSearchProducts = createAsyncThunk(
   async (debouceSearchTerm) => {
     console.log("aatessearch=>", debouceSearchTerm);
     const response = await axios.get(
-        `http://194.31.53.145/api/search/${debouceSearchTerm}`
-        // `http://194.31.53.145/api/api/search/${debouceSearchTerm}`
+        `http://194.31.53.145:5000/search/${debouceSearchTerm}`
+        // `http://194.31.53.145:5000/api/search/${debouceSearchTerm}`
     );
     console.log("slice==>", response
     );

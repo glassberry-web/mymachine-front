@@ -51,7 +51,7 @@ const SearchResult = ()=>{
 
 //   useEffect(()=>{
 //     const fetchFilters = async ()=>{
-//       const res = await axios.get("http://194.31.53.145/api/fetch")
+//       const res = await axios.get("http://194.31.53.145:5000/fetch")
 //       .catch((error)=>{
 // console.log("err=>", error);
 //       });

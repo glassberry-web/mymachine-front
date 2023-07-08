@@ -36,8 +36,8 @@ const ProductDetailsComponent = (props) => {
   const dispatch = useDispatch();
 
   const fetchData = () => {
-    fetch("http://194.31.53.145/api/fetch")
-    // fetch("http://194.31.53.145/api/api/fetch")
+    fetch("http://194.31.53.145:5000/fetch")
+    // fetch("http://194.31.53.145:5000/api/fetch")
       .then((response) => {
         console.log(response);
         return response.json();

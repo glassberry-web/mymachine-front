@@ -11,8 +11,8 @@ const PopularBrands = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch("http://194.31.53.145/api/machinelisting")
-        // fetch("http://194.31.53.145/api/api/machinelisting")
+        fetch("http://194.31.53.145:5000/machinelisting")
+        // fetch("http://194.31.53.145:5000/api/machinelisting")
 
             .then(response => {
                 console.log(response);

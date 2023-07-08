@@ -15,8 +15,8 @@ const CompanyDeatails = () => {
 
     const fetchData = () => {
         // fetch("http://15.207.31.23:5000/companyproducts")
-        fetch("http://194.31.53.145/api/companyproducts")
-        // fetch("http://194.31.53.145/api/api/companyproducts")
+        fetch("http://194.31.53.145:5000/companyproducts")
+        // fetch("http://194.31.53.145:5000/api/companyproducts")
 
             .then(response => {
                 console.log(response);

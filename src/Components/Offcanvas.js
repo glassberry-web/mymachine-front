@@ -12,9 +12,9 @@ const [totalPage, setTotalPage] = useState(0);
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
-            .get(`http://194.31.53.145/api/products?page=${pageNo}`)
-            //  .get("http://194.31.53.145/api/fetch")
-            // .get(`http://194.31.53.145/api/api/products?page=${pageNo}`)
+            .get(`http://194.31.53.145:5000/products?page=${pageNo}`)
+            //  .get("http://194.31.53.145:5000/fetch")
+            // .get(`http://194.31.53.145:5000/api/products?page=${pageNo}`)
             .then((res)=>{
               console.log("machine=>", res?.data);
           setData(res.data.result);
