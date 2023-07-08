@@ -5,7 +5,7 @@ import axios from "axios";
 //     "filter/fetchAsyncFilter",
 //     async () => {
 //       const response = await axios.get(
-//         "http://localhost:5000/fetch"
+//         "http://194.31.53.145/api/fetch"
 //       );
 //       console.log("filter==>", response
 //     );

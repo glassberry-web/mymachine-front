@@ -23,8 +23,8 @@ const RelatedProducts = ({titlee}) => {
   const dispatch = useDispatch();
   const {id, namee} = location.state
     const fetchData = () => {
-       fetch("http://localhost:5000/companyproducts")
-      // fetch("http://localhost:5000/api/companyproducts")
+       fetch("http://194.31.53.145/api/companyproducts")
+      // fetch("http://194.31.53.145/api/api/companyproducts")
       
         .then(response => {
           console.log(response);

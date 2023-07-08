@@ -13,8 +13,8 @@ const BlogDetail = () => {
     const { id } = location.state;
     console.log("additipon=>", id);
     const fetchData = () => {
-        // fetch("http://localhost:5000/api/clientBlogList")
-         fetch("http://localhost:5000/clientBlogList")
+        // fetch("http://194.31.53.145/api/api/clientBlogList")
+         fetch("http://194.31.53.145/api/clientBlogList")
       
           .then(response => {
             console.log(response);

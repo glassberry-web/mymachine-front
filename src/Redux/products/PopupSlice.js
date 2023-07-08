@@ -5,8 +5,8 @@ export const fetchAsyncImages = createAsyncThunk(
     "popup/fetchAsyncImages",
     async () => {
       const response = await axios.get(
-          "http://localhost:5000/fetch"
-          // "http://localhost:5000/api/fetch"
+          "http://194.31.53.145/api/fetch"
+          // "http://194.31.53.145/api/api/fetch"
       );
       console.log("popuppro==>", response
       );
