@@ -8,8 +8,8 @@ const Application_detail = () => {
     const location = useLocation();
     const { namee } = location.state;
     const fetchData = () => {
-        // fetch("http://194.31.53.145:5000/api/getapplication")
-        fetch("http://194.31.53.145:5000/getapplication")
+        // fetch("https://api.mymachinestore.com/api/getapplication")
+        fetch("https://api.mymachinestore.com/getapplication")
     
           .then(response => {
             console.log(response);

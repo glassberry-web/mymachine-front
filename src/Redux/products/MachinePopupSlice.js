@@ -5,8 +5,8 @@ export const fetchAsyncMachineImages = createAsyncThunk(
     "popupm/fetchAsyncMachineImages",
     async (pageNo) => {
       const response = await axios.get(
-          // "http://194.31.53.145:5000/fetch"
-          `http://194.31.53.145:5000/products?page=${pageNo}`
+          // "https://api.mymachinestore.com/fetch"
+          `https://api.mymachinestore.com/products?page=${pageNo}`
       );
       console.log("machinepop==>", response);
       return response.data;

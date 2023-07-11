@@ -6,8 +6,8 @@ export const fetchAsyncBrandImages = createAsyncThunk(
     async ({brand,page,pageSize}) => {
      
       const response = await axios.get(
-          // "http://194.31.53.145:5000/fetch"
-          `http://194.31.53.145:5000/productbybrand/${brand}`,{ 
+          // "https://api.mymachinestore.com/fetch"
+          `https://api.mymachinestore.com/productbybrand/${brand}`,{ 
             params: {
               page,
               pageSize,

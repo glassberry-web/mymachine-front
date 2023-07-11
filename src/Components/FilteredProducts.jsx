@@ -36,7 +36,7 @@ const FilteredProducts = () => {
     const fetchFilters = async () => {
       const res = await axios
         // .get("http://15.207.31.23:5000/fetch")
-        .get("http://194.31.53.145:5000/fetch")
+        .get("https://api.mymachinestore.com/fetch")
         .catch((error) => {
           console.log("err=>", error);
         });
