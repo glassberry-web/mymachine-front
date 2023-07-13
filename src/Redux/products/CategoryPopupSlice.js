@@ -6,8 +6,8 @@ export const fetchAsyncCategoryImages = createAsyncThunk(
     async ({category,page,pageSize}) => {
      
       const response = await axios.get(
-          // "https://mymachinestore.com/api/fetch"
-          `https://mymachinestore.com/api/productbycategory/${category}`,{ 
+          // "https://api.mymachinestore.com/fetch"
+          `https://api.mymachinestore.com/productbycategory/${category}`,{ 
             params: {
               page,
               pageSize,

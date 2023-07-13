@@ -11,8 +11,8 @@ const LatestBlog = () => {
     const currentBlogId = location.state?.id;
   
     const fetchData = () => {
-        // fetch("http://localhost:5000/api/latestblog")
-        fetch("https://mymachinestore.com/api/latestblog")
+        // fetch("https://api.mymachinestore.com/api/latestblog")
+        fetch("https://api.mymachinestore.com/latestblog")
       
           .then(response => {
             console.log(response);

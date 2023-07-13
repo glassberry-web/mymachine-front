@@ -13,8 +13,8 @@ const NavigationList = () => {
       };
 
       const fetchData = () => {
-        // fetch("http://localhost:5000/api/getapplication")
-        fetch("https://mymachinestore.com/api/getapplication")
+        // fetch("https://api.mymachinestore.com/api/getapplication")
+        fetch("https://api.mymachinestore.com/getapplication")
     
           .then(response => {
             console.log(response);

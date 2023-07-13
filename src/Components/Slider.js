@@ -10,8 +10,8 @@ const Slider = () => {
   const [data, setData] = useState([])
   const fetchData = () => {
     
-    // fetch("http://localhost:5000/api/getslider")
-    fetch("https://mymachinestore.com/api/getslider")
+    // fetch("https://api.mymachinestore.com/api/getslider")
+    fetch("https://api.mymachinestore.com/getslider")
     
       .then(response => {
         console.log("lat=>",response);

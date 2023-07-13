@@ -8,8 +8,8 @@ const HomeBlog = () => {
     const [title , SetTitle] = useState(sectionTitleData);
     const [data, setData] = useState([])
     const fetchData = () => {
-      // fetch("http://localhost:5000/api/clientBlogList")
-       fetch("https://mymachinestore.com/api/clientBlogList")
+      // fetch("https://api.mymachinestore.com/api/clientBlogList")
+       fetch("https://api.mymachinestore.com/clientBlogList")
   
         .then(response => {
           console.log(response);

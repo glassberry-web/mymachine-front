@@ -1,4 +1,5 @@
-import { GoThreeBars } from "react-icons/go";
+import {GoListUnordered } from "react-icons/go";
+
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -6,8 +7,8 @@ const NavigationBrand = () => {
   const [data, setData] = useState([])
 
   const fetchData = () => {
-      // fetch("http://localhost:5000/api/fetch")
-      fetch("https://mymachinestore.com/api/fetch")
+      // fetch("https://api.mymachinestore.com/api/fetch")
+      fetch("https://api.mymachinestore.com/fetch")
 
           .then(response => {
               console.log(response);
@@ -47,8 +48,10 @@ const NavigationBrand = () => {
               type="button"
               onClick={handleClick}
               className="cat-toggle-btn cat-toggle-btn-1"
+              style={{alignItems:"center",gap:'4px',display:'flex'}}
             >
-              <GoThreeBars style={{ fontSize: "30px" }} /> Shop by Brands
+              <GoListUnordered style={{ fontSize: "30px" }} /> Shop by Brands
+              {/* here */}
             </button>
             <div
               className="cat__menu"
