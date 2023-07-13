@@ -22,6 +22,7 @@ const Home = () => {
   }, [dispatch]);
   return(
   <>
+    <h1>Headding test</h1>
   <Slider />
   <SliderNavigation />
   <Topcatagories />
