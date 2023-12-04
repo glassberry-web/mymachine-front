@@ -23,8 +23,8 @@ const RelatedProducts = ({titlee}) => {
   const dispatch = useDispatch();
   const {id, namee} = location.state
     const fetchData = () => {
-       fetch("https://api.mymachinestore.com/companyproducts")
-      // fetch("https://api.mymachinestore.com/api/companyproducts")
+       fetch("https://api.mymachinestore.in/companyproducts")
+      // fetch("https://api.mymachinestore.in/api/companyproducts")
       
         .then(response => {
           console.log(response);

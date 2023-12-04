@@ -13,8 +13,8 @@ const BlogDetail = () => {
     const { id } = location.state;
     console.log("additipon=>", id);
     const fetchData = () => {
-        // fetch("https://api.mymachinestore.com/api/clientBlogList")
-         fetch("https://api.mymachinestore.com/clientBlogList")
+        // fetch("https://api.mymachinestore.in/api/clientBlogList")
+         fetch("https://api.mymachinestore.in/clientBlogList")
       
           .then(response => {
             console.log(response);

@@ -36,8 +36,8 @@ const ProductDetailsComponent = (props) => {
   const dispatch = useDispatch();
 
   const fetchData = () => {
-    fetch("https://api.mymachinestore.com/fetch")
-    // fetch("https://api.mymachinestore.com/api/fetch")
+    fetch("https://api.mymachinestore.in/fetch")
+    // fetch("https://api.mymachinestore.in/api/fetch")
       .then((response) => {
         console.log(response);
         return response.json();

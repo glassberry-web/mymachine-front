@@ -11,8 +11,8 @@ const PopularBrands = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        fetch("https://api.mymachinestore.com/machinelisting")
-        // fetch("https://api.mymachinestore.com/api/machinelisting")
+        fetch("https://api.mymachinestore.in/machinelisting")
+        // fetch("https://api.mymachinestore.in/api/machinelisting")
 
             .then(response => {
                 console.log(response);

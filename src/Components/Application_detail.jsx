@@ -8,8 +8,8 @@ const Application_detail = () => {
     const location = useLocation();
     const { namee } = location.state;
     const fetchData = () => {
-        // fetch("https://api.mymachinestore.com/api/getapplication")
-        fetch("https://api.mymachinestore.com/getapplication")
+        // fetch("https://api.mymachinestore.in/api/getapplication")
+        fetch("https://api.mymachinestore.in/getapplication")
     
           .then(response => {
             console.log(response);

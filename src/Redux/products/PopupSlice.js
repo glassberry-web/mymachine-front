@@ -5,8 +5,8 @@ export const fetchAsyncImages = createAsyncThunk(
     "popup/fetchAsyncImages",
     async () => {
       const response = await axios.get(
-          "https://api.mymachinestore.com/fetch"
-          // "https://api.mymachinestore.com/api/fetch"
+          "https://api.mymachinestore.in/fetch"
+          // "https://api.mymachinestore.in/api/fetch"
       );
       console.log("popuppro==>", response
       );

@@ -51,7 +51,7 @@ const SearchResult = ()=>{
 
 //   useEffect(()=>{
 //     const fetchFilters = async ()=>{
-//       const res = await axios.get("https://api.mymachinestore.com/fetch")
+//       const res = await axios.get("https://api.mymachinestore.in/fetch")
 //       .catch((error)=>{
 // console.log("err=>", error);
 //       });

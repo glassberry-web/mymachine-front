@@ -12,9 +12,9 @@ const [totalPage, setTotalPage] = useState(0);
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
-            .get(`https://api.mymachinestore.com/products?page=${pageNo}`)
-            //  .get("https://api.mymachinestore.com/fetch")
-            // .get(`https://api.mymachinestore.com/api/products?page=${pageNo}`)
+            .get(`https://api.mymachinestore.in/products?page=${pageNo}`)
+            //  .get("https://api.mymachinestore.in/fetch")
+            // .get(`https://api.mymachinestore.in/api/products?page=${pageNo}`)
             .then((res)=>{
               console.log("machine=>", res?.data);
           setData(res.data.result);

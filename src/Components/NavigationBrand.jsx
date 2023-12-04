@@ -7,8 +7,8 @@ const NavigationBrand = () => {
   const [data, setData] = useState([])
 
   const fetchData = () => {
-      // fetch("https://api.mymachinestore.com/api/fetch")
-      fetch("https://api.mymachinestore.com/fetch")
+      // fetch("https://api.mymachinestore.in/api/fetch")
+      fetch("https://api.mymachinestore.in/fetch")
 
           .then(response => {
               console.log(response);

@@ -26,8 +26,8 @@ const ShopByCategory = () => {
     useEffect(() => {
         const fetchMachine = async () => {
           const res = await axios
-            // .get("https://api.mymachinestore.com/fetch")
-            .get(`https://api.mymachinestore.com/productbycategory/${category}`, {
+            // .get("https://api.mymachinestore.in/fetch")
+            .get(`https://api.mymachinestore.in/productbycategory/${category}`, {
               params: {
                 page,
                 pageSize,

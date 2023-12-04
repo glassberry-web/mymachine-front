@@ -8,8 +8,8 @@ import moment from 'moment'
 const BlogHero = () => {
     const [data, setData] = useState([])
     const fetchData = () => {
-        // fetch("https://api.mymachinestore.com/api/clientBlogList")
-         fetch("https://api.mymachinestore.com/clientBlogList")
+        // fetch("https://api.mymachinestore.in/api/clientBlogList")
+         fetch("https://api.mymachinestore.in/clientBlogList")
       
           .then(response => {
             console.log(response);
